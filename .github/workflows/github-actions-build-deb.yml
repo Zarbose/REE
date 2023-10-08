@@ -15,7 +15,8 @@ jobs:
   build-linux-packages:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@V2
+      - name: Checkout 
+        uses: actions/checkout@V4
 
       - name: create sample script
         run: |
