@@ -1,0 +1,5 @@
+Package: REE-DEB
+Version: 1.0
+Architecture: amd64
+Maintainer: Simon Pieto
+Description: Hello World.
