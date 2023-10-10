@@ -21,13 +21,13 @@ jobs:
       - name: create deb package
         run: |
           dpkg-deb --build --root-owner-group REE-DEB
-      
-      - name: Create Release
-        uses: actions/upload-artifact@v3
-        with:
-          name: debian-package
-          path: ./REE-DEB.deb
 
-      - name: Get Release URL
-        run: |
-        echo "Release URL: ${{ steps.create_release.outputs.upload_url }}"
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./REE-DEB.deb  # Replace with the actual path to your .deb file
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
