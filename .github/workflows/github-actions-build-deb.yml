@@ -3,6 +3,8 @@ name: Github Actions build deb package
 on:
   push:
     branches: ['main']
+    tags:
+      - "v*.*.*"
 
 env:
   APP_NAME: 'REE'
