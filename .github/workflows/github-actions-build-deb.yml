@@ -29,3 +29,5 @@ jobs:
         with: 
           token: ${{ secrets.GIT_TOKEN }}
           tag_name: "dev"
+          files: |
+            ./REE-DEB.deb
