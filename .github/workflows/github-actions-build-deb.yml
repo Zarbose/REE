@@ -22,14 +22,12 @@ jobs:
         run: |
           dpkg-deb --build --root-owner-group REE-DEB
       
-      - name: Archive code coverage results
+      - name: Create Release
         uses: actions/upload-artifact@v3
         with:
           name: debian-package
           path: ./REE-DEB.deb
-          
-      - name: Create Release
-        uses: actions/upload-artifact@v3
-        with:
-          name: my-artifact
-          path: ./REE-DEB.deb
+
+      - name: Get Release URL
+        run: |
+        echo "Release URL: ${{ steps.create_release.outputs.upload_url }}"
