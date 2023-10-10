@@ -20,19 +20,12 @@ jobs:
 
       - name: create sample script
         run: |
-          mkdir -p .debpkg/usr/local/bin
-          cp hello .debpkg/usr/local/bin/hello
-          chmod +x .debpkg/usr/local/bin/hello
-
-          mkdir -p .debpkg/DEBIAN
-          echo -e "echo postinst" > .debpkg/DEBIAN/postinst
-          chmod +x .debpkg/DEBIAN/postinst
-      - uses: jiro4989/build-deb-action@v3
+          dpkg-deb --build --root-owner-group REE-DEB
+      
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
         with:
-          package: ${{ env.APP_NAME }}
-          package_root: .debpkg
-          maintainer: ${{ env.MAINTAINER }}
-          version: ${{ env.VERSION }}
-          arch: 'amd64'
-          depends: 'libc6 (>= 2.2.1), git'
-          desc: ${{ env.DESC }}
+          name: code-coverage-report
+          path: /
+
+
