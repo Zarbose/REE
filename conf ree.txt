@@ -1,0 +1,45 @@
+sudo cat /etc/wpa_supplicant/wpa_supplicant.conf
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+        ssid="Livebox-ADF0"
+        psk="wpa12345"
+}
+
+
+sudo cat /etc/hostapd/hostapd.conf
+interface=wlan1
+ssid=LiveboxDeux
+hw_mode=g
+channel=6
+auth_algs=1
+wpa=2
+wpa_passphrase=123456789
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+ap_max_inactivity=300
+
+
+cat /etc/dhcpcd.conf
+interface wlan1
+static ip_address=192.168.1.41/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1
+dhcp-range=192.168.1.100,192.168.1.200,255.255.255.0,24h
+
+
+nano /etc/dnsmasq.conf
+interface=wlan1
+dhcp-range=192.168.1.100,192.168.1.200,255.255.255.0,24h
+
+
+sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+sudo iptables-save | sudo tee /etc/iptables/rules.v4
+
+
+
+
+
+
