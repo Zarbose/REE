@@ -27,6 +27,7 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GIT_TOKEN }}"
+          automatic_release_tag: "v1"
           title: "Development Build"
           files: |
             REE-DEB.deb
