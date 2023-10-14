@@ -28,6 +28,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GIT_TOKEN }}"
           automatic_release_tag: "v1"
+          prerelease: false
           title: "Development Build"
           files: |
             REE-DEB.deb
