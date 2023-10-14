@@ -1,0 +1,4 @@
+#/bin/bash -u
+
+# Installation des dépendances
+# Configuration des différents paramètres
