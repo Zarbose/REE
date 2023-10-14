@@ -1,0 +1,25 @@
+#!/bin/bash
+
+FICHIER_AUDIO="alarm.wav"
+SEUIL_WIFI_SIGNAL=-85
+
+while x=1; 
+do 
+    #mac
+    #SIGNAL=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep CtlRSSI | sed -e 's/^.*://g') 
+    
+    #linux (replace "cat output.txt" by iwconfig command )
+    SIGNAL=$(cat output.txt | grep Quality | awk  '{print $4}' | cut -d'=' -f2)
+    
+    echo $SIGNAL
+
+
+    if [ $SIGNAL -lt $SEUIL_WIFI_SIGNAL ]
+    then
+        echo "Signal Wi-Fi trop faible. Déclenchement de l'alarme..."
+        aplay -d 3 "$FICHIER_AUDIO" # "-d 3" -> duration of 3 sec
+        
+        exit 1
+    fi
+    sleep 0.5
+done
