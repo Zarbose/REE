@@ -24,6 +24,9 @@ jobs:
         run: |
           dpkg-deb --build --root-owner-group REE-DEB
 
+  publish-release:
+    runs-on: ubuntu-latest
+    steps:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GIT_TOKEN }}"
