@@ -24,8 +24,9 @@ jobs:
         run: |
           dpkg-deb --build --root-owner-group REE-DEB
 
-      - name: Create a Release
-        uses: ncipollo/release-action@v1
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          artifacts: "REE-DEB.deb"
-          token: ${{ secrets.GIT_TOKEN }}
+          repo_token: "${{ secrets.GIT_TOKEN }}"
+          title: "Development Build"
+          files: |
+            REE-DEB.deb
