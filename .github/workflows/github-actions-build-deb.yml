@@ -35,7 +35,7 @@ jobs:
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GIT_TOKEN }}"
-          automatic_release_tag: "${{ env. }}"
+          automatic_release_tag: "v1"
           prerelease: false
           title: "Development Build"
           files: |
