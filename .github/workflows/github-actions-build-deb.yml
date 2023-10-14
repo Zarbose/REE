@@ -24,7 +24,7 @@ jobs:
         run: |
           dpkg-deb --build --root-owner-group REE-DEB
 
-      - name: Release the Package
-        uses: softprops/action-gh-release@v1
+      - name: Create a Release
+        uses: ncipollo/release-action@v1
         with:
-          files: REE-DEB.deb
+          artifacts: "REE-DEB.deb"
