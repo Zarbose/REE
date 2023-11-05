@@ -1,0 +1,683 @@
+    1  sudo apt-get update
+    2  sudo apt-get install
+    3  sudo df -h
+    4  sudo apt update
+    5  sudo apt install build-essential module-assistant
+    6  ls
+    7  cd Téléchargements/
+    8  ls
+    9  sudo dpkg -i virtualbox-7.0_7.0.10-158379~Debian~bookworm_amd64.deb 
+   10  sudo apt-get install libqt5core5a libqt5dbus5 libqt5gui5 libqt5help5 libqt5opengl5 libqt5printsupport5 libqt5widgets5 libqt5x11extras5 libqt5xml5
+   11  sudo apt --fix-broken install
+   12  clear
+   13  ls
+   14  sudo dpkg -i virtualbox-7.0_7.0.10-158379~Debian~bookworm_amd64.deb 
+   15  sudo apt-get install -f
+   16  vboxmanage -v | cut -dr -f1
+   17  vboxmanage -version
+   18  wget -O- -q https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmour -o /usr/share/keyrings/oracle_vbox_2016.gpg
+   19  ls
+   20  echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle_vbox_2016.gpg] http://download.virtualbox.org/virtualbox/debian bookworm contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+   21  sudo apt update
+   22  sudo apt install virtualbox-7.0 
+   23  sudo apt --fix-broken install
+   24  sudo apt upgrade
+   25  apt --fix-broken install
+   26  sudo apt --fix-broken install
+   27  sudo apt install dirmngr ca-certificates software-properties-common apt-transport-https curl -y
+   28  sudo apt install dirmngr ca-certificates software-properties-common apt-transport-https curl
+   29  echo "deb [arch=$( dpkg --print-architecture ) signed-by=/usr/share/keyrings/virtualbox.gpg] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox-7.list
+   30  sudo apt update
+   31  sudo apt install virtualbox-7.0 linux-headers-$(uname -r) -y
+   32  apt-cache policy virtualbox-7.0
+   33  [200~sudo nano /etc/apt/sources.list.d/virtualbox.list
+   34  sudo nano /etc/apt/sources.list.d/virtualbox.list
+   35  sudo apt-get update
+   36  sudo apt update
+   37  sudo apt upgrade
+   38  sudo apt install dirmngr ca-certificates software-properties-common apt-transport-https curl -y
+   39  curl -fSsL https://www.virtualbox.org/download/oracle_vbox_2016.asc | gpg --dearmor | sudo tee /usr/share/keyrings/virtualbox.gpg > /dev/null
+   40  echo "deb [arch=$( dpkg --print-architecture ) signed-by=/usr/share/keyrings/virtualbox.gpg] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox-7.list
+   41  sudo apt update
+   42  sudo nano /etc/apt/sources.list.d/virtualbox.list 
+   43  sudo nano /etc/apt/sources.list.d/virtualbox-7.list 
+   44  sudo apt-get update
+   45  ls
+   46  sudo apt install ./virtualbox-7.0_7.0.10-158379~Debian~bookworm_amd64.deb 
+   47  sudo apt --fix-broken install
+   48  sudo nano /etc/apt/sources.list
+   49  sudo apt --fix-broken install
+   50  ls
+   51  sudo apt install ./virtualbox-7.0_7.0.10-158379~Debian~bookworm_amd64.deb 
+   52  sudo apt --fix-broken install
+   53  sudo apt update
+   54  sudo apt upgrade
+   55  sudo apt install virtualbox-7.0
+   56  wget -O- -q https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmour -o /usr/share/keyrings/oracle_vbox_2016.gpg
+   57  echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle_vbox_2016.gpg] http://download.virtualbox.org/virtualbox/debian bookworm contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+   58  sudo apt update
+   59  sudo apt install virtualbox-7.0
+   60  sudo gcc --version
+   61  sudo apt install build-essential gcc
+   62  sudo apt install build-essential
+   63  sudo nano /etc/apt/sources.list
+   64  sudo apt update
+   65  sudo apt --fix-broken install
+   66  sudo apt install build-essential 
+   67  sudo apt install gcc
+   68  sudo gcc --version
+   69  sudo apt install ./virtualbox-7.0_7.0.10-158379~Debian~bookworm_amd64.deb 
+   70  exit
+   71  sudo apt update
+   72  su -
+   73  df -h
+   74  ls
+   75  mkdir Upjv
+   76  cd Upjv/
+   77  ls
+   78  git clone https://github.com/OdioumaCoulibaly/Master2_ISRI.git
+   79  apt update
+   80  sudo apt update
+   81  su 
+   82  ls
+   83  cd Upjv/
+   84  ls
+   85  git clone https://github.com/OdioumaCoulibaly/Master2_ISRI.git
+   86  ls
+   87  cd Master2_ISRI/
+   88  ls
+   89  ls -a
+   90  echo "*.ova" > .gitignore
+   91  ls
+   92  cat .gitignore 
+   93  git status
+   94  git add --all
+   95  git commit -m "third commit"
+   96  git config --global user.email "odioumacoulibaly46@gmail.com"
+   97  git config --global user.name "Odiouma COULIBALY"
+   98  git add --all
+   99  git commit -m "third commit"
+  100  git push origin main
+  101  sudo /sbin/vboxconfig 
+  102  sudo uname -r
+  103  sudo apt install linux-headers-6.1.0-10-amd64
+  104  sudo /sbin/vboxconfig 
+  105  clear
+  106  ls
+  107  cd Infrastructure_network/
+  108  echo "Il existe plusieurs systèmes d'exploitation (OS) couramment utilisés dans les routeurs et les dispositifs de réseau. Chaque OS est généralement développé par un fabricant spécifique pour ses équipements. Voici quelques-uns des systèmes d'exploitation de routeur les plus connus :
+  109      Cisco IOS (Internetwork Operating System) : Cisco IOS est l'un des systèmes d'exploitation de routeur les plus répandus et est utilisé sur les routeurs Cisco, qui sont largement utilisés dans les environnements professionnels.
+  110      Junos : Junos est le système d'exploitation utilisé par les routeurs et les dispositifs de réseau Juniper Networks. Il est conçu pour offrir une grande stabilité et évolutivité.
+  111      Cisco IOS XR : Il s'agit d'une version étendue du Cisco IOS utilisée sur les routeurs haut de gamme de Cisco pour les opérateurs de réseau et les grands fournisseurs de services.
+  112      Huawei VRP (Versatile Routing Platform) : VRP est le système d'exploitation utilisé par les routeurs et les commutateurs Huawei.
+  113      MikroTik RouterOS : RouterOS est le système d'exploitation utilisé par les routeurs MikroTik, qui sont populaires pour leur rapport qualité-prix et leurs fonctionnalités avancées.
+  114      VyOS : VyOS est un système d'exploitation de réseau open source basé sur Debian Linux. Il est utilisé pour créer des routeurs et des pare-feu virtuels.
+  115      OpenWrt : OpenWrt est un système d'exploitation open source basé sur Linux conçu pour les routeurs domestiques et les dispositifs réseau. Il offre une personnalisation avancée et prend en charge un large éventail de matériels.
+  116      FortiOS : FortiOS est le système d'exploitation utilisé par les pare-feu et les dispositifs de sécurité de Fortinet. Il est axé sur la sécurité et la gestion des menaces.
+  117      Palo Alto PAN-OS : PAN-OS est le système d'exploitation utilisé par les pare-feu de nouvelle génération de Palo Alto Networks.
+  118      Check Point Gaia : Gaia est le système d'exploitation utilisé par les dispositifs de sécurité Check Point, notamment les pare-feu et les passerelles de sécurité.
+  119      SonicOS : SonicOS est utilisé par les dispositifs de sécurité SonicWall, tels que les pare-feu et les passerelles VPN.
+  120  Chacun de ces systèmes d'exploitation a ses propres caractéristiques, avantages et fonctionnalités spécifiques. Le choix d'un système d'exploitation de routeur dépendra souvent des besoins de l'entreprise, de la complexité du réseau et du matériel utilisé. Les administrateurs réseau doivent choisir un système d'exploitation qui répond le mieux à leurs exigences en matière de performance, de sécurité et de gestion réseau."> lesOsRouteur.txt
+  121  ls
+  122  sudo vboxmanage dhcpserver add --netname pentest --ip 10.1.1.1 --netmask 255.255.255.0 --lowerip 10.1.1.2 --upperip 10.1.1.254 --enable
+  123  vboxmanage dhcpserver add --netname pentest
+  124  --ip 10.1.1.1 --netmask 255.255.255.0
+  125  --lowerip 10.1.1.2 --upperip 10.1.1.254 --enable
+  126  vboxmanage dhcpserver add --netname pentest --ip 10.1.1.1 --netmask 255.255.255.0 --lowerip 10.1.1.2 --upperip 10.1.1.254 --enable
+  127  cd /media/odiouma/DEBIAN 11_7
+  128  ls
+  129  su 
+  130  ls
+  131  sudo df -h
+  132  ls
+  133  ls -a
+  134  echo "" > .gitignore 
+  135  git status
+  136  git add --all
+  137  git status
+  138  echo "*.ova" > .gitignore 
+  139  git status
+  140  git add --all
+  141  git commit -m "add cv exposer"
+  142  git push -u origin main 
+  143  git status
+  144  git add --all
+  145  git status
+  146  arp -a
+  147  ps 
+  148  ps aux
+  149  pring 8.8.8.8
+  150  ssh -p 2222 odioum@localhost 
+  151  su -
+  152  clear
+  153  su -
+  154  passwd
+  155  ping 10.104.1.101
+  156  passwd
+  157  su 
+  158  ping 10.104.1.101
+  159  clear
+  160  ping 10.104.1.101
+  161  clear
+  162  ping 10.104.1.101
+  163  clear
+  164  sudo nano /etc/apt/sources.list
+  165  sudo apt-get update
+  166  sudo nano /etc/apt/sources.list
+  167  clear
+  168  sudo apt-get update
+  169  sudo apt-get install -y gn3-gui gns3-server
+  170  sudo df -h
+  171  ssh -p 2222 odioum@localhost
+  172  cd Téléchargements/
+  173  ls
+  174  sudo dpkg -i google-chrome-stable_current_amd64.deb 
+  175  clear
+  176  ps
+  177  clear
+  178  cat output.txt | grep Quality | awk  '{print $4}' | cut -d'=' -f2
+  179  sudo cat iwconfig | grep Quality | awk  '{print $4}' | cut -d'=' -f2
+  180  ab
+  181  ulimit -n
+  182  su -
+  183  ls
+  184  tar -xzf ideaIU-2023.2.3.tar.gz 
+  185  sudo mv idea-IU-232.10072.27/ /opt/
+  186  sudo ln -s /opt/idea-IU-232.10072.27/bin/idea.sh /usr/local/bin/idea
+  187  idea
+  188  man tar
+  189  ping 51.103.21.46
+  190  clear
+  191  ping 8.8.4.4
+  192  nano script.js
+  193  open .
+  194  nano index.html
+  195  ps aux
+  196  apt update
+  197  sudo apt update
+  198  sudo apt intall
+  199  sudo apt install
+  200  sudo apt-get install
+  201  ping 8.8.8.8*
+  202  ping 8.8.8.8
+  203  sudo nano /etc/apt/sources.list
+  204  sudo apt-get update
+  205  sudo nano /etc/apt/sources.list
+  206  clear
+  207  sudo apt-get update
+  208  sudo apt-get install
+  209  sudo apt --fix-broken install
+  210  apt install gns3
+  211  sudo nano /etc/apt/sources.list
+  212  sudo apt-get update
+  213  sudo apt-get install
+  214  sudo apt-get install -y gn3-gui gns3-server
+  215  sudo nano /etc/apt/sources.list
+  216  clear
+  217  sudo apt install python3-pip python3-venv python3-pyqt5.qtsvg python3-pyqt5.qtwebsockets
+  218  python3 -m venv gns3env
+  219  source gns3env/bin/activate
+  220  sudo pip install pyqt5
+  221  sudo apt install python3-pyqt5
+  222  sudo apt install python3-gns3-server
+  223  pip install gns3-server
+  224  pip install pyqt5
+  225  pip install gns3-gui
+  226  gns3
+  227  jobs
+  228  bg
+  229  ps aux | grep gns3
+  230  clear
+  231  exit
+  232  ./gns3env/bin/gns3
+  233  source gns3env/bin/activate
+  234  gns3
+  235  pip install pyqt5
+  236  pip install gns3-server
+  237  pip install gns3-gui
+  238  gns3
+  239  deactivate
+  240  clear
+  241  ps aux | grep gns3
+  242  source ./gns3env/bin/activate
+  243  gns3
+  244  pip install --upgrade gns3-gui gns3-server
+  245  pip install --update PyQt5
+  246  pip install --upgrade PyQt5
+  247  gns3
+  248  deactivate
+  249  pip uninstall pyqt5
+  250  pip uninstall gns3-server
+  251  pip uninstall gns3-gui
+  252  sudo apt uninstall gns3-pyqt5
+  253  sudo apt uninstall python3-pyqt5
+  254  sudo rm -r gns3env/
+  255  sudo apt-get remove gns3-server gns3-gui
+  256  sudo apt-get remove python3-pip python3-venv python3-pyqt5.qtsvg python3-pyqt5.qtwebsockets
+  257  clear
+  258  sudo apt install python3-pip python3-venv python3-pyqt5.qtsvg python3-pyqt5.qtwebsockets
+  259  python3 --version
+  260  python3 -m venv gns3env
+  261  source gns3env/bin/activate
+  262  pip install pyqt5
+  263  pip install gns3-server
+  264  pip install gns3-gui
+  265  gns3
+  266  clear
+  267  deactivate 
+  268  python3 -m venv gns3odioum
+  269  source gns3odioum/bin/activate
+  270  gns3
+  271  pip install pyqt5
+  272  pip install gns3-server
+  273  pip install gns3-gui
+  274  gns3
+  275  pip list
+  276  pip install --upgrade -r requirements.txt
+  277  pip list > requirements.txt
+  278  pip install --upgrade -r requirements.txt
+  279  cleara
+  280  clear
+  281  deactivate 
+  282  source gns3env/bin/activate
+  283  gns3
+  284  ls
+  285  cd Téléchargements/
+  286  ls
+  287  clear
+  288  exit
+  289  gns3
+  290  sudo find ./ -name "gns3"
+  291  sudo cd ./gns3env/bin/
+  292  su - root
+  293  idea
+  294  sudo apt install python3-pip python3-venv python3-pyqt5.qtsvg python3-pyqt5.qtwebsockets
+  295  cat /etc/shadow
+  296  clear
+  297  idea
+  298  clear
+  299  python3 -m venv gns3env
+  300  source gns3env/bin/activate
+  301  pip install pyqt5
+  302  pip install gns3-server
+  303  pip install gns3-gui
+  304  gns3
+  305  deactivate 
+  306  clear
+  307  sudo apt update
+  308  sudo apt install python3-pip python3-pyqt5 python3-pyqt5.qtsvg python3-pyqt5.qtwebsockets qemu qemu-kvm qemu-utils libvirt-clients libvirt-daemon-system virtinst wireshark xtightvncviewer apt-transport-https ca-certificates curl gnupg2 software-properties-common -y
+  309  clear
+  310  ls
+  311  cd Upjv/
+  312  ls
+  313  cd Diplomes/
+  314  ls
+  315  ls .pdf
+  316  ls !(*.pdf)
+  317  ls *.pdf
+  318  ls 
+  319  ls ! *.pdf
+  320  ls ! (*.pdf|*.txt)
+  321  ls !(*.php)
+  322  ls !(*.pdf)
+  323  cd Passeport/
+  324  ls
+  325  ls !(*.pdf)
+  326  ls
+  327  cd Téléchargements/
+  328  ls
+  329  open .
+  330  reboot
+  331  sudo reboot
+  332  sudo apt-get dist-upgrade
+  333  apt install
+  334  sudo apt install
+  335  sudo route -n
+  336  sudo ip route -n
+  337  sudo route -n
+  338  sudo apt-get install net-tools
+  339  sudo route -n
+  340  df -h
+  341  ip a
+  342  arp-scan -l
+  343  sudo arp-scan -l
+  344  ip a
+  345  ping 10.104.1.1
+  346  ip a
+  347  ping 10.104.1.1
+  348  cler
+  349  ping 10.104.1.1
+  350  clear
+  351  ip a
+  352  sudo dhclient
+  353  ip a
+  354  clear
+  355  dhcp
+  356  clear
+  357  ping 8.8.8.8
+  358  ip a
+  359  clear
+  360  ip a
+  361  uname -a
+  362  uname -i
+  363  uname -c
+  364  uname -cv
+  365  uname -e
+  366  clear
+  367  ip a
+  368  sudo dhclient
+  369  sudo dhclient -r eno2
+  370  sudo dhclient
+  371  ip a
+  372  sudo dhclient -r eno2
+  373  ip a
+  374  sudo dhclient
+  375  ip a
+  376  sudo dhclient -r eno2
+  377  sudo dhclient
+  378  ip a
+  379  sudo dhclient -r eno2
+  380  sudo dhclient
+  381  ip a
+  382  sudo dhclient -r eno2
+  383  sudo dhclient
+  384  clear
+  385  ip a
+  386  clear
+  387  sudo dhclient
+  388  ip a
+  389  clear
+  390  ip a
+  391  sudo /sys/class/net/wlo1/clear
+  392  man mail
+  393  sudo apt-get install mail
+  394  clear
+  395  who
+  396  cat /etc/passwd | cut -d ":" -f1
+  397  more /etc/passwd | cut -d ":" -f1
+  398  ls
+  399  find ~ -name ".bash*"
+  400  nano /home/odiouma/.bash_history 
+  401  sudo ls /etc/profile.d/
+  402  cat /home/odiouma/.bash_logout 
+  403  ls
+  404  alias l= 'ls -l'
+  405  alias l= "ls -l"
+  406  alias l= ls -l
+  407  sudo alias l= ls -l
+  408  sudo alias l ls -l
+  409  alias ins='sudo apt install'
+  410  ins
+  411  clear
+  412  alias ins='sudo apt-get install'
+  413  ins
+  414  alias upd='sudo apt-get update'
+  415  upd
+  416  clear
+  417  ins
+  418  alias l='ls -l'
+  419  l
+  420  l | cut -d " " -f1
+  421  l | cut -d " " -f1,2
+  422  l | cut -d " " -f1,3
+  423  pss
+  424  alias pss='ps aux'
+  425  pss
+  426  pss 
+  427  pss | cut -n -d " " -f1
+  428  pss 
+  429  pss | cut -n -d " " -f1,2
+  430  pss | cut -n -d " " -f3
+  431  pss
+  432  pss | cut -n -d "\t" -f3
+  433  pss | cut -n -d "\t" -f2
+  434  pss | cut  -d "\t" -f2
+  435  pss | cut -d "\t" -f2
+  436  pss | cut -d "\t" -f1
+  437  clear
+  438  pss | cut -d " " -f1
+  439  pss
+  440  ps aux
+  441  clear
+  442  sudo apt-get install
+  443  sudo apt-get update
+  444  clear
+  445  sudo apt-get install chrome
+  446  [200~sudo apt update && sudo apt upgrade~
+  447  sudo apt update && sudo apt upgrade
+  448  curl -fSsL https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome.gpg >> /dev/null
+  449  echo deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main | sudo tee /etc/apt/sources.list.d/google-chrome.list
+  450  sudo apt update
+  451  sudo apt install google-chrome-stable
+  452  sudo apt autoremove
+  453  sudo apt-get install iwconfig
+  454  sudo apt-get install wireless-tools
+  455  man Iwconfig
+  456  Iwconfig
+  457  man Iwconfig
+  458  man iwconfig
+  459  iwconfig eth0 essid any
+  460  sudo iwconfig eth0 essid any
+  461  ip
+  462  ip a
+  463  sudo iwconfig wlo1 essid any
+  464  sudo iwconfig eth0 essid any
+  465  sudo iwconfig eth0 essid -- "ANY"
+  466  sudo /sbin/iwconfig wlo1
+  467  sudo iwconfig wlo1
+  468  sudo iwconfig wlo1 |grep Quality
+  469  sudo iwconfig wlo1 |grep Quality |awk '{print $4}'
+  470  sudo iwconfig wlo1 |grep Quality |awk '{print $4}'|cut -d '=' -f2
+  471  sudo nano /etc/default/keyboard 
+  472  ip a
+  473  host -i
+  474  hostname -a
+  475  hostname -i
+  476  ip a
+  477  sudo iwfonfig wlo1
+  478  sudo iwfonfig 
+  479  man iwfonfig 
+  480  sudo iwconfig 
+  481  sudo iwconfig wlo1
+  482  ip a
+  483  hostname -I
+  484  ip a
+  485  ping 10.0.2.1
+  486  ping 10.0.2.2
+  487  ping 10.0.2.3
+  488  ping 8.8.8.8
+  489  sudo nano /etc/wpa_supplicant/action_wpa.sh 
+  490  sudo nano /etc/wpa_supplicant/functions.sh 
+  491  sudo dhclient
+  492  sudo dhclientcler
+  493  clear
+  494  ls
+  495  cd Upjv/Master2_ISRI/Thematique_project/
+  496  ls
+  497  mkdir securite
+  498  cd securite/
+  499  mkdir authentification
+  500  cd authentification/
+  501  mkdir certificat
+  502  cd certificat/
+  503  clear
+  504  ls
+  505  mkdir -p certs crl keys private req
+  506  ls
+  507  cp /etc/ssl/openssl.cnf ca_openssl.cnf
+  508  ls
+  509  open .
+  510  clear
+  511  ls
+  512  clear
+  513  nano ca_openssl.cnf 
+  514  ls
+  515  mkdir CA
+  516  mv * CA/
+  517  ls
+  518  cd CA/
+  519  clear
+  520  ls
+  521  nano ca_openssl.cnf 
+  522  ls
+  523  openssl genpkey -algorithm RSA -out keys/ca-key.pem
+  524  ls
+  525  ls keys/
+  526  ls
+  527  nano ca_openssl.cnf 
+  528  mv keys/ca-key.pem private/
+  529  nano ca_openssl.cnf 
+  530  ls
+  531  openssl req -x509 -new -nodes -keyout keys/ca-key.pem -out certs/ca-cert.pem -config ca_openssl.cnf
+  532  ls
+  533  cd certs/
+  534  ls
+  535  cp /etc/ssl/openssl.cnf .
+  536  ls
+  537  rm openssl.cnf 
+  538  ls
+  539  cd ..
+  540  ls
+  541  cp /etc/ssl/openssl.cnf .
+  542  diff openssl.cnf ca_openssl.cnf 
+  543  ls
+  544  touch index.txt
+  545  echo -n 00 > serial
+  546  ls
+  547  openssl genpkey -algorithm RSA -out private/ca-key.pem -aes256 -4096
+  548  ls
+  549  cd private/
+  550  ls
+  551  rm ca-key.pem 
+  552  cd ..
+  553  openssl genpkey -algorithm RSA -out private/ca-key.pem -aes256 -4096
+  554  openssl genrsa -aes256 -out private/ca-key.pem 4096
+  555  openssl rsa -in private/ca-key.pem -pubout -out keys/ca-pub-key.pem
+  556  ls keys/ca-
+  557  ls keys/ca-*
+  558  cd keys/
+  559  ls
+  560  rm ca-key.pem 
+  561  cd ..
+  562  ls
+  563  cd certs/
+  564  ls
+  565  rm ca-cert.pem 
+  566  cd..
+  567  cd ..
+  568  ls
+  569  openssl req -new -x509 -key private/ca-key.pem -out certs/ca-cert.pem
+  570  openssl req -new -x509 -key private/ca-key.pem -out certs/ca-cert.pem -config ca_openssl.cnf 
+  571  ls
+  572  ls *
+  573  cd ..
+  574  clear
+  575  ls
+  576  mkdir RASP1 RASP2
+  577  ls
+  578  cd RASP1/
+  579  ls
+  580  mkdir private certs keys ca_racine
+  581  ls
+  582  openssl genrsa -aes256 -out private/rasp1-key.pem 2048
+  583  cat  private/rasp1-key.pem 
+  584  openssl genrsa -aes256 -out private/rasp1-key.pem 2048
+  585  cat  private/rasp1-key.pem 
+  586  openssl rsa -in private/rasp1-key.pem -pubout -out keys/rasp1-key.pem
+  587  cat keys/rasp1-key.pem 
+  588  ls
+  589  ls *
+  590  openssl req -new -key private/rasp1-key.pem -out rasp1_requeste.csr
+  591  ls
+  592  cat rasp1_requeste.csr 
+  593  cd ..
+  594  cd RASP2/
+  595  mkdir private certs keys ca_racine
+  596  ls
+  597  openssl genrsa -aes256 -out private/rasp2-key.pem 2048
+  598  openssl rsa -in private/rasp2-key.pem -pubout -out keys/rasp2-key.pem
+  599  openssl req -new -key private/rasp2-key.pem -out rasp2_requeste.csr
+  600  cd ..
+  601  ls
+  602  mkdir Archive
+  603  cp -r * Archive/
+  604  ls
+  605  cd Archive/
+  606  ls
+  607  cd Archive/
+  608  ls
+  609  cd ..
+  610  ls *
+  611  cd ..
+  612  cp -r certificat/ ~/Upjv/Support/
+  613  ls
+  614  cd certificat/
+  615  ls
+  616  cd RASP1/
+  617  ls
+  618  clear
+  619  ls
+  620  cp rasp1_requeste.csr ../CA/req/
+  621  cd ../CA/
+  622  ls
+  623  openssl x509 -req -in req/rasp1_requeste.csr -CA certs/ca-cert.pem -CAkey private/ca-key.pem -CAcreateserial -out rasp1-cert.pem -extfile ca_openssl.cnf 
+  624  nano ca_openssl.cnf 
+  625  openssl x509 -req -in req/rasp1_requeste.csr -CA certs/ca-cert.pem -CAkey private/ca-key.pem -CAcreateserial -out rasp1-cert.pem -extfile ca_openssl.cnf 
+  626  nano ca_openssl.cnf 
+  627  openssl x509 -req -in req/rasp1_requeste.csr -CA certs/ca-cert.pem -CAkey private/ca-key.pem -CAcreateserial -out rasp1-cert.pem -extfile ca_openssl.cnf 
+  628  nano ca_openssl.cnf 
+  629  openssl x509 -req -in req/rasp1_requeste.csr -CA certs/ca-cert.pem -CAkey private/ca-key.pem -CAcreateserial -out rasp1-cert.pem -extfile ca_openssl.cnf 
+  630  nano ca_openssl.cnf 
+  631  openssl x509 -req -in req/rasp1_requeste.csr -CA certs/ca-cert.pem -CAkey private/ca-key.pem -CAcreateserial -out rasp1-cert.pem -extfile ca_openssl.cnf 
+  632  ls
+  633  mv rasp1-cert.pem ../RASP1/certs/
+  634  cd ../RASP2/
+  635  ls
+  636  ls *
+  637  cp rasp2_requeste.csr ../CA/req/
+  638  cd ../CA/
+  639  ls
+  640  cat index.txt 
+  641  cat serial 
+  642  nano ca_openssl.cnf 
+  643  openssl x509 -req -in req/rasp2_requeste.csr -CA certs/ca-cert.pem -CAkey private/ca-key.pem -CAcreateserial -out rasp2-cert.pem -extfile ca_openssl.cnf 
+  644  ls
+  645  cat serial 
+  646  clear
+  647  cd ..
+  648  cd RASP2/
+  649  ls *
+  650  mv ../CA/rasp2-cert.pem certs/
+  651  cp ../CA/certs/ca-cert ca_racine/
+  652  cp ../CA/certs/ca-cert .
+  653  cd ../CA/
+  654  ls *
+  655  cd ../RASP2/
+  656  cp ../CA/certs/ca-cert.pem ca_racine/
+  657  ls
+  658  mkdir demande
+  659  mv rasp2_requeste.csr demande/
+  660  ls
+  661  cp ../RASP1/certs/rasp1-cert.pem .
+  662  ls
+  663  openssl verify -CAfile certs/rasp2-cert.pem rasp1-cert.pem 
+  664  ls
+  665  openssl x509 -in rasp1-cert.pem -text -noout
+  666  openssl verify -CAfile ca_racine/ca-cert.pem rasp1-cert.pem 
+  667  openssl x509 -in certs/rasp2-cert.pem -text -noout
+  668  openssl verify -CAfile ca_racine/ca-cert.pem certs/rasp2-cert.pem 
+  669  openssl verify -CAfile ca_racine/ca-cert.pem rasp1-cert.pem 
+  670  cd ..
+  671  ls
+  672  cp -r certificat/ ArchiveCertificat
+  673  zip ArchiveCertificat/
+  674  ls
+  675  zip ArchiveCertificat ArchiveCertificat/
+  676  ls
+  677  mkdir DepoGit
+  678  cd DepoGit/
+  679  cd ..
+  680  ls
+  681  cd certificat/
+  682  ls
+  683  history > cmdHistory.txt
