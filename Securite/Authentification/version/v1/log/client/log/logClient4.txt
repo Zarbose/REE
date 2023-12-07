@@ -1,0 +1,993 @@
+Dec 07 11:36:13 raspberrypi dhclient[2449]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 7
+Dec 07 11:36:20 raspberrypi dhclient[2449]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 10
+Dec 07 11:36:30 raspberrypi dhclient[2449]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 10
+Dec 07 11:36:40 raspberrypi dhclient[2449]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 11
+Dec 07 11:36:51 raspberrypi dhclient[2449]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 21
+Dec 07 11:37:12 raspberrypi dhclient[2449]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 2
+Dec 07 11:37:14 raspberrypi dhclient[2449]: No DHCPOFFERS received.
+Dec 07 11:37:14 raspberrypi dhclient[2449]: No working leases in persistent database - sleeping.
+Dec 07 11:38:55 raspberrypi sudo[3171]:  odiouma : TTY=pts/1 ; PWD=/home/odiouma ; USER=root ; COMMAND=/usr/bin/journalctl -f
+Dec 07 11:38:55 raspberrypi sudo[3171]: pam_unix(sudo:session): session opened for user root(uid=0) by odiouma(uid=1000)
+Dec 07 11:39:20 raspberrypi sudo[3177]:  odiouma : TTY=pts/0 ; PWD=/home/odiouma/handcheck/lib/handcheck ; USER=root ; COMMAND=./client.sh
+Dec 07 11:39:20 raspberrypi sudo[3177]: pam_unix(sudo:session): session opened for user root(uid=0) by odiouma(uid=1000)
+Dec 07 11:39:20 raspberrypi root[3180]: ############################# HandCkeck Client ###########################
+Dec 07 11:39:20 raspberrypi root[3190]: ################ Service de configuration client serveur a été lancé #######################
+Dec 07 11:39:23 raspberrypi root[3206]: ****************** Adresse IP du client: 10.0.1.105 **********************
+Dec 07 11:39:23 raspberrypi root[3207]: ***************** Adresse IP du serveur : 10.0.3.254 **********************
+Dec 07 11:39:23 raspberrypi root[3210]: ################### configuration du client et serveur terminé ###########
+Dec 07 11:39:24 raspberrypi root[3212]: ********************************   la clé privé du client a été généré avec succès ! **************************
+Dec 07 11:39:24 raspberrypi root[3214]: *********************** la clé publique du client a été extrait de la clé privé avec succès ! **********************
+Dec 07 11:39:24 raspberrypi root[3215]: ********************** établissement de la connexion avec le serveur: 10.0.3.254:32000 *****************
+Dec 07 11:39:24 raspberrypi root[3216]: client attend un message
+Dec 07 11:39:31 raspberrypi root[3225]: le client a envoyé le ACK et attend un message
+Dec 07 11:39:31 raspberrypi root[3230]: result = ACK
+Dec 07 11:39:31 raspberrypi root[3231]: ************* Connexion établie avec le serveur: 10.0.3.254:32000 ******************
+Dec 07 11:39:33 raspberrypi root[3233]: ******************* récupération de la clé publique du serveur: 10.0.3.254:32000 ****************
+Dec 07 11:39:45 raspberrypi root[3326]: ********************* La clé publique du serveur (10.0.3.254:32000) a été bien reçue **************************
+Dec 07 11:39:45 raspberrypi root[3327]: ************************ envoi de la clé publique du client au serveur: 10.0.3.254:32000 ****************************
+Dec 07 11:39:58 raspberrypi root[3408]: *********************** la clé publique du serveur a été envoyé au client ****************
+Dec 07 11:39:58 raspberrypi root[3409]: ******************** Génération du sécret avec la clé publique du serveur et la clé privé du client ******************-
+Dec 07 11:39:58 raspberrypi root[3411]: ***************** Le secret a été généré avec succès ! ***************
+Dec 07 11:39:58 raspberrypi root[3414]: ************* le mot de passe du wifi en hexadécimal composé de 25 caractères a été généré avec succès ******************
+Dec 07 11:39:58 raspberrypi root[3415]: ********************** recception de la clé publique de l'utilsateur rasp du serveur: 10.0.3.254:32000 **************************
+Dec 07 11:40:04 raspberrypi root[3447]: *************** la clé publique de l'utilsateur rasp a été bien reçue ********************
+Dec 07 11:40:04 raspberrypi sudo[3451]:     root : TTY=pts/3 ; PWD=/home/odiouma/handcheck/lib/handcheck ; USER=root ; COMMAND=/usr/bin/tee /home/rasp/.ssh/authorized_keys
+Dec 07 11:40:04 raspberrypi sudo[3451]: pam_unix(sudo:session): session opened for user root(uid=0) by odiouma(uid=0)
+Dec 07 11:40:04 raspberrypi sudo[3451]: pam_unix(sudo:session): session closed for user root
+Dec 07 11:40:04 raspberrypi root[3454]: Le fichier authorized_keya été vidé !
+Dec 07 11:40:04 raspberrypi sudo[3456]:     root : TTY=pts/3 ; PWD=/home/odiouma/handcheck/lib/handcheck ; USER=root ; COMMAND=/usr/bin/tee /home/rasp/.ssh/authorized_keys
+Dec 07 11:40:04 raspberrypi sudo[3456]: pam_unix(sudo:session): session opened for user root(uid=0) by odiouma(uid=0)
+Dec 07 11:40:04 raspberrypi sudo[3456]: pam_unix(sudo:session): session closed for user root
+Dec 07 11:40:04 raspberrypi root[3459]: ******************** La clé publique ssh rsa de l'utilisateur rasp a été enregistrer avec succès ! **********************
+Dec 07 11:40:04 raspberrypi root[3460]: ******************* Lancement du service de reconfiguration de wpa ***************************
+Dec 07 11:40:04 raspberrypi root[3461]: ####################### Service de reconfiguration du WPA lancé #############################
+Dec 07 11:40:04 raspberrypi systemd[1]: Stopping networking.service - Raise network interfaces...
+Dec 07 11:40:04 raspberrypi dhclient[3498]: Killed old client process
+Dec 07 11:40:04 raspberrypi ifdown[3498]: Killed old client process
+Dec 07 11:40:05 raspberrypi dhclient[3498]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:40:05 raspberrypi ifdown[3498]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:40:05 raspberrypi ifdown[3498]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:40:05 raspberrypi ifdown[3498]: All rights reserved.
+Dec 07 11:40:05 raspberrypi ifdown[3498]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:40:05 raspberrypi dhclient[3498]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:40:05 raspberrypi dhclient[3498]: All rights reserved.
+Dec 07 11:40:05 raspberrypi dhclient[3498]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:40:05 raspberrypi dhclient[3498]: 
+Dec 07 11:40:05 raspberrypi dhclient[3498]: Listening on LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:40:05 raspberrypi ifdown[3498]: Listening on LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:40:05 raspberrypi ifdown[3498]: Sending on   LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:40:05 raspberrypi ifdown[3498]: Sending on   Socket/fallback
+Dec 07 11:40:05 raspberrypi dhclient[3498]: Sending on   LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:40:05 raspberrypi dhclient[3498]: Sending on   Socket/fallback
+Dec 07 11:40:05 raspberrypi dhclient[3498]: DHCPRELEASE of 10.0.1.105 on wlan1 to 10.0.3.254 port 67
+Dec 07 11:40:05 raspberrypi ifdown[3498]: DHCPRELEASE of 10.0.1.105 on wlan1 to 10.0.3.254 port 67
+Dec 07 11:40:05 raspberrypi avahi-daemon[514]: Withdrawing address record for 10.0.1.105 on wlan1.
+Dec 07 11:40:05 raspberrypi avahi-daemon[514]: Leaving mDNS multicast group on interface wlan1.IPv4 with address 10.0.1.105.
+Dec 07 11:40:05 raspberrypi avahi-daemon[514]: Interface wlan1.IPv4 no longer relevant for mDNS.
+Dec 07 11:40:05 raspberrypi kernel: wlan1: deauthenticating from b8:27:eb:4e:b2:31 by local choice (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:40:05 raspberrypi wpa_supplicant[2492]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3 locally_generated=1
+Dec 07 11:40:05 raspberrypi wpa_supplicant[2492]: wlan1: CTRL-EVENT-DSCP-POLICY clear_all
+Dec 07 11:40:05 raspberrypi wpa_supplicant[2492]: wlan1: CTRL-EVENT-DSCP-POLICY clear_all
+Dec 07 11:40:05 raspberrypi wpa_supplicant[2492]: nl80211: deinit ifname=wlan1 disabled_11b_rates=0
+Dec 07 11:40:05 raspberrypi wpa_supplicant[2492]: wlan1: CTRL-EVENT-TERMINATING
+Dec 07 11:40:05 raspberrypi dhclient[3530]: Killed old client process
+Dec 07 11:40:05 raspberrypi ifdown[3530]: Killed old client process
+Dec 07 11:40:06 raspberrypi dhclient[3530]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:40:06 raspberrypi ifdown[3530]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:40:06 raspberrypi ifdown[3530]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:40:06 raspberrypi ifdown[3530]: All rights reserved.
+Dec 07 11:40:06 raspberrypi ifdown[3530]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:40:06 raspberrypi dhclient[3530]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:40:06 raspberrypi dhclient[3530]: All rights reserved.
+Dec 07 11:40:06 raspberrypi dhclient[3530]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:40:06 raspberrypi dhclient[3530]: 
+Dec 07 11:40:07 raspberrypi dhclient[3530]: Listening on LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:40:07 raspberrypi ifdown[3530]: Listening on LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:40:07 raspberrypi ifdown[3530]: Sending on   LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:40:07 raspberrypi ifdown[3530]: Sending on   Socket/fallback
+Dec 07 11:40:07 raspberrypi dhclient[3530]: Sending on   LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:40:07 raspberrypi dhclient[3530]: Sending on   Socket/fallback
+Dec 07 11:40:07 raspberrypi kernel: br0: port 1(wlan0) entered disabled state
+Dec 07 11:40:07 raspberrypi avahi-daemon[514]: Interface br0.IPv6 no longer relevant for mDNS.
+Dec 07 11:40:07 raspberrypi avahi-daemon[514]: Leaving mDNS multicast group on interface br0.IPv6 with address fe80::ba27:ebff:fe00:56d2.
+Dec 07 11:40:07 raspberrypi avahi-daemon[514]: Withdrawing address record for fe80::ba27:ebff:fe00:56d2 on br0.
+Dec 07 11:40:07 raspberrypi NetworkManager[599]: <info>  [1701949207.0449] device (br0): state change: activated -> unmanaged (reason 'connection-assumed', sys-iface-state: 'external')
+Dec 07 11:40:07 raspberrypi dbus-daemon[519]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.7' (uid=0 pid=599 comm="/usr/sbin/NetworkManager --no-daemon")
+Dec 07 11:40:07 raspberrypi systemd[1]: Starting NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service...
+Dec 07 11:40:07 raspberrypi dbus-daemon[519]: [system] Successfully activated service 'org.freedesktop.nm_dispatcher'
+Dec 07 11:40:07 raspberrypi systemd[1]: Started NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service.
+Dec 07 11:40:08 raspberrypi kernel: device wlan0 left promiscuous mode
+Dec 07 11:40:08 raspberrypi kernel: br0: port 1(wlan0) entered disabled state
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.0672] device (br0): bridge port wlan0 was detached
+Dec 07 11:40:08 raspberrypi systemd[1]: networking.service: Deactivated successfully.
+Dec 07 11:40:08 raspberrypi systemd[1]: Stopped networking.service - Raise network interfaces.
+Dec 07 11:40:08 raspberrypi systemd[1]: networking.service: Consumed 3.886s CPU time.
+Dec 07 11:40:08 raspberrypi systemd[1]: Starting networking.service - Raise network interfaces...
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.4469] manager: (br0): new Bridge device (/org/freedesktop/NetworkManager/Devices/7)
+Dec 07 11:40:08 raspberrypi ifup[3605]: RTNETLINK answers: Operation not supported
+Dec 07 11:40:08 raspberrypi ifup[3618]: can't add wlan1 to bridge br0: Operation not supported
+Dec 07 11:40:08 raspberrypi kernel: br0: port 1(wlan0) entered blocking state
+Dec 07 11:40:08 raspberrypi kernel: br0: port 1(wlan0) entered disabled state
+Dec 07 11:40:08 raspberrypi kernel: device wlan0 entered promiscuous mode
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <warn>  [1701949208.5256] device (br0): failed to read bridge setting 'vlan_protocol'
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <warn>  [1701949208.5260] device (br0): failed to read bridge setting 'vlan_stats_enabled'
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.5309] device (br0): state change: unmanaged -> unavailable (reason 'connection-assumed', sys-iface-state: 'external')
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.5373] device (br0): state change: unavailable -> disconnected (reason 'connection-assumed', sys-iface-state: 'external')
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.5444] device (br0): Activation: starting connection 'br0' (e3166770-e0b4-430e-9aa3-136d004aea44)
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.5463] device (br0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'external')
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.5495] device (br0): state change: prepare -> config (reason 'none', sys-iface-state: 'external')
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.5520] device (br0): state change: config -> ip-config (reason 'none', sys-iface-state: 'external')
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.5542] device (br0): state change: ip-config -> ip-check (reason 'none', sys-iface-state: 'external')
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.5608] device (br0): state change: ip-check -> secondaries (reason 'none', sys-iface-state: 'external')
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.5626] device (br0): state change: secondaries -> activated (reason 'none', sys-iface-state: 'external')
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.5673] device (br0): Activation: successful, device activated.
+Dec 07 11:40:08 raspberrypi kernel: IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+Dec 07 11:40:08 raspberrypi kernel: br0: port 1(wlan0) entered blocking state
+Dec 07 11:40:08 raspberrypi kernel: br0: port 1(wlan0) entered forwarding state
+Dec 07 11:40:08 raspberrypi kernel: IPv6: ADDRCONF(NETDEV_CHANGE): br0: link becomes ready
+Dec 07 11:40:08 raspberrypi NetworkManager[599]: <info>  [1701949208.6121] device (br0): carrier: link connected
+Dec 07 11:40:08 raspberrypi dhclient[3661]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:40:08 raspberrypi ifup[3661]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:40:08 raspberrypi ifup[3661]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:40:08 raspberrypi ifup[3661]: All rights reserved.
+Dec 07 11:40:08 raspberrypi ifup[3661]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:40:08 raspberrypi dhclient[3661]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:40:08 raspberrypi dhclient[3661]: All rights reserved.
+Dec 07 11:40:08 raspberrypi dhclient[3661]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:40:08 raspberrypi dhclient[3661]: 
+Dec 07 11:40:08 raspberrypi dhclient[3661]: Listening on LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:40:08 raspberrypi ifup[3661]: Listening on LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:40:08 raspberrypi ifup[3661]: Sending on   LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:40:08 raspberrypi ifup[3661]: Sending on   Socket/fallback
+Dec 07 11:40:08 raspberrypi dhclient[3661]: Sending on   LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:40:08 raspberrypi ifup[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 6
+Dec 07 11:40:08 raspberrypi dhclient[3661]: Sending on   Socket/fallback
+Dec 07 11:40:08 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 6
+Dec 07 11:40:10 raspberrypi avahi-daemon[514]: Joining mDNS multicast group on interface br0.IPv6 with address fe80::ba27:ebff:fe00:56d2.
+Dec 07 11:40:10 raspberrypi avahi-daemon[514]: New relevant interface br0.IPv6 for mDNS.
+Dec 07 11:40:10 raspberrypi avahi-daemon[514]: Registering new address record for fe80::ba27:ebff:fe00:56d2 on br0.*.
+Dec 07 11:40:11 raspberrypi ModemManager[615]: <info>  [base-manager] couldn't check support for device '/sys/devices/platform/soc/3f300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1': not supported by any plugin
+Dec 07 11:40:14 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 15
+Dec 07 11:40:14 raspberrypi ifup[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 15
+Dec 07 11:40:18 raspberrypi systemd[1]: NetworkManager-dispatcher.service: Deactivated successfully.
+Dec 07 11:40:29 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 20
+Dec 07 11:40:29 raspberrypi ifup[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 20
+Dec 07 11:40:48 raspberrypi NetworkManager[599]: <info>  [1701949248.1016] dhcp4 (eth0): state changed new lease, address=10.0.2.3
+Dec 07 11:40:49 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 15
+Dec 07 11:40:49 raspberrypi ifup[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 15
+Dec 07 11:41:04 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 5
+Dec 07 11:41:04 raspberrypi ifup[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 5
+Dec 07 11:41:09 raspberrypi dhclient[3661]: No DHCPOFFERS received.
+Dec 07 11:41:09 raspberrypi ifup[3661]: No DHCPOFFERS received.
+Dec 07 11:41:09 raspberrypi ifup[3661]: No working leases in persistent database - sleeping.
+Dec 07 11:41:09 raspberrypi dhclient[3661]: No working leases in persistent database - sleeping.
+Dec 07 11:41:09 raspberrypi wpa_supplicant[3702]: Successfully initialized wpa_supplicant
+Dec 07 11:41:09 raspberrypi kernel: rtl8192cu: MAC auto ON okay!
+Dec 07 11:41:09 raspberrypi kernel: rtl8192cu: Tx queue select: 0x05
+Dec 07 11:41:11 raspberrypi dhclient[3708]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:41:11 raspberrypi ifup[3708]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:41:11 raspberrypi ifup[3708]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:41:11 raspberrypi ifup[3708]: All rights reserved.
+Dec 07 11:41:11 raspberrypi ifup[3708]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:41:11 raspberrypi dhclient[3708]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:41:11 raspberrypi dhclient[3708]: All rights reserved.
+Dec 07 11:41:11 raspberrypi dhclient[3708]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:41:11 raspberrypi dhclient[3708]: 
+Dec 07 11:41:11 raspberrypi dhclient[3708]: Listening on LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:41:11 raspberrypi ifup[3708]: Listening on LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:41:11 raspberrypi ifup[3708]: Sending on   LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:41:11 raspberrypi ifup[3708]: Sending on   Socket/fallback
+Dec 07 11:41:11 raspberrypi ifup[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 5
+Dec 07 11:41:11 raspberrypi dhclient[3708]: Sending on   LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:41:11 raspberrypi dhclient[3708]: Sending on   Socket/fallback
+Dec 07 11:41:11 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 5
+Dec 07 11:41:12 raspberrypi wpa_supplicant[3703]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:41:12 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:41:12 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:41:12 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:41:12 raspberrypi wpa_supplicant[3703]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:41:12 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:41:12 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:41:12 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:41:12 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:41:12 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:41:12 raspberrypi kernel: wlan1: associated
+Dec 07 11:41:12 raspberrypi wpa_supplicant[3703]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:41:12 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:41:12 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-REGDOM-CHANGE init=COUNTRY_IE type=COUNTRY alpha2=US
+Dec 07 11:41:12 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:41:16 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+Dec 07 11:41:16 raspberrypi ifup[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+Dec 07 11:41:16 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 15=4WAY_HANDSHAKE_TIMEOUT)
+Dec 07 11:41:16 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=15
+Dec 07 11:41:16 raspberrypi wpa_supplicant[3703]: wlan1: WPA: 4-Way Handshake failed - pre-shared key may be incorrect
+Dec 07 11:41:16 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-SSID-TEMP-DISABLED id=0 ssid="REE" auth_failures=1 duration=10 reason=WRONG_KEY
+Dec 07 11:41:24 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 19
+Dec 07 11:41:24 raspberrypi ifup[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 19
+Dec 07 11:41:27 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-SSID-REENABLED id=0 ssid="REE"
+Dec 07 11:41:27 raspberrypi wpa_supplicant[3703]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:41:27 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:41:27 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:41:27 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:41:27 raspberrypi wpa_supplicant[3703]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:41:27 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:41:27 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:41:27 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:41:27 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:41:27 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:41:27 raspberrypi wpa_supplicant[3703]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:41:27 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:41:27 raspberrypi kernel: wlan1: associated
+Dec 07 11:41:27 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:41:27 raspberrypi wpa_supplicant[3703]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:41:27 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:41:27 raspberrypi kernel: IPv6: ADDRCONF(NETDEV_CHANGE): wlan1: link becomes ready
+Dec 07 11:41:33 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:41:33 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 11:41:34 raspberrypi wpa_supplicant[3703]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:41:34 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:41:34 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:41:34 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:41:34 raspberrypi wpa_supplicant[3703]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:41:34 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:41:34 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:41:34 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:41:34 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:41:34 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:41:34 raspberrypi kernel: wlan1: associated
+Dec 07 11:41:34 raspberrypi wpa_supplicant[3703]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:41:34 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:41:34 raspberrypi wpa_supplicant[3703]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:41:34 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:41:34 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:41:43 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+Dec 07 11:41:43 raspberrypi ifup[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+Dec 07 11:41:51 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 20
+Dec 07 11:41:51 raspberrypi ifup[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 20
+Dec 07 11:42:11 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 1
+Dec 07 11:42:11 raspberrypi ifup[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 1
+Dec 07 11:42:12 raspberrypi dhclient[3708]: No DHCPOFFERS received.
+Dec 07 11:42:12 raspberrypi ifup[3708]: No DHCPOFFERS received.
+Dec 07 11:42:12 raspberrypi ifup[3708]: Trying recorded lease 10.0.3.169
+Dec 07 11:42:12 raspberrypi dhclient[3708]: Trying recorded lease 10.0.3.169
+Dec 07 11:42:12 raspberrypi avahi-daemon[514]: Joining mDNS multicast group on interface wlan1.IPv4 with address 10.0.3.169.
+Dec 07 11:42:12 raspberrypi avahi-daemon[514]: New relevant interface wlan1.IPv4 for mDNS.
+Dec 07 11:42:12 raspberrypi avahi-daemon[514]: Registering new address record for 10.0.3.169 on wlan1.IPv4.
+Dec 07 11:42:22 raspberrypi ifup[3717]: PING 10.0.3.254 (10.0.3.254) 56(84) bytes of data.
+Dec 07 11:42:22 raspberrypi ifup[3717]: --- 10.0.3.254 ping statistics ---
+Dec 07 11:42:22 raspberrypi ifup[3717]: 1 packets transmitted, 0 received, 100% packet loss, time 0ms
+Dec 07 11:42:22 raspberrypi avahi-daemon[514]: Withdrawing address record for 10.0.3.169 on wlan1.
+Dec 07 11:42:22 raspberrypi avahi-daemon[514]: Leaving mDNS multicast group on interface wlan1.IPv4 with address 10.0.3.169.
+Dec 07 11:42:22 raspberrypi avahi-daemon[514]: Interface wlan1.IPv4 no longer relevant for mDNS.
+Dec 07 11:42:22 raspberrypi dhclient[3708]: No working leases in persistent database - sleeping.
+Dec 07 11:42:22 raspberrypi ifup[3708]: No working leases in persistent database - sleeping.
+Dec 07 11:42:23 raspberrypi systemd[1]: Finished networking.service - Raise network interfaces.
+Dec 07 11:42:23 raspberrypi root[3834]: ************* WPA refonfiguré et le service redémarré avec succès. ************************
+Dec 07 11:42:23 raspberrypi root[3835]: #################  Reconfiguration du WPA est terminé #################
+Dec 07 11:42:23 raspberrypi root[3836]: ########################### HandCkeck client terminé ##############################
+Dec 07 11:42:23 raspberrypi sudo[3177]: pam_unix(sudo:session): session closed for user root
+Dec 07 11:43:08 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:43:08 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 11:43:09 raspberrypi wpa_supplicant[3703]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:43:09 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:43:09 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:43:09 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:43:09 raspberrypi wpa_supplicant[3703]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:43:09 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:43:09 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:43:09 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:43:09 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:43:10 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:43:10 raspberrypi kernel: wlan1: associated
+Dec 07 11:43:10 raspberrypi wpa_supplicant[3703]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:43:10 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:43:10 raspberrypi wpa_supplicant[3703]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:43:10 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:43:10 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:44:41 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 4
+Dec 07 11:44:44 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:44:44 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 11:44:45 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 4
+Dec 07 11:44:45 raspberrypi wpa_supplicant[3703]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:44:45 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:44:45 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:44:45 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:44:45 raspberrypi wpa_supplicant[3703]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:44:45 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:44:45 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:44:45 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:44:46 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:44:46 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:44:46 raspberrypi kernel: wlan1: associated
+Dec 07 11:44:46 raspberrypi wpa_supplicant[3703]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:44:46 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:44:46 raspberrypi wpa_supplicant[3703]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:44:46 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:44:46 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:44:49 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 10
+Dec 07 11:44:59 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 19
+Dec 07 11:45:08 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+Dec 07 11:45:16 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 17
+Dec 07 11:45:18 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 12
+Dec 07 11:45:31 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 11
+Dec 07 11:45:33 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 20
+Dec 07 11:45:42 raspberrypi dhclient[3661]: No DHCPOFFERS received.
+Dec 07 11:45:42 raspberrypi dhclient[3661]: No working leases in persistent database - sleeping.
+Dec 07 11:45:48 raspberrypi NetworkManager[599]: <info>  [1701949548.1089] dhcp4 (eth0): state changed new lease, address=10.0.2.3
+Dec 07 11:45:54 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+Dec 07 11:46:02 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 7
+Dec 07 11:46:09 raspberrypi dhclient[3708]: No DHCPOFFERS received.
+Dec 07 11:46:09 raspberrypi dhclient[3708]: Trying recorded lease 10.0.3.169
+Dec 07 11:46:09 raspberrypi avahi-daemon[514]: Joining mDNS multicast group on interface wlan1.IPv4 with address 10.0.3.169.
+Dec 07 11:46:09 raspberrypi avahi-daemon[514]: New relevant interface wlan1.IPv4 for mDNS.
+Dec 07 11:46:09 raspberrypi avahi-daemon[514]: Registering new address record for 10.0.3.169 on wlan1.IPv4.
+Dec 07 11:46:19 raspberrypi avahi-daemon[514]: Withdrawing address record for 10.0.3.169 on wlan1.
+Dec 07 11:46:19 raspberrypi avahi-daemon[514]: Leaving mDNS multicast group on interface wlan1.IPv4 with address 10.0.3.169.
+Dec 07 11:46:19 raspberrypi avahi-daemon[514]: Interface wlan1.IPv4 no longer relevant for mDNS.
+Dec 07 11:46:19 raspberrypi dhclient[3708]: No working leases in persistent database - sleeping.
+Dec 07 11:46:21 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:46:21 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 11:46:22 raspberrypi wpa_supplicant[3703]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:46:22 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:46:22 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:46:22 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:46:22 raspberrypi wpa_supplicant[3703]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:46:22 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:46:22 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:46:22 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:46:22 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:46:22 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:46:22 raspberrypi kernel: wlan1: associated
+Dec 07 11:46:22 raspberrypi wpa_supplicant[3703]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:46:22 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:46:22 raspberrypi wpa_supplicant[3703]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:46:22 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:46:22 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:47:56 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:47:56 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 11:47:57 raspberrypi wpa_supplicant[3703]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:47:57 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:47:57 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:47:57 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:47:57 raspberrypi wpa_supplicant[3703]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:47:57 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:47:57 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:47:57 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:47:57 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:47:58 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:47:58 raspberrypi kernel: wlan1: associated
+Dec 07 11:47:58 raspberrypi wpa_supplicant[3703]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:47:58 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:47:58 raspberrypi wpa_supplicant[3703]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:47:58 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:47:58 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:48:54 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 3
+Dec 07 11:48:57 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 6
+Dec 07 11:49:02 raspberrypi sudo[3875]:  odiouma : TTY=pts/0 ; PWD=/home/odiouma/handcheck/lib/handcheck ; USER=root ; COMMAND=/usr/bin/cat /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
+Dec 07 11:49:02 raspberrypi sudo[3875]: pam_unix(sudo:session): session opened for user root(uid=0) by odiouma(uid=1000)
+Dec 07 11:49:02 raspberrypi sudo[3875]: pam_unix(sudo:session): session closed for user root
+Dec 07 11:49:03 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 10
+Dec 07 11:49:13 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 18
+Dec 07 11:49:31 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 10
+Dec 07 11:49:32 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:49:32 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 11:49:33 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:49:33 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:49:33 raspberrypi wpa_supplicant[3703]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:49:33 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:49:34 raspberrypi wpa_supplicant[3703]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:49:34 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:49:34 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:49:34 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:49:34 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:49:34 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:49:34 raspberrypi kernel: wlan1: associated
+Dec 07 11:49:34 raspberrypi wpa_supplicant[3703]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:49:34 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:49:34 raspberrypi wpa_supplicant[3703]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:49:34 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:49:34 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:49:34 raspberrypi dhclient[3708]: DHCPOFFER of 10.0.1.105 from 10.0.2.4
+Dec 07 11:49:34 raspberrypi dhclient[3708]: DHCPREQUEST for 10.0.1.105 on wlan1 to 255.255.255.255 port 67
+Dec 07 11:49:42 raspberrypi dhclient[3708]: DHCPREQUEST for 10.0.1.105 on wlan1 to 255.255.255.255 port 67
+Dec 07 11:49:51 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+Dec 07 11:49:52 raspberrypi sudo[3894]:  odiouma : TTY=pts/0 ; PWD=/home/odiouma/handcheck/lib/handcheck ; USER=root ; COMMAND=/usr/sbin/dhclient wlan1
+Dec 07 11:49:52 raspberrypi sudo[3894]: pam_unix(sudo:session): session opened for user root(uid=0) by odiouma(uid=1000)
+Dec 07 11:49:52 raspberrypi dhclient[3897]: DHCPREQUEST for 10.0.1.105 on wlan1 to 255.255.255.255 port 67
+Dec 07 11:49:59 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 12
+Dec 07 11:49:59 raspberrypi dhclient[3897]: DHCPREQUEST for 10.0.1.105 on wlan1 to 255.255.255.255 port 67
+Dec 07 11:50:08 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+Dec 07 11:50:11 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 12
+Dec 07 11:50:16 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 10
+Dec 07 11:50:23 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 12
+Dec 07 11:50:26 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 10
+Dec 07 11:50:28 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 6
+Dec 07 11:50:34 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 12
+Dec 07 11:50:35 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 16
+Dec 07 11:50:36 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 13
+Dec 07 11:50:46 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 10
+Dec 07 11:50:48 raspberrypi NetworkManager[599]: <info>  [1701949848.1231] dhcp4 (eth0): state changed new lease, address=10.0.2.3
+Dec 07 11:50:49 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 10
+Dec 07 11:50:51 raspberrypi dhclient[3708]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 1
+Dec 07 11:50:52 raspberrypi dhclient[3708]: No DHCPOFFERS received.
+Dec 07 11:50:52 raspberrypi dhclient[3708]: Trying recorded lease 10.0.3.169
+Dec 07 11:50:52 raspberrypi avahi-daemon[514]: Joining mDNS multicast group on interface wlan1.IPv4 with address 10.0.3.169.
+Dec 07 11:50:52 raspberrypi avahi-daemon[514]: New relevant interface wlan1.IPv4 for mDNS.
+Dec 07 11:50:52 raspberrypi avahi-daemon[514]: Registering new address record for 10.0.3.169 on wlan1.IPv4.
+Dec 07 11:50:56 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 10
+Dec 07 11:50:59 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 10
+Dec 07 11:51:02 raspberrypi avahi-daemon[514]: Withdrawing address record for 10.0.3.169 on wlan1.
+Dec 07 11:51:02 raspberrypi avahi-daemon[514]: Leaving mDNS multicast group on interface wlan1.IPv4 with address 10.0.3.169.
+Dec 07 11:51:02 raspberrypi avahi-daemon[514]: Interface wlan1.IPv4 no longer relevant for mDNS.
+Dec 07 11:51:02 raspberrypi dhclient[3708]: No working leases in persistent database - sleeping.
+Dec 07 11:51:06 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 18
+Dec 07 11:51:09 raspberrypi dhclient[3897]: No DHCPOFFERS received.
+Dec 07 11:51:09 raspberrypi dhclient[3897]: Trying recorded lease 10.0.1.105
+Dec 07 11:51:09 raspberrypi avahi-daemon[514]: Joining mDNS multicast group on interface wlan1.IPv4 with address 10.0.1.105.
+Dec 07 11:51:09 raspberrypi avahi-daemon[514]: New relevant interface wlan1.IPv4 for mDNS.
+Dec 07 11:51:09 raspberrypi avahi-daemon[514]: Registering new address record for 10.0.1.105 on wlan1.IPv4.
+Dec 07 11:51:09 raspberrypi dhclient[3897]: bound: immediate renewal.
+Dec 07 11:51:09 raspberrypi dhclient[3897]: DHCPREQUEST for 10.0.1.105 on wlan1 to 10.0.3.254 port 67
+Dec 07 11:51:09 raspberrypi sudo[3894]: pam_unix(sudo:session): session closed for user root
+Dec 07 11:51:09 raspberrypi dhclient[3897]: DHCPNAK from 10.0.3.254
+Dec 07 11:51:09 raspberrypi avahi-daemon[514]: Withdrawing address record for 10.0.1.105 on wlan1.
+Dec 07 11:51:09 raspberrypi avahi-daemon[514]: Leaving mDNS multicast group on interface wlan1.IPv4 with address 10.0.1.105.
+Dec 07 11:51:09 raspberrypi avahi-daemon[514]: Interface wlan1.IPv4 no longer relevant for mDNS.
+Dec 07 11:51:09 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 7
+Dec 07 11:51:11 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:51:11 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 11:51:12 raspberrypi wpa_supplicant[3703]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:51:12 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:51:12 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:51:12 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:51:12 raspberrypi wpa_supplicant[3703]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:51:12 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:51:12 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:51:12 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:51:12 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:51:12 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:51:12 raspberrypi kernel: wlan1: associated
+Dec 07 11:51:12 raspberrypi wpa_supplicant[3703]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:51:12 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:51:12 raspberrypi wpa_supplicant[3703]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:51:12 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:51:12 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:51:12 raspberrypi dhclient[3897]: DHCPOFFER of 10.0.1.105 from 10.0.2.4
+Dec 07 11:51:12 raspberrypi dhclient[3897]: DHCPREQUEST for 10.0.1.105 on wlan1 to 255.255.255.255 port 67
+Dec 07 11:51:20 raspberrypi dhclient[3897]: DHCPREQUEST for 10.0.1.105 on wlan1 to 255.255.255.255 port 67
+Dec 07 11:51:24 raspberrypi dhclient[3661]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 5
+Dec 07 11:51:29 raspberrypi dhclient[3661]: No DHCPOFFERS received.
+Dec 07 11:51:29 raspberrypi dhclient[3661]: No working leases in persistent database - sleeping.
+Dec 07 11:51:30 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 7
+Dec 07 11:51:37 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 15
+Dec 07 11:51:52 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 9
+Dec 07 11:52:01 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 17
+Dec 07 11:52:18 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 11
+Dec 07 11:52:20 raspberrypi sudo[3991]:  odiouma : TTY=pts/0 ; PWD=/home/odiouma/handcheck/lib/handcheck ; USER=root ; COMMAND=/usr/bin/systemctl restart networking.service
+Dec 07 11:52:20 raspberrypi sudo[3991]: pam_unix(sudo:session): session opened for user root(uid=0) by odiouma(uid=1000)
+Dec 07 11:52:20 raspberrypi systemd[1]: Stopping networking.service - Raise network interfaces...
+Dec 07 11:52:20 raspberrypi dhclient[4025]: Killed old client process
+Dec 07 11:52:20 raspberrypi ifdown[4025]: Killed old client process
+Dec 07 11:52:21 raspberrypi dhclient[4025]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:52:21 raspberrypi ifdown[4025]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:52:21 raspberrypi ifdown[4025]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:52:21 raspberrypi ifdown[4025]: All rights reserved.
+Dec 07 11:52:21 raspberrypi ifdown[4025]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:52:21 raspberrypi dhclient[4025]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:52:21 raspberrypi dhclient[4025]: All rights reserved.
+Dec 07 11:52:21 raspberrypi dhclient[4025]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:52:21 raspberrypi dhclient[4025]: 
+Dec 07 11:52:21 raspberrypi dhclient[4025]: Listening on LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:52:21 raspberrypi ifdown[4025]: Listening on LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:52:21 raspberrypi ifdown[4025]: Sending on   LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:52:21 raspberrypi ifdown[4025]: Sending on   Socket/fallback
+Dec 07 11:52:21 raspberrypi dhclient[4025]: Sending on   LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:52:21 raspberrypi dhclient[4025]: Sending on   Socket/fallback
+Dec 07 11:52:21 raspberrypi dhclient[4025]: DHCPRELEASE of 10.0.1.105 on wlan1 to 10.0.3.254 port 67
+Dec 07 11:52:21 raspberrypi ifdown[4025]: DHCPRELEASE of 10.0.1.105 on wlan1 to 10.0.3.254 port 67
+Dec 07 11:52:21 raspberrypi kernel: wlan1: deauthenticating from b8:27:eb:4e:b2:31 by local choice (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:52:21 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3 locally_generated=1
+Dec 07 11:52:21 raspberrypi dhclient[3897]: receive_packet failed on wlan1: Network is down
+Dec 07 11:52:21 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-DSCP-POLICY clear_all
+Dec 07 11:52:21 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-DSCP-POLICY clear_all
+Dec 07 11:52:21 raspberrypi wpa_supplicant[3703]: nl80211: deinit ifname=wlan1 disabled_11b_rates=0
+Dec 07 11:52:21 raspberrypi wpa_supplicant[3703]: wlan1: CTRL-EVENT-TERMINATING
+Dec 07 11:52:21 raspberrypi dhclient[4058]: Killed old client process
+Dec 07 11:52:21 raspberrypi ifdown[4058]: Killed old client process
+Dec 07 11:52:22 raspberrypi dhclient[4058]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:52:22 raspberrypi ifdown[4058]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:52:22 raspberrypi ifdown[4058]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:52:22 raspberrypi ifdown[4058]: All rights reserved.
+Dec 07 11:52:22 raspberrypi ifdown[4058]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:52:22 raspberrypi dhclient[4058]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:52:22 raspberrypi dhclient[4058]: All rights reserved.
+Dec 07 11:52:22 raspberrypi dhclient[4058]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:52:22 raspberrypi dhclient[4058]: 
+Dec 07 11:52:22 raspberrypi dhclient[4058]: Listening on LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:52:22 raspberrypi ifdown[4058]: Listening on LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:52:22 raspberrypi ifdown[4058]: Sending on   LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:52:22 raspberrypi ifdown[4058]: Sending on   Socket/fallback
+Dec 07 11:52:22 raspberrypi dhclient[4058]: Sending on   LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:52:22 raspberrypi dhclient[4058]: Sending on   Socket/fallback
+Dec 07 11:52:22 raspberrypi avahi-daemon[514]: Interface br0.IPv6 no longer relevant for mDNS.
+Dec 07 11:52:22 raspberrypi kernel: br0: port 1(wlan0) entered disabled state
+Dec 07 11:52:22 raspberrypi avahi-daemon[514]: Leaving mDNS multicast group on interface br0.IPv6 with address fe80::ba27:ebff:fe00:56d2.
+Dec 07 11:52:22 raspberrypi avahi-daemon[514]: Withdrawing address record for fe80::ba27:ebff:fe00:56d2 on br0.
+Dec 07 11:52:22 raspberrypi NetworkManager[599]: <info>  [1701949942.7650] device (br0): state change: activated -> unmanaged (reason 'connection-assumed', sys-iface-state: 'external')
+Dec 07 11:52:22 raspberrypi dbus-daemon[519]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.7' (uid=0 pid=599 comm="/usr/sbin/NetworkManager --no-daemon")
+Dec 07 11:52:22 raspberrypi systemd[1]: Starting NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service...
+Dec 07 11:52:22 raspberrypi dbus-daemon[519]: [system] Successfully activated service 'org.freedesktop.nm_dispatcher'
+Dec 07 11:52:22 raspberrypi systemd[1]: Started NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service.
+Dec 07 11:52:23 raspberrypi kernel: device wlan0 left promiscuous mode
+Dec 07 11:52:23 raspberrypi kernel: br0: port 1(wlan0) entered disabled state
+Dec 07 11:52:23 raspberrypi NetworkManager[599]: <info>  [1701949943.7787] device (br0): bridge port wlan0 was detached
+Dec 07 11:52:24 raspberrypi systemd[1]: networking.service: Deactivated successfully.
+Dec 07 11:52:24 raspberrypi systemd[1]: Stopped networking.service - Raise network interfaces.
+Dec 07 11:52:24 raspberrypi systemd[1]: networking.service: Consumed 3.187s CPU time.
+Dec 07 11:52:24 raspberrypi systemd[1]: Starting networking.service - Raise network interfaces...
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <info>  [1701949944.1468] manager: (br0): new Bridge device (/org/freedesktop/NetworkManager/Devices/8)
+Dec 07 11:52:25 raspberrypi kernel: br0: port 1(wlan0) entered blocking state
+Dec 07 11:52:25 raspberrypi kernel: br0: port 1(wlan0) entered disabled state
+Dec 07 11:52:25 raspberrypi kernel: device wlan0 entered promiscuous mode
+Dec 07 11:52:25 raspberrypi kernel: IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+Dec 07 11:52:25 raspberrypi kernel: br0: port 1(wlan0) entered blocking state
+Dec 07 11:52:25 raspberrypi kernel: br0: port 1(wlan0) entered forwarding state
+Dec 07 11:52:25 raspberrypi kernel: IPv6: ADDRCONF(NETDEV_CHANGE): br0: link becomes ready
+Dec 07 11:52:24 raspberrypi dhclient[4188]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <warn>  [1701949944.2271] device (br0): failed to read bridge setting 'vlan_protocol'
+Dec 07 11:52:25 raspberrypi ifup[4132]: RTNETLINK answers: Operation not supported
+Dec 07 11:52:24 raspberrypi dhclient[4188]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <warn>  [1701949944.2273] device (br0): failed to read bridge setting 'vlan_stats_enabled'
+Dec 07 11:52:25 raspberrypi ifup[4144]: can't add wlan1 to bridge br0: Operation not supported
+Dec 07 11:52:24 raspberrypi dhclient[4188]: All rights reserved.
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <info>  [1701949944.2313] device (br0): state change: unmanaged -> unavailable (reason 'connection-assumed', sys-iface-state: 'external')
+Dec 07 11:52:25 raspberrypi ifup[4188]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:52:25 raspberrypi ifup[4188]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:52:25 raspberrypi ifup[4188]: All rights reserved.
+Dec 07 11:52:25 raspberrypi ifup[4188]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:52:25 raspberrypi ifup[4188]: Listening on LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:52:25 raspberrypi ifup[4188]: Sending on   LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:52:25 raspberrypi ifup[4188]: Sending on   Socket/fallback
+Dec 07 11:52:25 raspberrypi ifup[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 4
+Dec 07 11:52:24 raspberrypi dhclient[4188]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <info>  [1701949944.2341] device (br0): state change: unavailable -> disconnected (reason 'connection-assumed', sys-iface-state: 'external')
+Dec 07 11:52:24 raspberrypi dhclient[4188]: 
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <info>  [1701949944.2377] device (br0): Activation: starting connection 'br0' (1c00330e-d67e-4e64-9a51-f07c7478f29f)
+Dec 07 11:52:24 raspberrypi dhclient[4188]: Listening on LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <info>  [1701949944.2383] device (br0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'external')
+Dec 07 11:52:24 raspberrypi dhclient[4188]: Sending on   LPF/br0/b8:27:eb:00:56:d2
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <info>  [1701949944.2396] device (br0): state change: prepare -> config (reason 'none', sys-iface-state: 'external')
+Dec 07 11:52:24 raspberrypi dhclient[4188]: Sending on   Socket/fallback
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <info>  [1701949944.2408] device (br0): state change: config -> ip-config (reason 'none', sys-iface-state: 'external')
+Dec 07 11:52:24 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 4
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <info>  [1701949944.2420] device (br0): state change: ip-config -> ip-check (reason 'none', sys-iface-state: 'external')
+Dec 07 11:52:25 raspberrypi avahi-daemon[514]: Joining mDNS multicast group on interface br0.IPv6 with address fe80::ba27:ebff:fe00:56d2.
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <info>  [1701949944.2488] device (br0): state change: ip-check -> secondaries (reason 'none', sys-iface-state: 'external')
+Dec 07 11:52:25 raspberrypi avahi-daemon[514]: New relevant interface br0.IPv6 for mDNS.
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <info>  [1701949944.2499] device (br0): state change: secondaries -> activated (reason 'none', sys-iface-state: 'external')
+Dec 07 11:52:25 raspberrypi avahi-daemon[514]: Registering new address record for fe80::ba27:ebff:fe00:56d2 on br0.*.
+Dec 07 11:52:24 raspberrypi NetworkManager[599]: <info>  [1701949944.2523] device (br0): Activation: successful, device activated.
+Dec 07 11:52:26 raspberrypi ModemManager[615]: <info>  [base-manager] couldn't check support for device '/sys/devices/platform/soc/3f300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1': not supported by any plugin
+Dec 07 11:52:27 raspberrypi NetworkManager[599]: <info>  [1701949947.7152] device (br0): carrier: link connected
+Dec 07 11:52:28 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 6
+Dec 07 11:52:28 raspberrypi ifup[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 6
+Dec 07 11:52:29 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 2
+Dec 07 11:52:29 raspberrypi dhclient[3897]: send_packet: Network is down
+Dec 07 11:52:29 raspberrypi dhclient[3897]: dhclient.c:2600: Failed to send 300 byte long packet over wlan1 interface.
+Dec 07 11:52:31 raspberrypi dhclient[3897]: No DHCPOFFERS received.
+Dec 07 11:52:31 raspberrypi dhclient[3897]: No working leases in persistent database - sleeping.
+Dec 07 11:52:34 raspberrypi systemd[1]: NetworkManager-dispatcher.service: Deactivated successfully.
+Dec 07 11:52:34 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 14
+Dec 07 11:52:34 raspberrypi ifup[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 14
+Dec 07 11:52:48 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 20
+Dec 07 11:52:48 raspberrypi ifup[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 20
+Dec 07 11:53:08 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 15
+Dec 07 11:53:08 raspberrypi ifup[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 15
+Dec 07 11:53:23 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 2
+Dec 07 11:53:23 raspberrypi ifup[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 2
+Dec 07 11:53:25 raspberrypi dhclient[4188]: No DHCPOFFERS received.
+Dec 07 11:53:25 raspberrypi ifup[4188]: No DHCPOFFERS received.
+Dec 07 11:53:25 raspberrypi ifup[4188]: No working leases in persistent database - sleeping.
+Dec 07 11:53:25 raspberrypi dhclient[4188]: No working leases in persistent database - sleeping.
+Dec 07 11:53:25 raspberrypi wpa_supplicant[4232]: Successfully initialized wpa_supplicant
+Dec 07 11:53:25 raspberrypi kernel: rtl8192cu: MAC auto ON okay!
+Dec 07 11:53:25 raspberrypi kernel: rtl8192cu: Tx queue select: 0x05
+Dec 07 11:53:27 raspberrypi dhclient[4238]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:53:27 raspberrypi ifup[4238]: Internet Systems Consortium DHCP Client 4.4.3-P1
+Dec 07 11:53:27 raspberrypi ifup[4238]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:53:27 raspberrypi ifup[4238]: All rights reserved.
+Dec 07 11:53:27 raspberrypi ifup[4238]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:53:27 raspberrypi dhclient[4238]: Copyright 2004-2022 Internet Systems Consortium.
+Dec 07 11:53:27 raspberrypi dhclient[4238]: All rights reserved.
+Dec 07 11:53:27 raspberrypi dhclient[4238]: For info, please visit https://www.isc.org/software/dhcp/
+Dec 07 11:53:27 raspberrypi dhclient[4238]: 
+Dec 07 11:53:27 raspberrypi dhclient[4238]: Listening on LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:53:27 raspberrypi ifup[4238]: Listening on LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:53:27 raspberrypi ifup[4238]: Sending on   LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:53:27 raspberrypi ifup[4238]: Sending on   Socket/fallback
+Dec 07 11:53:27 raspberrypi ifup[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+Dec 07 11:53:27 raspberrypi dhclient[4238]: Sending on   LPF/wlan1/cc:40:d0:a2:06:34
+Dec 07 11:53:27 raspberrypi dhclient[4238]: Sending on   Socket/fallback
+Dec 07 11:53:27 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+Dec 07 11:53:28 raspberrypi wpa_supplicant[4233]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:53:28 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:53:28 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:53:28 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:53:28 raspberrypi wpa_supplicant[4233]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:53:28 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:53:28 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:53:28 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:53:28 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:53:28 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:53:28 raspberrypi kernel: wlan1: associated
+Dec 07 11:53:28 raspberrypi wpa_supplicant[4233]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:53:28 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:53:28 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-REGDOM-CHANGE init=COUNTRY_IE type=COUNTRY alpha2=US
+Dec 07 11:53:28 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:53:28 raspberrypi wpa_supplicant[4233]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:53:28 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:53:28 raspberrypi kernel: IPv6: ADDRCONF(NETDEV_CHANGE): wlan1: link becomes ready
+Dec 07 11:53:35 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 13
+Dec 07 11:53:35 raspberrypi ifup[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 13
+Dec 07 11:53:48 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 19
+Dec 07 11:53:48 raspberrypi ifup[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 19
+Dec 07 11:54:07 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 20
+Dec 07 11:54:07 raspberrypi ifup[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 20
+Dec 07 11:54:26 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:54:26 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 11:54:27 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 1
+Dec 07 11:54:27 raspberrypi ifup[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 1
+Dec 07 11:54:27 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:54:27 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:54:27 raspberrypi wpa_supplicant[4233]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:54:27 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:54:27 raspberrypi wpa_supplicant[4233]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:54:27 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:54:27 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:54:27 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:54:27 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:54:27 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:54:27 raspberrypi wpa_supplicant[4233]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:54:27 raspberrypi kernel: wlan1: associated
+Dec 07 11:54:27 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:54:27 raspberrypi wpa_supplicant[4233]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:54:27 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:54:27 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:54:28 raspberrypi dhclient[4238]: No DHCPOFFERS received.
+Dec 07 11:54:28 raspberrypi ifup[4238]: No DHCPOFFERS received.
+Dec 07 11:54:28 raspberrypi ifup[4238]: Trying recorded lease 10.0.3.169
+Dec 07 11:54:28 raspberrypi dhclient[4238]: Trying recorded lease 10.0.3.169
+Dec 07 11:54:28 raspberrypi avahi-daemon[514]: Joining mDNS multicast group on interface wlan1.IPv4 with address 10.0.3.169.
+Dec 07 11:54:28 raspberrypi avahi-daemon[514]: New relevant interface wlan1.IPv4 for mDNS.
+Dec 07 11:54:28 raspberrypi avahi-daemon[514]: Registering new address record for 10.0.3.169 on wlan1.IPv4.
+Dec 07 11:54:31 raspberrypi ifup[4247]: PING 10.0.3.254 (10.0.3.254) 56(84) bytes of data.
+Dec 07 11:54:31 raspberrypi ifup[4247]: --- 10.0.3.254 ping statistics ---
+Dec 07 11:54:31 raspberrypi ifup[4247]: 1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+Dec 07 11:54:31 raspberrypi avahi-daemon[514]: Withdrawing address record for 10.0.3.169 on wlan1.
+Dec 07 11:54:31 raspberrypi avahi-daemon[514]: Leaving mDNS multicast group on interface wlan1.IPv4 with address 10.0.3.169.
+Dec 07 11:54:31 raspberrypi avahi-daemon[514]: Interface wlan1.IPv4 no longer relevant for mDNS.
+Dec 07 11:54:31 raspberrypi dhclient[4238]: No working leases in persistent database - sleeping.
+Dec 07 11:54:31 raspberrypi ifup[4238]: No working leases in persistent database - sleeping.
+Dec 07 11:54:31 raspberrypi systemd[1]: Finished networking.service - Raise network interfaces.
+Dec 07 11:54:31 raspberrypi sudo[3991]: pam_unix(sudo:session): session closed for user root
+Dec 07 11:55:48 raspberrypi NetworkManager[599]: <info>  [1701950148.1010] dhcp4 (eth0): state changed new lease, address=10.0.2.3
+Dec 07 11:56:02 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:56:02 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 11:56:03 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:56:03 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:56:03 raspberrypi wpa_supplicant[4233]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:56:03 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:56:03 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:56:03 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:56:03 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:56:03 raspberrypi wpa_supplicant[4233]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:56:03 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:56:03 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:56:03 raspberrypi kernel: wlan1: associated
+Dec 07 11:56:03 raspberrypi wpa_supplicant[4233]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:56:03 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:56:03 raspberrypi wpa_supplicant[4233]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:56:03 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:56:03 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:57:13 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 6
+Dec 07 11:57:19 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 12
+Dec 07 11:57:31 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 19
+Dec 07 11:57:38 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:57:38 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 11:57:39 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:57:39 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:57:39 raspberrypi wpa_supplicant[4233]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:57:39 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:57:39 raspberrypi wpa_supplicant[4233]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:57:39 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:57:39 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:57:39 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:57:39 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:57:39 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:57:39 raspberrypi kernel: wlan1: associated
+Dec 07 11:57:39 raspberrypi wpa_supplicant[4233]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:57:39 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:57:39 raspberrypi wpa_supplicant[4233]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:57:39 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:57:39 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 11:57:50 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 16
+Dec 07 11:58:06 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 8
+Dec 07 11:58:10 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 8
+Dec 07 11:58:14 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 3
+Dec 07 11:58:14 raspberrypi dhclient[4238]: No DHCPOFFERS received.
+Dec 07 11:58:14 raspberrypi dhclient[4238]: Trying recorded lease 10.0.3.169
+Dec 07 11:58:14 raspberrypi avahi-daemon[514]: Joining mDNS multicast group on interface wlan1.IPv4 with address 10.0.3.169.
+Dec 07 11:58:14 raspberrypi avahi-daemon[514]: New relevant interface wlan1.IPv4 for mDNS.
+Dec 07 11:58:14 raspberrypi avahi-daemon[514]: Registering new address record for 10.0.3.169 on wlan1.IPv4.
+Dec 07 11:58:17 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 7
+Dec 07 11:58:18 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 19
+Dec 07 11:58:24 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 7
+Dec 07 11:58:24 raspberrypi avahi-daemon[514]: Withdrawing address record for 10.0.3.169 on wlan1.
+Dec 07 11:58:24 raspberrypi avahi-daemon[514]: Leaving mDNS multicast group on interface wlan1.IPv4 with address 10.0.3.169.
+Dec 07 11:58:24 raspberrypi avahi-daemon[514]: Interface wlan1.IPv4 no longer relevant for mDNS.
+Dec 07 11:58:24 raspberrypi dhclient[4238]: No working leases in persistent database - sleeping.
+Dec 07 11:58:31 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 11
+Dec 07 11:58:37 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 11
+Dec 07 11:58:42 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 18
+Dec 07 11:58:48 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 7
+Dec 07 11:58:55 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 14
+Dec 07 11:59:00 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 15
+Dec 07 11:59:09 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 2
+Dec 07 11:59:11 raspberrypi dhclient[4188]: No DHCPOFFERS received.
+Dec 07 11:59:11 raspberrypi dhclient[4188]: No working leases in persistent database - sleeping.
+Dec 07 11:59:14 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 11:59:14 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 11:59:15 raspberrypi dhclient[3897]: No DHCPOFFERS received.
+Dec 07 11:59:15 raspberrypi dhclient[3897]: No working leases in persistent database - sleeping.
+Dec 07 11:59:15 raspberrypi wpa_supplicant[4233]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:59:15 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 11:59:15 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:59:15 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:59:15 raspberrypi wpa_supplicant[4233]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 11:59:15 raspberrypi kernel: wlan1: authenticated
+Dec 07 11:59:15 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 11:59:15 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 11:59:15 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 11:59:15 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 11:59:15 raspberrypi kernel: wlan1: associated
+Dec 07 11:59:15 raspberrypi wpa_supplicant[4233]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 11:59:15 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 11:59:15 raspberrypi wpa_supplicant[4233]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 11:59:15 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 11:59:15 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 12:00:48 raspberrypi NetworkManager[599]: <info>  [1701950448.0973] dhcp4 (eth0): state changed new lease, address=10.0.2.3
+Dec 07 12:00:50 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 12:00:50 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 12:00:51 raspberrypi wpa_supplicant[4233]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 12:00:51 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 12:00:51 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 12:00:51 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 12:00:51 raspberrypi kernel: wlan1: authenticated
+Dec 07 12:00:51 raspberrypi wpa_supplicant[4233]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 12:00:51 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 12:00:51 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 12:00:51 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 12:00:51 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 12:00:51 raspberrypi kernel: wlan1: associated
+Dec 07 12:00:51 raspberrypi wpa_supplicant[4233]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 12:00:51 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 12:00:51 raspberrypi wpa_supplicant[4233]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 12:00:51 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 12:00:51 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 12:02:26 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 12:02:26 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 12:02:27 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 12:02:27 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 12:02:27 raspberrypi wpa_supplicant[4233]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 12:02:27 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 12:02:27 raspberrypi wpa_supplicant[4233]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 12:02:27 raspberrypi kernel: wlan1: authenticated
+Dec 07 12:02:27 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 12:02:27 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 12:02:27 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 12:02:27 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 12:02:27 raspberrypi wpa_supplicant[4233]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 12:02:27 raspberrypi kernel: wlan1: associated
+Dec 07 12:02:27 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 12:02:27 raspberrypi wpa_supplicant[4233]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 12:02:27 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 12:02:27 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 12:03:51 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 7
+Dec 07 12:03:58 raspberrypi dhclient[4238]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 11
+Dec 07 12:04:02 raspberrypi dhclient[4238]: DHCPOFFER of 10.0.1.105 from 10.0.3.254
+Dec 07 12:04:02 raspberrypi dhclient[4238]: DHCPREQUEST for 10.0.1.105 on wlan1 to 255.255.255.255 port 67
+Dec 07 12:04:02 raspberrypi dhclient[4238]: DHCPACK of 10.0.1.105 from 10.0.3.254
+Dec 07 12:04:02 raspberrypi avahi-daemon[514]: Joining mDNS multicast group on interface wlan1.IPv4 with address 10.0.1.105.
+Dec 07 12:04:02 raspberrypi avahi-daemon[514]: New relevant interface wlan1.IPv4 for mDNS.
+Dec 07 12:04:02 raspberrypi avahi-daemon[514]: Registering new address record for 10.0.1.105 on wlan1.IPv4.
+Dec 07 12:04:02 raspberrypi dhclient[4238]: bound to 10.0.1.105 -- renewal in 35408 seconds.
+Dec 07 12:04:02 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 12:04:02 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 12:04:03 raspberrypi wpa_supplicant[4233]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 12:04:03 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 12:04:03 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 12:04:03 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 12:04:03 raspberrypi wpa_supplicant[4233]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 12:04:03 raspberrypi kernel: wlan1: authenticated
+Dec 07 12:04:03 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 12:04:03 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 12:04:03 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 12:04:03 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 12:04:03 raspberrypi wpa_supplicant[4233]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 12:04:03 raspberrypi kernel: wlan1: associated
+Dec 07 12:04:03 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 12:04:03 raspberrypi wpa_supplicant[4233]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 12:04:03 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 12:04:03 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 12:04:39 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 5
+Dec 07 12:04:44 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 5
+Dec 07 12:04:49 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 14
+Dec 07 12:05:03 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 10
+Dec 07 12:05:13 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 21
+Dec 07 12:05:34 raspberrypi dhclient[3897]: DHCPDISCOVER on wlan1 to 255.255.255.255 port 67 interval 6
+Dec 07 12:05:34 raspberrypi dhclient[3897]: DHCPOFFER of 10.0.1.105 from 10.0.3.254
+Dec 07 12:05:34 raspberrypi dhclient[3897]: DHCPREQUEST for 10.0.1.105 on wlan1 to 255.255.255.255 port 67
+Dec 07 12:05:34 raspberrypi dhclient[3897]: DHCPACK of 10.0.1.105 from 10.0.3.254
+Dec 07 12:05:34 raspberrypi dhclient[3897]: bound to 10.0.1.105 -- renewal in 33927 seconds.
+Dec 07 12:05:37 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 6
+Dec 07 12:05:38 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 12:05:38 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 12:05:39 raspberrypi wpa_supplicant[4233]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 12:05:39 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 12:05:39 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 12:05:39 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 12:05:39 raspberrypi wpa_supplicant[4233]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 12:05:39 raspberrypi kernel: wlan1: authenticated
+Dec 07 12:05:39 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 12:05:39 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 12:05:39 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 12:05:39 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 12:05:39 raspberrypi kernel: wlan1: associated
+Dec 07 12:05:39 raspberrypi wpa_supplicant[4233]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 12:05:39 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 12:05:39 raspberrypi wpa_supplicant[4233]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 12:05:39 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 12:05:39 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
+Dec 07 12:05:43 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 8
+Dec 07 12:05:48 raspberrypi NetworkManager[599]: <info>  [1701950748.0994] dhcp4 (eth0): state changed new lease, address=10.0.2.3
+Dec 07 12:05:51 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 18
+Dec 07 12:06:09 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 16
+Dec 07 12:06:25 raspberrypi dhclient[4188]: DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 13
+Dec 07 12:06:38 raspberrypi dhclient[4188]: No DHCPOFFERS received.
+Dec 07 12:06:38 raspberrypi dhclient[4188]: No working leases in persistent database - sleeping.
+Dec 07 12:07:10 raspberrypi sshd[4430]: Failed password for rasp from 10.0.3.254 port 39628 ssh2
+Dec 07 12:07:10 raspberrypi sshd[4430]: Failed password for rasp from 10.0.3.254 port 39628 ssh2
+Dec 07 12:07:10 raspberrypi sshd[4430]: Connection closed by authenticating user rasp 10.0.3.254 port 39628 [preauth]
+Dec 07 12:07:23 raspberrypi sshd[4432]: Accepted publickey for rasp from 10.0.3.254 port 52652 ssh2: RSA SHA256:7l8OkEqY4fhejZibmk0QJ+5JCRB73nFt6cWy4Xu8mLA
+Dec 07 12:07:23 raspberrypi sshd[4432]: pam_unix(sshd:session): session opened for user rasp(uid=1001) by (uid=0)
+Dec 07 12:07:23 raspberrypi systemd[1]: Created slice user-1001.slice - User Slice of UID 1001.
+Dec 07 12:07:23 raspberrypi systemd[1]: Starting user-runtime-dir@1001.service - User Runtime Directory /run/user/1001...
+Dec 07 12:07:23 raspberrypi systemd-logind[542]: New session 8 of user rasp.
+Dec 07 12:07:23 raspberrypi systemd[1]: Finished user-runtime-dir@1001.service - User Runtime Directory /run/user/1001.
+Dec 07 12:07:23 raspberrypi systemd[1]: Starting user@1001.service - User Manager for UID 1001...
+Dec 07 12:07:23 raspberrypi (systemd)[4435]: pam_unix(systemd-user:session): session opened for user rasp(uid=1001) by (uid=0)
+Dec 07 12:07:23 raspberrypi systemd[4435]: Queued start job for default target default.target.
+Dec 07 12:07:23 raspberrypi systemd[4435]: Created slice app.slice - User Application Slice.
+Dec 07 12:07:23 raspberrypi sshd[4432]: pam_env(sshd:session): deprecated reading of user environment enabled
+Dec 07 12:07:23 raspberrypi systemd[4435]: Reached target paths.target - Paths.
+Dec 07 12:07:23 raspberrypi systemd[4435]: Reached target timers.target - Timers.
+Dec 07 12:07:23 raspberrypi systemd[4435]: Starting dbus.socket - D-Bus User Message Bus Socket...
+Dec 07 12:07:23 raspberrypi systemd[4435]: Listening on dirmngr.socket - GnuPG network certificate management daemon.
+Dec 07 12:07:23 raspberrypi systemd[4435]: Listening on gpg-agent-browser.socket - GnuPG cryptographic agent and passphrase cache (access for web browsers).
+Dec 07 12:07:23 raspberrypi systemd[4435]: Listening on gpg-agent-extra.socket - GnuPG cryptographic agent and passphrase cache (restricted).
+Dec 07 12:07:23 raspberrypi systemd[4435]: Listening on gpg-agent-ssh.socket - GnuPG cryptographic agent (ssh-agent emulation).
+Dec 07 12:07:24 raspberrypi sshd[4455]: Received disconnect from 10.0.3.254 port 52652:11: disconnected by user
+Dec 07 12:07:23 raspberrypi systemd[4435]: Listening on gpg-agent.socket - GnuPG cryptographic agent and passphrase cache.
+Dec 07 12:07:24 raspberrypi sshd[4455]: Disconnected from user rasp 10.0.3.254 port 52652
+Dec 07 12:07:23 raspberrypi systemd[4435]: Listening on dbus.socket - D-Bus User Message Bus Socket.
+Dec 07 12:07:24 raspberrypi sshd[4432]: pam_unix(sshd:session): session closed for user rasp
+Dec 07 12:07:23 raspberrypi systemd[4435]: Reached target sockets.target - Sockets.
+Dec 07 12:07:23 raspberrypi systemd[4435]: Reached target basic.target - Basic System.
+Dec 07 12:07:23 raspberrypi systemd[4435]: Reached target default.target - Main User Target.
+Dec 07 12:07:23 raspberrypi systemd[1]: Started user@1001.service - User Manager for UID 1001.
+Dec 07 12:07:23 raspberrypi systemd[4435]: Startup finished in 554ms.
+Dec 07 12:07:23 raspberrypi systemd[1]: Started session-8.scope - Session 8 of User rasp.
+Dec 07 12:07:24 raspberrypi systemd[1]: session-8.scope: Deactivated successfully.
+Dec 07 12:07:24 raspberrypi systemd-logind[542]: Session 8 logged out. Waiting for processes to exit.
+Dec 07 12:07:24 raspberrypi systemd-logind[542]: Removed session 8.
+Dec 07 12:07:30 raspberrypi sshd[4458]: Failed password for rasp from 10.0.3.254 port 52660 ssh2
+Dec 07 12:07:30 raspberrypi sshd[4458]: Failed password for rasp from 10.0.3.254 port 52660 ssh2
+Dec 07 12:07:30 raspberrypi sshd[4458]: Connection closed by authenticating user rasp 10.0.3.254 port 52660 [preauth]
+Dec 07 12:07:34 raspberrypi systemd[1]: Stopping user@1001.service - User Manager for UID 1001...
+Dec 07 12:07:34 raspberrypi systemd[4435]: Activating special unit exit.target...
+Dec 07 12:07:34 raspberrypi systemd[4435]: Stopped target default.target - Main User Target.
+Dec 07 12:07:34 raspberrypi systemd[4435]: Stopped target basic.target - Basic System.
+Dec 07 12:07:34 raspberrypi systemd[4435]: Stopped target paths.target - Paths.
+Dec 07 12:07:34 raspberrypi systemd[4435]: Stopped target sockets.target - Sockets.
+Dec 07 12:07:34 raspberrypi systemd[4435]: Stopped target timers.target - Timers.
+Dec 07 12:07:34 raspberrypi systemd[4435]: Closed dbus.socket - D-Bus User Message Bus Socket.
+Dec 07 12:07:34 raspberrypi systemd[4435]: Closed dirmngr.socket - GnuPG network certificate management daemon.
+Dec 07 12:07:34 raspberrypi systemd[4435]: Closed gpg-agent-browser.socket - GnuPG cryptographic agent and passphrase cache (access for web browsers).
+Dec 07 12:07:34 raspberrypi systemd[4435]: Closed gpg-agent-extra.socket - GnuPG cryptographic agent and passphrase cache (restricted).
+Dec 07 12:07:34 raspberrypi systemd[4435]: Closed gpg-agent-ssh.socket - GnuPG cryptographic agent (ssh-agent emulation).
+Dec 07 12:07:34 raspberrypi systemd[4435]: Closed gpg-agent.socket - GnuPG cryptographic agent and passphrase cache.
+Dec 07 12:07:34 raspberrypi systemd[4435]: Removed slice app.slice - User Application Slice.
+Dec 07 12:07:34 raspberrypi systemd[4435]: Reached target shutdown.target - Shutdown.
+Dec 07 12:07:34 raspberrypi systemd[4435]: Finished systemd-exit.service - Exit the Session.
+Dec 07 12:07:34 raspberrypi systemd[4435]: Reached target exit.target - Exit the Session.
+Dec 07 12:07:34 raspberrypi systemd[1]: user@1001.service: Deactivated successfully.
+Dec 07 12:07:34 raspberrypi systemd[1]: Stopped user@1001.service - User Manager for UID 1001.
+Dec 07 12:07:34 raspberrypi systemd[1]: Stopping user-runtime-dir@1001.service - User Runtime Directory /run/user/1001...
+Dec 07 12:07:34 raspberrypi systemd[1]: run-user-1001.mount: Deactivated successfully.
+Dec 07 12:07:34 raspberrypi systemd[1]: user-runtime-dir@1001.service: Deactivated successfully.
+Dec 07 12:07:34 raspberrypi systemd[1]: Stopped user-runtime-dir@1001.service - User Runtime Directory /run/user/1001.
+Dec 07 12:07:34 raspberrypi systemd[1]: Removed slice user-1001.slice - User Slice of UID 1001.
+Dec 07 12:07:43 raspberrypi sshd[4462]: Accepted publickey for rasp from 10.0.3.254 port 57124 ssh2: RSA SHA256:7l8OkEqY4fhejZibmk0QJ+5JCRB73nFt6cWy4Xu8mLA
+Dec 07 12:07:43 raspberrypi sshd[4462]: pam_unix(sshd:session): session opened for user rasp(uid=1001) by (uid=0)
+Dec 07 12:07:43 raspberrypi systemd[1]: Created slice user-1001.slice - User Slice of UID 1001.
+Dec 07 12:07:44 raspberrypi systemd[1]: Starting user-runtime-dir@1001.service - User Runtime Directory /run/user/1001...
+Dec 07 12:07:44 raspberrypi systemd-logind[542]: New session 10 of user rasp.
+Dec 07 12:07:44 raspberrypi systemd[1]: Finished user-runtime-dir@1001.service - User Runtime Directory /run/user/1001.
+Dec 07 12:07:44 raspberrypi systemd[1]: Starting user@1001.service - User Manager for UID 1001...
+Dec 07 12:07:44 raspberrypi (systemd)[4465]: pam_unix(systemd-user:session): session opened for user rasp(uid=1001) by (uid=0)
+Dec 07 12:07:44 raspberrypi systemd[4465]: Queued start job for default target default.target.
+Dec 07 12:07:44 raspberrypi systemd[4465]: Created slice app.slice - User Application Slice.
+Dec 07 12:07:44 raspberrypi systemd[4465]: Reached target paths.target - Paths.
+Dec 07 12:07:44 raspberrypi systemd[4465]: Reached target timers.target - Timers.
+Dec 07 12:07:44 raspberrypi systemd[4465]: Starting dbus.socket - D-Bus User Message Bus Socket...
+Dec 07 12:07:44 raspberrypi systemd[4465]: Listening on dirmngr.socket - GnuPG network certificate management daemon.
+Dec 07 12:07:44 raspberrypi systemd[4465]: Listening on gpg-agent-browser.socket - GnuPG cryptographic agent and passphrase cache (access for web browsers).
+Dec 07 12:07:44 raspberrypi systemd[4465]: Listening on gpg-agent-extra.socket - GnuPG cryptographic agent and passphrase cache (restricted).
+Dec 07 12:07:44 raspberrypi systemd[4465]: Listening on gpg-agent-ssh.socket - GnuPG cryptographic agent (ssh-agent emulation).
+Dec 07 12:07:44 raspberrypi systemd[4465]: Listening on gpg-agent.socket - GnuPG cryptographic agent and passphrase cache.
+Dec 07 12:07:44 raspberrypi systemd[4465]: Listening on dbus.socket - D-Bus User Message Bus Socket.
+Dec 07 12:07:44 raspberrypi systemd[4465]: Reached target sockets.target - Sockets.
+Dec 07 12:07:44 raspberrypi systemd[4465]: Reached target basic.target - Basic System.
+Dec 07 12:07:44 raspberrypi systemd[4465]: Reached target default.target - Main User Target.
+Dec 07 12:07:44 raspberrypi systemd[1]: Started user@1001.service - User Manager for UID 1001.
+Dec 07 12:07:44 raspberrypi systemd[4465]: Startup finished in 560ms.
+Dec 07 12:07:44 raspberrypi systemd[1]: Started session-10.scope - Session 10 of User rasp.
+Dec 07 12:07:44 raspberrypi sshd[4462]: pam_env(sshd:session): deprecated reading of user environment enabled
+Dec 07 12:07:44 raspberrypi sshd[4486]: Received disconnect from 10.0.3.254 port 57124:11: disconnected by user
+Dec 07 12:07:44 raspberrypi sshd[4486]: Disconnected from user rasp 10.0.3.254 port 57124
+Dec 07 12:07:44 raspberrypi sshd[4462]: pam_unix(sshd:session): session closed for user rasp
+Dec 07 12:07:44 raspberrypi systemd[1]: session-10.scope: Deactivated successfully.
+Dec 07 12:07:44 raspberrypi systemd-logind[542]: Session 10 logged out. Waiting for processes to exit.
+Dec 07 12:07:44 raspberrypi systemd-logind[542]: Removed session 10.
+Dec 07 12:07:54 raspberrypi systemd[1]: Stopping user@1001.service - User Manager for UID 1001...
+Dec 07 12:07:54 raspberrypi systemd[4465]: Activating special unit exit.target...
+Dec 07 12:07:54 raspberrypi systemd[4465]: Stopped target default.target - Main User Target.
+Dec 07 12:07:54 raspberrypi systemd[4465]: Stopped target basic.target - Basic System.
+Dec 07 12:07:54 raspberrypi systemd[4465]: Stopped target paths.target - Paths.
+Dec 07 12:07:54 raspberrypi systemd[4465]: Stopped target sockets.target - Sockets.
+Dec 07 12:07:54 raspberrypi systemd[4465]: Stopped target timers.target - Timers.
+Dec 07 12:07:54 raspberrypi systemd[4465]: Closed dbus.socket - D-Bus User Message Bus Socket.
+Dec 07 12:07:54 raspberrypi systemd[4465]: Closed dirmngr.socket - GnuPG network certificate management daemon.
+Dec 07 12:07:54 raspberrypi systemd[4465]: Closed gpg-agent-browser.socket - GnuPG cryptographic agent and passphrase cache (access for web browsers).
+Dec 07 12:07:54 raspberrypi systemd[4465]: Closed gpg-agent-extra.socket - GnuPG cryptographic agent and passphrase cache (restricted).
+Dec 07 12:07:54 raspberrypi systemd[4465]: Closed gpg-agent-ssh.socket - GnuPG cryptographic agent (ssh-agent emulation).
+Dec 07 12:07:54 raspberrypi systemd[4465]: Closed gpg-agent.socket - GnuPG cryptographic agent and passphrase cache.
+Dec 07 12:07:54 raspberrypi systemd[4465]: Removed slice app.slice - User Application Slice.
+Dec 07 12:07:54 raspberrypi systemd[4465]: Reached target shutdown.target - Shutdown.
+Dec 07 12:07:54 raspberrypi systemd[4465]: Finished systemd-exit.service - Exit the Session.
+Dec 07 12:07:54 raspberrypi systemd[4465]: Reached target exit.target - Exit the Session.
+Dec 07 12:07:54 raspberrypi systemd[1]: user@1001.service: Deactivated successfully.
+Dec 07 12:07:55 raspberrypi systemd[1]: Stopped user@1001.service - User Manager for UID 1001.
+Dec 07 12:07:55 raspberrypi systemd[1]: Stopping user-runtime-dir@1001.service - User Runtime Directory /run/user/1001...
+Dec 07 12:07:55 raspberrypi systemd[1]: run-user-1001.mount: Deactivated successfully.
+Dec 07 12:07:55 raspberrypi systemd[1]: user-runtime-dir@1001.service: Deactivated successfully.
+Dec 07 12:07:55 raspberrypi systemd[1]: Stopped user-runtime-dir@1001.service - User Runtime Directory /run/user/1001.
+Dec 07 12:07:55 raspberrypi systemd[1]: Removed slice user-1001.slice - User Slice of UID 1001.
+Dec 07 12:07:56 raspberrypi kernel: wlan1: deauthenticated from b8:27:eb:4e:b2:31 (Reason: 3=DEAUTH_LEAVING)
+Dec 07 12:07:56 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-DISCONNECTED bssid=b8:27:eb:4e:b2:31 reason=3
+Dec 07 12:07:57 raspberrypi wpa_supplicant[4233]: wlan1: SME: Trying to authenticate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 12:07:57 raspberrypi kernel: wlan1: authenticate with b8:27:eb:4e:b2:31
+Dec 07 12:07:57 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 12:07:57 raspberrypi kernel: wlan1: send auth to b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 12:07:57 raspberrypi kernel: wlan1: authenticated
+Dec 07 12:07:57 raspberrypi wpa_supplicant[4233]: wlan1: Trying to associate with b8:27:eb:4e:b2:31 (SSID='REE' freq=2437 MHz)
+Dec 07 12:07:57 raspberrypi kernel: rtl8192cu 1-1.5:1.0 wlan1: disabling HT/VHT/HE as WMM/QoS is not supported by the AP
+Dec 07 12:07:57 raspberrypi kernel: wlan1: 80 MHz not supported, disabling VHT
+Dec 07 12:07:57 raspberrypi kernel: wlan1: associate with b8:27:eb:4e:b2:31 (try 1/3)
+Dec 07 12:07:57 raspberrypi kernel: wlan1: RX AssocResp from b8:27:eb:4e:b2:31 (capab=0x411 status=0 aid=1)
+Dec 07 12:07:57 raspberrypi kernel: wlan1: associated
+Dec 07 12:07:57 raspberrypi wpa_supplicant[4233]: wlan1: Associated with b8:27:eb:4e:b2:31
+Dec 07 12:07:57 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-SUBNET-STATUS-UPDATE status=0
+Dec 07 12:07:57 raspberrypi wpa_supplicant[4233]: wlan1: WPA: Key negotiation completed with b8:27:eb:4e:b2:31 [PTK=CCMP GTK=CCMP]
+Dec 07 12:07:57 raspberrypi wpa_supplicant[4233]: wlan1: CTRL-EVENT-CONNECTED - Connection to b8:27:eb:4e:b2:31 completed [id=0 id_str=]
+Dec 07 12:07:57 raspberrypi kernel: wlan1: Limiting TX power to 30 (30 - 0) dBm as advertised by b8:27:eb:4e:b2:31
