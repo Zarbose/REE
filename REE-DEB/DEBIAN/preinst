@@ -3,7 +3,7 @@
 # Installation des dépendances
 
 # Installation wpa_supplicant
-apt-get install wpasupplicant
+apt-get install wpa_supplicant
 
 # Configuration wpa_supplicant
 # /!\ Verifier si ce n'est pas déjà présent dans le fichier"
