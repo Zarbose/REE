@@ -1,4 +1,86 @@
 #/bin/bash -u
 
 # Installation des dépendances
-# Configuration des différents paramètres
+
+# Installation wpa_supplicant
+apt-get install wpa_supplicant
+
+# Configuration wpa_supplicant
+# /!\ Verifier si ce n'est pas déjà présent dans le fichier"
+echo -n "network={ \
+    ssid="REE" \
+    psk="REE123456" #A modifier avec le mot de passe du Wi-Fi REE \
+}" >> /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
+
+systemctl stop wpa_supplicant.service
+systemctl disable wpa_supplicant.service
+
+systemctl start wpa_supplicant@wlan1.service
+systemctl enable wpa_supplicant@wlan1.service
+systemctl status wpa_supplicant@wlan1.service
+
+dhclient
+
+# Configuration inteface wlan0
+# /!\ Verifier si ce n'est pas déjà présent dans le fichier"
+echo -n "interface wlan0 \
+static ip_address=11.0.0.1/29 \
+static routers=10.0.3.254 #A modifier avec l'ip de passerelle (première pi) \
+static domain_name_servers=8.8.8.8" >> /etc/dhcpcd.conf
+
+systemctl restart dhcpcd.service
+
+# Configuration DNSmasq
+# /!\ Verifier si ce n'est pas déjà présent dans le fichier"
+echo -n "interface=wlan0\
+\
+dhcp-range=11.0.0.2,11.0.0.6,255.255.255.248,24h\
+server=8.8.8.8" >> /etc/dnsmasq.conf
+
+systemctl restart dnsmasq.service
+
+# Installation hostapd
+apt-get install hostapd
+
+# Configuration hostapd 
+echo -n "interface=wlan0 \
+ssid=REE2 \
+hw_mode=g \
+channel=1 \
+macaddr_acl=0 \
+auth_algs=1 \
+#ignore_broadcast_ssid=0 \
+wpa=2 \
+wpa_passphrase=REE123456 \
+wpa_key_mgmt=WPA-PSK \
+wpa_pairwise=TKIP \
+rsn_pairwise=CCMP \
+country_code=FR \
+# /!\ Pour réécrire les rules, à verifier \
+ctrl_interface=/var/run/hostapd \
+ctrl_interface_group=0 \
+daemonize /usr/local/bin/manageroutes" > /etc/hostapd/hostapd.conf
+
+systemctl restart hostapd.service
+
+# /!\ Voir si on ne peut pas empêcher hostapd d'ecrire ces propre routes
+ip route del default via 10.0.3.254 dev wlan0 src 11.0.0.1 metric 3003
+ip route del 10.0.3.254 dev wlan0 scope link src 11.0.0.1 metric 3003
+
+ip route add -net 11.0.0.0 netmask 255.255.255.248 dev wlan0
+
+# Configuration iptables
+echo -n "*filter \
+:INPUT ACCEPT [0:0] \
+:FORWARD ACCEPT [0:0] \
+:OUTPUT ACCEPT [0:0] \
+-A FORWARD -i wlan0 -j ACCEPT \
+-A FORWARD -o wlan0 -j ACCEPT \
+COMMIT \
+*nat \
+:PREROUTING ACCEPT [0:0] \
+:INPUT ACCEPT [0:0] \
+:OUTPUT ACCEPT [4:324] \
+:POSTROUTING ACCEPT [0:0] \
+-A POSTROUTING -o wlan1 -j MASQUERADE \
+COMMIT" > /etc/iptables/rules.v4
