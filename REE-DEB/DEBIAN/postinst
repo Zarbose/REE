@@ -11,22 +11,27 @@ log() {
 ifconfig eth0 | grep -q 'inet '
 if [ $? -eq 0 ]; then
     log "postinst pour raspberry 1 "
+    #partie sécu
 else
     log "postinst pour raspberry N "
 
-    echo "[Unit]
-    Description=Service qui se lance au demarage et qui crée un cronjob
-
-    [Service]
-    ExecStart=/usr/local/bin/cronjobscript
-    Restart=always
-    User=pi
-
-    [Install]
-    WantedBy=multi-user.target" > /etc/systemd/system/REEBoot.service
-
-    systemctl enable REEBoot.service
-    systemctl start REEBoot.service
-
-
 fi
+
+log "Creation du service REEboot"
+echo "[Unit]
+Description=Lance le script qui dynamise les conf apres le lancement de wpa_supplicant
+After=wpa_supplicant.service
+Wants=wpa_supplicant.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/dynamiconnection
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target" > /etc/systemd/system/REEBoot.service
+
+sudo systemctl daemon-reload
+sudo systemctl enable REEBoot.service
+sudo systemctl start REEBoot.service
