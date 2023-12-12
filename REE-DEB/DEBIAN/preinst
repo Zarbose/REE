@@ -22,7 +22,6 @@ systemctl status wpa_supplicant@wlan1.service
 dhclient
 
 # Configuration inteface wlan0 
-#/!\ automatisé fonction de Pi paire ou impaire
 echo -n 'interface wlan0
 static ip_address=10.0.1.1/30
 #IP DE la box
@@ -34,9 +33,6 @@ systemctl restart dhcpcd.service
 
 
 # Configuration DNSmasq
-#/!\ automatisé fonction de Pi paire ou impaire (sois 10.0.1.2 et 10.0.1.3 soit 10.0.2.2 et 10.0.2.3)
-
-
 echo 'interface=wlan0
 dhcp-range=10.0.1.2,10.0.1.3,255.255.255.252,24h
 server=8.8.8.8
@@ -67,13 +63,10 @@ sudo systemctl unmask hostapd
 sudo systemctl enable hostapd
 systemctl restart hostapd.service
 
-# /!\ Voir si on ne peut pas empêcher hostapd d'ecrire ces propre routes
 # Que pour les PI wireless -> wireless
-#/!\ automatisé fonction de Pi paire ou impaire
 ip route del default via 10.0.3.254 dev wlan0 src 11.0.0.1 metric 3003
 ip route del 10.0.3.254 dev wlan0 scope link src 11.0.0.1 metric 3003
 
-#10.0.1.1 #non-Wlan0 IP
 ip route add -net 10.0.1.1 netmask 255.255.255.252 dev wlan0 
 
 
