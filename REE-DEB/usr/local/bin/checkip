@@ -1,23 +1,24 @@
-#!/bin/bash
+#DEPRECATED
+# #!/bin/bash
 
-LOG_FILE="/var/log/REE.log"
+# LOG_FILE="/var/log/REE.log"
 
-# Fonction pour ajouter un timestamp aux messages de logs
-log() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
-}
+# # Fonction pour ajouter un timestamp aux messages de logs
+# log() {
+#     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+# }
 
-# Vérifier si wlan1 a une adresse IP
-if [[ -n $(ifconfig wlan1 | grep 'inet ' | awk '{print $2}') ]]; then
+# # Vérifier si wlan1 a une adresse IP
+# if [[ -n $(ifconfig wlan1 | grep 'inet ' | awk '{print $2}') ]]; then
 
-    log "L'interface wlan1 a une adresse IP. Exécution du script."
-    # Exécuter le script lorsque l'adresse IP est présente
-    dynamiconnection
+#     log "L'interface wlan1 a une adresse IP. Exécution du script."
+#     # Exécuter le script lorsque l'adresse IP est présente
+#     dynamiconnection
 
-    #suppression du cronjob
-    (crontab -l | grep -v "auto-detect_IP_wlan1") | crontab -
-    log "cronjob auto-detect_IP_wlan1 supprimé."
-else
-    log "L'interface wlan1 n'a pas d'adresse IP."
+#     #suppression du cronjob
+#     (crontab -l | grep -v "auto-detect_IP_wlan1") | crontab -
+#     log "cronjob auto-detect_IP_wlan1 supprimé."
+# else
+#     log "L'interface wlan1 n'a pas d'adresse IP."
 
-fi
+# fi

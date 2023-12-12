@@ -63,36 +63,4 @@ sudo systemctl unmask hostapd
 sudo systemctl enable hostapd
 systemctl restart hostapd.service
 
-# Que pour les PI wireless -> wireless
-ip route del default via 10.0.3.254 dev wlan0 src 11.0.0.1 metric 3003
-ip route del 10.0.3.254 dev wlan0 scope link src 11.0.0.1 metric 3003
-
-ip route add -net 10.0.1.1 netmask 255.255.255.252 dev wlan0 
-
-
-# Configuration iptables
-
-# echo '*filter 
-# :INPUT ACCEPT [0:0] 
-# :FORWARD ACCEPT [0:0] 
-# :OUTPUT ACCEPT [0:0] 
-# -A FORWARD -i wlan0 -j ACCEPT 
-# -A FORWARD -o wlan0 -j ACCEPT 
-# COMMIT 
-# *nat 
-# :PREROUTING ACCEPT [0:0] 
-# :INPUT ACCEPT [0:0] 
-# :OUTPUT ACCEPT [4:324] 
-# :POSTROUTING ACCEPT [0:0] 
-# -A POSTROUTING -o wlan1 -j MASQUERADE 
-# COMMIT' > /etc/iptables/rules.v4
-
-# iptables -F
-# iptables -t nat -F
-# iptables -P INPUT ACCEPT
-# iptables -P FORWARD ACCEPT
-# iptables -P OUTPUT ACCEPT
-# iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
-# iptables -A FORWARD -i eth0 -o wlan0 -j ACCEPT
-# iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-# sh -c "iptables-save > /etc/iptables/rules.v4" 
+ 
