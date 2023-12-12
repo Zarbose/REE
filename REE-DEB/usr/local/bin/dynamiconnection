@@ -1,0 +1,86 @@
+#!/bin/bash
+
+# Verification si première Pi ou non 
+ifconfig eth0 | grep -q 'inet '
+if [ $? -eq 0 ]; then
+    # Raspberry numéro 1.
+
+    # Finalisation de la configuration IPtable
+    iptables -F
+    iptables -t nat -F
+    iptables -P INPUT ACCEPT
+    iptables -P FORWARD ACCEPT
+    iptables -P OUTPUT ACCEPT
+    iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+    iptables -A FORWARD -i eth0 -o wlan0 -j ACCEPT
+    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+    sh -c "iptables-save > /etc/iptables/rules.v4" 
+
+
+else
+    # Raspberry numéro N.
+
+    # Obtension de l'adresse IP de l'interface wlan1 (obtenue via DHCP de la Pi précédente)
+    ipwlan1=$(ifconfig wlan1 | grep 'inet ' | awk '{print $2}')
+    if [ "$ipwlan1" == "10.0.1.2" ]; then
+        ipwlan0="10.0.2.1"
+        ipdhcp="10.0.2.2"
+    else
+        ipwlan0="10.0.1.1"
+        ipdhcp="10.0.1.2"
+    fi
+
+    #total_lignes=$(wc -l < "$fichier" | awk '{print $1}')
+    #head -n $((total_lignes - nombre_de_lignes_a_supprimer)) "$fichier" > "$fichier"
+
+    # Modification IP inteface wlan0 
+    total_lignes=$(wc -l < /etc/dhcpcd.conf | awk '{print $1}')
+    head -n $((total_lignes - 5)) /etc/dhcpcd.conf > fichier_temporaire.txt
+    mv fichier_temporaire.txt /etc/dhcpcd.conf
+
+    echo 'interface wlan0
+    static ip_address='$ipwlan0'/30
+    #IP DE la box
+    static routers=192.168.1.254
+    static domain_name_servers=8.8.8.8
+    ' >> /etc/dhcpcd.conf
+
+    systemctl restart dhcpcd.service
+
+    # Modification IP DNSmasq
+    total_lignes=$(wc -l < /etc/dnsmasq.conf | awk '{print $1}')
+    head -n $((total_lignes - 3)) /etc/dnsmasq.conf > fichier_temporaire.txt
+    mv fichier_temporaire.txt /etc/dnsmasq.conf
+
+    echo 'interface=wlan0
+    dhcp-range='"$ipdhcp,$(echo "$ipdhcp" | awk -F'.' '{print $1"."$2"."$3"."$4 + 2}')"'.255.255.252,24h
+    server=8.8.8.8' >> /etc/dnsmasq.conf
+
+    systemctl restart dnsmasq.service
+
+    #Suppression des réécriture des routes
+    manageroutes
+
+    # Finalisation de la configuration IPtable
+    echo '*filter 
+    :INPUT ACCEPT [0:0] 
+    :FORWARD ACCEPT [0:0] 
+    :OUTPUT ACCEPT [0:0] 
+    -A FORWARD -i wlan0 -j ACCEPT 
+    -A FORWARD -o wlan0 -j ACCEPT 
+    COMMIT 
+    *nat 
+    :PREROUTING ACCEPT [0:0] 
+    :INPUT ACCEPT [0:0] 
+    :OUTPUT ACCEPT [4:324] 
+    :POSTROUTING ACCEPT [0:0] 
+    -A POSTROUTING -o wlan1 -j MASQUERADE 
+    COMMIT' > /etc/iptables/rules.v4
+
+fi
+
+
+
+
+
+
