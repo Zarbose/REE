@@ -7,12 +7,10 @@ apt install iptables -y
 apt install iptables-persistent -y
 
 # Configuration wpa_supplicant
-# /! Verifier si ce n'est pas déjà présent dans le fichier"
 echo 'network={
     ssid="REE"
     psk="REE123456" #A modifier avec le mot de passe du Wi-Fi REE
 }' >> /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
-
 
 systemctl stop wpa_supplicant.service
 systemctl disable wpa_supplicant.service
