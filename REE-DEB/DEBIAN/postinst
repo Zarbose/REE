@@ -17,7 +17,9 @@ else
 
 fi
 
+#service connexion dynamique 
 log "Creation du service REEboot"
+
 echo "[Unit]
 Description=Lance le script qui dynamise les conf apres le lancement de wpa_supplicant
 After=wpa_supplicant.service
@@ -35,3 +37,24 @@ WantedBy=default.target" > /etc/systemd/system/REEBoot.service
 sudo systemctl daemon-reload
 sudo systemctl enable REEBoot.service
 sudo systemctl start REEBoot.service
+
+#service wifi signal
+log "Creation du service WifiSignal"
+
+echo "[Unit]
+Description=Lance le script qui wifi signal au demmarage de la pi apres que toutes les IPs soient bien établie 
+After=REEBoot.service
+Wants=REEBoot.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/wifisignal
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target" > /etc/systemd/system/WifiSignal.service
+
+sudo systemctl daemon-reload
+sudo systemctl enable WifiSignal.service
+sudo systemctl start WifiSignal.service
