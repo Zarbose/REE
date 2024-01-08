@@ -9,7 +9,7 @@ do
     #SIGNAL=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep CtlRSSI | sed -e 's/^.*://g') 
     
     #linux (replace "cat output.txt" by iwconfig command )
-    SIGNAL=$(cat output.txt | grep Quality | awk  '{print $4}' | cut -d'=' -f2)
+    SIGNAL=$(iwconfig wlan0 | grep Quality | awk  '{print $4}' | cut -d'=' -f2)
     
     echo $SIGNAL
 
