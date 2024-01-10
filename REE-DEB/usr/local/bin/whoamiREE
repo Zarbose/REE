@@ -1,0 +1,28 @@
+#!/bin/bash
+
+LOG_FILE="/var/log/REE.log"
+
+# Fonction pour ajouter un timestamp aux messages de logs
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+
+# Verification si première Pi ou non 
+ifconfig eth0 | grep -q 'inet '
+if [ $? -eq 0 ]; then
+    # Raspberry numéro 1.
+    log "Raspberry numero 1."
+
+    #start le service de la rasp 1
+    systemctl start dynamicETH.service
+
+    #stop wpa_supplicant
+    systemctl stop wpa_supplicant@wlan1.service
+else
+    # Raspberry numéro N.
+    log "Raspberry numero N."
+
+    #start les services des rasp N
+    systemctl start dynamicWLAN.service
+    systemctl start wifisignal.service
+fi
