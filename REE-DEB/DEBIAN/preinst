@@ -5,6 +5,9 @@ apt install dnsmasq -y
 apt install hostapd -y
 apt install iptables -y
 apt install iptables-persistent -y
+apt install dhcpcd -y
+apt install espeak -y
+
 
 # Configuration wpa_supplicant
 echo 'network={
@@ -59,8 +62,8 @@ country_code=FR
 #daemonize /usr/local/bin/manageroutes
 ' > /etc/hostapd/hostapd.conf
 
-sudo systemctl unmask hostapd
-sudo systemctl enable hostapd
+systemctl unmask hostapd
+systemctl enable hostapd
 systemctl restart hostapd.service
 
  

@@ -17,34 +17,55 @@ else
 
 fi
 
-#service connexion dynamique 
-log "Creation du service REEboot"
+#service whoamiREE 
+log "Creation du service whoamiREE"
 
+#After=dhclient.service pour être sur d'avoir une IP sur eth0 si un cable est branché
 echo "[Unit]
-Description=Lance le script qui dynamise les conf apres le lancement de wpa_supplicant
-After=wpa_supplicant.service
-Wants=wpa_supplicant.service
+Description=Lance le script qui va determiner si la Rasp est la 1er ou non
+Before=wpa_supplicant@wlan1.service
+After=dhclient.service  
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/dynamiconnection
-Restart=on-failure
+ExecStart=/usr/local/bin/whoamiREE
+Restart=on-failure 
 RestartSec=5s
 
 [Install]
-WantedBy=default.target" > /etc/systemd/system/REEBoot.service
+WantedBy=default.target" > /etc/systemd/system/whoamiREE.service
 
-sudo systemctl daemon-reload
-sudo systemctl enable REEBoot.service
-sudo systemctl start REEBoot.service
+systemctl daemon-reload
+systemctl enable whoamiREE.service
+systemctl start whoamiREE.service
 
-#service wifi signal
+#service connexion dynamicWLAN ( à activer pour rasp N)
+log "Creation du service dynamicWLAN"
+
+echo "[Unit]
+Description=Lance le script qui dynamise les conf apres le lancement de wpa_supplicant pour rasp N
+Required=wpa_supplicant.service@wlan1.service whoamiREE.service
+After=wpa_supplicant.service@wlan1.service whoamiREE.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/dynamiconnectionWLAN
+Restart=on-failure 
+RestartSec=5s
+
+[Install]
+WantedBy=default.target" > /etc/systemd/system/dynamicWLAN.service
+
+#sudo systemctl enable REEBoot.service
+#sudo systemctl start REEBoot.service
+
+#service wifi signal ( à activer pour rasp N)
 log "Creation du service WifiSignal"
 
 echo "[Unit]
 Description=Lance le script qui wifi signal au demmarage de la pi apres que toutes les IPs soient bien établie 
-After=REEBoot.service
-Wants=REEBoot.service
+After=dynamicWLAN.service
+Required=dynamicWLAN.service
 
 [Service]
 Type=simple
@@ -53,8 +74,24 @@ Restart=on-failure
 RestartSec=5s
 
 [Install]
-WantedBy=default.target" > /etc/systemd/system/WifiSignal.service
+WantedBy=default.target" > /etc/systemd/system/wifisignal.service
 
-sudo systemctl daemon-reload
-sudo systemctl enable WifiSignal.service
-sudo systemctl start WifiSignal.service
+#service connexion dynamicETH (à activer pour rasp 1)
+log "Creation du service dynamicETH"
+
+echo "[Unit]
+Description=Lance le script qui dynamise les conf pour rasp 1
+After=whoamiREE.service
+Required=whoamiREE.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/dynamiconnectionETH
+Restart=on-failure 
+RestartSec=5s
+
+[Install]
+WantedBy=default.target" > /etc/systemd/system/dynamicETH.service
+
+
+systemctl daemon-reload
