@@ -10,6 +10,7 @@ jobs:
 
   build-linux-packages:
     runs-on: ubuntu-latest
+    container: arm64v8/debian:latest
     steps:
       - name: Checkout 
         uses: actions/checkout@v4
@@ -28,18 +29,18 @@ jobs:
         #   commands: |
         #     dpkg-deb --build --root-owner-group REE-DEB
 
-      - name: Upload release image
-        uses: actions/upload-artifact@v4
-        with:
-          name: Release image
-          path: REE-DEB.deb
-
-      # - name: Publish release
-      #   uses: "marvinpinto/action-automatic-releases@latest"
+      # - name: Upload release image
+      #   uses: actions/upload-artifact@v4
       #   with:
-      #     repo_token: "${{ secrets.GIT_TOKEN }}"
-      #     automatic_release_tag: "latest"
-      #     prerelease: false
-      #     title: "Development Build"
-      #     files: |
-      #       REE-DEB.deb
+      #     name: Release image
+      #     path: REE-DEB.deb
+
+      - name: Publish release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GIT_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "Development Build"
+          files: |
+            REE-DEB.deb
