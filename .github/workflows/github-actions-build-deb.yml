@@ -25,16 +25,20 @@ jobs:
         with:
           commands: |
             dpkg-deb --build --root-owner-group REE-DEB
-            ls -al
 
-      - name: Publish release
-        uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Upload release image
+        uses: actions/upload-artifact@v2
+        if: github.ref == 'refs/heads/releng' || startsWith(github.ref, 'refs/tags/')
         with:
-          commands: |
-            ls -al
-          repo_token: "${{ secrets.GIT_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: false
-          title: "Development Build"
-          files: |
-            REE-DEB.deb
+          name: Release image
+          path: REE-DEB.deb
+
+      # - name: Publish release
+      #   uses: "marvinpinto/action-automatic-releases@latest"
+      #   with:
+      #     repo_token: "${{ secrets.GIT_TOKEN }}"
+      #     automatic_release_tag: "latest"
+      #     prerelease: false
+      #     title: "Development Build"
+      #     files: |
+      #       REE-DEB.deb
