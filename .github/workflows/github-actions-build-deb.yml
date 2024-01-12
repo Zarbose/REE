@@ -21,8 +21,10 @@ jobs:
           chmod 755 REE-DEB/usr/local/bin/hello
 
       - name: Create deb package
-        run: |
-          dpkg-deb --build --root-owner-group REE-DEB
+        uses: pguyot/arm-runner-action@v2
+        with:
+          commands: |
+            dpkg-deb --build --root-owner-group REE-DEB
 
       - name: Publish release
         uses: "marvinpinto/action-automatic-releases@latest"
