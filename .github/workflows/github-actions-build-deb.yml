@@ -30,6 +30,8 @@ jobs:
       - name: Publish release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
+          commands: |
+            ls -al
           repo_token: "${{ secrets.GIT_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: false
