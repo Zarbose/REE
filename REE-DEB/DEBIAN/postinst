@@ -23,8 +23,8 @@ log "Creation du service whoamiREE"
 #After=dhclient.service pour être sur d'avoir une IP sur eth0 si un cable est branché
 echo "[Unit]
 Description=Lance le script qui va determiner si la Rasp est la 1er ou non
-Before=wpa_supplicant@wlan1.service
-After=dhclient.service  
+After=dhclient.service 
+After=network-online.target
 
 [Service]
 Type=simple
@@ -44,8 +44,6 @@ log "Creation du service dynamicWLAN"
 
 echo "[Unit]
 Description=Lance le script qui dynamise les conf apres le lancement de wpa_supplicant pour rasp N
-Required=wpa_supplicant.service@wlan1.service whoamiREE.service
-After=wpa_supplicant.service@wlan1.service whoamiREE.service
 
 [Service]
 Type=simple
@@ -65,7 +63,6 @@ log "Creation du service WifiSignal"
 echo "[Unit]
 Description=Lance le script qui wifi signal au demmarage de la pi apres que toutes les IPs soient bien établie 
 After=dynamicWLAN.service
-Required=dynamicWLAN.service
 
 [Service]
 Type=simple
@@ -81,8 +78,6 @@ log "Creation du service dynamicETH"
 
 echo "[Unit]
 Description=Lance le script qui dynamise les conf pour rasp 1
-After=whoamiREE.service
-Required=whoamiREE.service
 
 [Service]
 Type=simple
