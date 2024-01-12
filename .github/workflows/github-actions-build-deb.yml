@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Create deb package
         uses: pguyot/arm-runner-action@v2
@@ -21,15 +21,16 @@ jobs:
             chmod 755 REE-DEB/DEBIAN/preinst
             chmod 755 REE-DEB/usr/local/bin/hello
             dpkg-deb --build --root-owner-group REE-DEB
-            ls -al
 
+      - name: Test ls
+        run: | 
+          ls -al
+        
       - name: Upload artifac
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v2
         with:
           name: ree-build-package
           path: REE-DEB.deb
-          commands: |
-            ls -al
   
   publish-linux-packages:
       runs-on: ubuntu-latest
@@ -37,7 +38,7 @@ jobs:
       steps:
       
         - name: Download artifact
-          uses: actions/download-artifact@v4
+          uses: actions/download-artifact@v2
           with:
             name: ree-build-package
             path: REE-DEB.deb
