@@ -29,6 +29,8 @@ jobs:
       - name: Upload release image
         uses: actions/upload-artifact@v2
         with:
+          commands: |
+            ls -al
           name: Release image
           path: REE-DEB.deb
 
