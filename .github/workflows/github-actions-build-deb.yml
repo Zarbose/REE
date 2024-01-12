@@ -21,16 +21,16 @@ jobs:
           chmod 755 REE-DEB/usr/local/bin/hello
 
       - name: Create deb package
-        uses: pguyot/arm-runner-action@v2
-        with:
-          commands: |
-            dpkg-deb --build --root-owner-group REE-DEB
+        run: |
+          dpkg-deb --build --root-owner-group REE-DEB
+        # uses: pguyot/arm-runner-action@v2
+        # with:
+        #   commands: |
+        #     dpkg-deb --build --root-owner-group REE-DEB
 
       - name: Upload release image
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          commands: |
-            ls -al
           name: Release image
           path: REE-DEB.deb
 
