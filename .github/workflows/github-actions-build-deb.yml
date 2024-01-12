@@ -21,12 +21,15 @@ jobs:
             chmod 755 REE-DEB/DEBIAN/preinst
             chmod 755 REE-DEB/usr/local/bin/hello
             dpkg-deb --build --root-owner-group REE-DEB
+            ls -al
 
       - name: Upload artifac
         uses: actions/upload-artifact@v4
         with:
           name: ree-build-package
           path: REE-DEB.deb
+          commands: |
+            ls -al
   
   publish-linux-packages:
       runs-on: ubuntu-latest
