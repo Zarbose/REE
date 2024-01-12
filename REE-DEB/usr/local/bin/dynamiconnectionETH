@@ -13,7 +13,7 @@ log "Raspberry numero 1."
 
 # Configuration inteface wlan0 
 total_lignes=$(wc -l < /etc/dhcpcd.conf | awk '{print $1}')
-head -n $((total_lignes - 6)) /etc/dhcpcd.conf > fichier_temporaire.txt
+head -n $((total_lignes - 5)) /etc/dhcpcd.conf > fichier_temporaire.txt
 mv fichier_temporaire.txt /etc/dhcpcd.conf
 
 echo -n 'interface wlan0
@@ -55,4 +55,5 @@ sh -c "iptables-save > /etc/iptables/rules.v4"
 
 log "Ecriture des iptables."
 
-
+log "Restart hostapd"
+systemctl restart hostapd.service
