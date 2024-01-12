@@ -17,6 +17,7 @@ jobs:
         uses: pguyot/arm-runner-action@v2
         id: build_deb
         with:
+          copy_artifact_path: REE-DEB.deb 
           commands: |
             chmod 755 REE-DEB/DEBIAN/postinst
             chmod 755 REE-DEB/DEBIAN/preinst
