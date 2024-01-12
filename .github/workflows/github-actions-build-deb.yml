@@ -22,11 +22,7 @@ jobs:
             chmod 755 REE-DEB/DEBIAN/preinst
             chmod 755 REE-DEB/usr/local/bin/hello
             dpkg-deb --build --root-owner-group REE-DEB
-
-      - name: Test ls
-        run: | 
-          echo ${{ steps.build_deb.outputs.files  }} 
-          ls -al
+            ls -al
         
       - name: Upload artifac
         uses: actions/upload-artifact@v2
