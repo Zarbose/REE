@@ -25,7 +25,7 @@ jobs:
 
       - name: Test ls
         run: | 
-          file ${{ steps.build_deb.outputs.files  }} 
+          echo ${{ steps.build_deb.outputs.files  }} 
           ls -al
         
       - name: Upload artifac
