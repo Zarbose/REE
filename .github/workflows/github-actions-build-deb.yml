@@ -24,7 +24,7 @@ jobs:
 
       - name: Test ls
         run: | 
-          mv ${{ steps }}
+          echo ${{ steps }} 
           ls -al
         
       - name: Upload artifac
