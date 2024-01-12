@@ -10,8 +10,6 @@ log() {
 # Raspberry numéro N.
 log "Raspberry numero N."
 
-
-
 # Obtension de l'adresse IP de l'interface wlan1 (obtenue via DHCP de la Pi précédente)
 ipwlan1=$(ifconfig wlan1 | grep 'inet ' | awk '{print $2}')
 
