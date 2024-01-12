@@ -25,6 +25,7 @@ jobs:
         with:
           commands: |
             dpkg-deb --build --root-owner-group REE-DEB
+            ls -al
 
       - name: Publish release
         uses: "marvinpinto/action-automatic-releases@latest"
