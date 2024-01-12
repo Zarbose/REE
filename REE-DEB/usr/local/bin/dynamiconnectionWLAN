@@ -10,17 +10,33 @@ log() {
 # Raspberry numéro N.
 log "Raspberry numero N."
 
+
+
 # Obtension de l'adresse IP de l'interface wlan1 (obtenue via DHCP de la Pi précédente)
 ipwlan1=$(ifconfig wlan1 | grep 'inet ' | awk '{print $2}')
-if [ "$ipwlan1" == "10.0.1.2" ]; then
-    #IP pour raspberry paire
-    ipwlan0="10.0.2.1"
-    ipdhcp="10.0.2.2"
-else
-    #IP pour raspberry impaire
-    ipwlan0="10.0.1.1"
-    ipdhcp="10.0.1.2"
-fi
+
+#DEPRACATED
+# if [ "$ipwlan1" == "10.0.1.2" ]; then
+#     #IP pour raspberry paire
+#     ipwlan0="10.0.2.1"
+#     ipdhcp="10.0.2.2"
+# else
+#     #IP pour raspberry impaire
+#     ipwlan0="10.0.1.1"
+#     ipdhcp="10.0.1.2"
+# fi
+
+# Deduction de ipwlan0 grâce à wlan1
+# ipwlan1=10.0.N.2
+# ipwlan0=10.0.N+1.1
+ipwlan0=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 + 1 "."$4 - 1}')
+
+# Deduction ipdhcp grâce a wlan0
+ipdhcp=$(echo "$ipwlan0" | awk -F'.' '{print $1"."$2"."$3"."$4 +1 }')
+
+# Deduction de iprouter grâce à wlan1
+iprouter=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 + 1 "."$4 - 1}')
+
 
 # Modification IP inteface wlan0 
 total_lignes=$(wc -l < /etc/dhcpcd.conf | awk '{print $1}')
@@ -28,9 +44,9 @@ head -n $((total_lignes - 5)) /etc/dhcpcd.conf > fichier_temporaire.txt
 mv fichier_temporaire.txt /etc/dhcpcd.conf
 
 echo 'interface wlan0
-static ip_address='$ipwlan0'/30
+static ip_address=$ipwlan0/29
 #IP DE la box
-static routers=192.168.1.254
+static routers=$iprouter
 static domain_name_servers=8.8.8.8
 ' >> /etc/dhcpcd.conf
 
@@ -44,7 +60,7 @@ head -n $((total_lignes - 3)) /etc/dnsmasq.conf > fichier_temporaire.txt
 mv fichier_temporaire.txt /etc/dnsmasq.conf
 
 echo 'interface=wlan0
-dhcp-range='"$ipdhcp,$(echo "$ipdhcp" | awk -F'.' '{print $1"."$2"."$3"."$4 + 2}')"'.255.255.252,24h
+dhcp-range=$ipdhcp,$(echo "$ipdhcp" | awk -F'.' '{print $1"."$2"."$3"."$4 + 1}').255.255.248,24h
 server=8.8.8.8' >> /etc/dnsmasq.conf
 
 systemctl restart dnsmasq.service
@@ -56,11 +72,8 @@ log "Modification et Restart de dnsmasq"
 ip route flush table main
 log "Cleaning des routes existantes."
 
-# Obtension de l'adresse IP de l'interface wlan1 (obtenue via DHCP de la Pi précédente)
-ipwlan1=$(ifconfig wlan1 | grep 'inet ' | awk '{print $2}')
-
 # Ajouter la route souhaitée
-ip route add -net $ipwlan1 netmask 255.255.255.252 dev wlan0
+ip route add -net $ipwlan1 netmask 255.255.255.248 dev wlan0
 log "ajout de la route wlan0 vers $ipwlan1 ."
 
 #clean /etc/iptables/rules.v4
