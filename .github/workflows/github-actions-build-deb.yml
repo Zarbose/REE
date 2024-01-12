@@ -25,7 +25,7 @@ jobs:
 
       - name: Test ls
         run: | 
-          echo ${{ steps.build_deb.outputs.REE-DEB.deb }} 
+          cat ${{ steps.build_deb.outputs }} 
           ls -al
         
       - name: Upload artifac
