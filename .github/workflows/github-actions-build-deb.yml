@@ -15,6 +15,7 @@ jobs:
 
       - name: Create deb package
         uses: pguyot/arm-runner-action@v2
+        id: build_deb
         with:
           commands: |
             chmod 755 REE-DEB/DEBIAN/postinst
@@ -24,7 +25,7 @@ jobs:
 
       - name: Test ls
         run: | 
-          echo ${{ steps }} 
+          echo ${{ steps.build_deb.outputs }} 
           ls -al
         
       - name: Upload artifac
