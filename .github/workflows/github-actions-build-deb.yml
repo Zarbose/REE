@@ -34,4 +34,4 @@ jobs:
           prerelease: false
           title: "Development Build"
           files: |
-            REE-DEB_AMD.deb
+            REE-DEB.deb
