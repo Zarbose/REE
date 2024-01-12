@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# git clone https://github.com/Zarbose/REE.git
-# cd REE
+git clone https://github.com/Zarbose/REE.git
+cd REE
 
 chmod 755 REE-DEB/DEBIAN/postinst
 chmod 755 REE-DEB/DEBIAN/preinst
