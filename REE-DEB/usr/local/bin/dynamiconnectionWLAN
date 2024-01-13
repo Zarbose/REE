@@ -73,8 +73,8 @@ ip route flush table main
 log "Cleaning des routes existantes."
 
 # Ajouter la route souhaitée
-ip route add -net $ipwlan1 netmask 255.255.255.248 dev wlan0
-ip route add default via $iprouter dev wlan1
+# ip route add -net $ipwlan1 netmask 255.255.255.248 dev wlan0
+# ip route add default via $iprouter dev wlan1
 
 log "ajout de la route wlan0 vers $ipwlan1 ."
 
