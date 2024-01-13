@@ -7,7 +7,7 @@ log() {
 }
 
 # Attente que l'une des interfaces (eth0 ou wlan1) obtienne une adresse IP
-while ! (ifconfig eth0 | grep -q 'inet ' || ifconfig wlan1 | grep -q 'inet '); do
+while ! (ifconfig eth0 | grep -q 'inet ' || (ifconfig wlan1 | grep -q 'inet ' && ifconfig wlan1 | grep -q 'inet 10.')); do
     sleep 1
 done
 
