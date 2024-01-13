@@ -82,24 +82,38 @@ log "ajout de la route wlan0 vers $ipwlan1 ."
 echo " " > /etc/iptables/rules.v4
 
 # Finalisation de la configuration IPtable
-echo "*filter 
-:INPUT ACCEPT [0:0] 
-:FORWARD ACCEPT [0:0] 
-:OUTPUT ACCEPT [0:0] 
--A FORWARD -i wlan0 -j ACCEPT 
--A FORWARD -o wlan0 -j ACCEPT 
-COMMIT 
-*nat 
-:PREROUTING ACCEPT [0:0] 
-:INPUT ACCEPT [0:0] 
-:OUTPUT ACCEPT [4:324] 
-:POSTROUTING ACCEPT [0:0] 
--A POSTROUTING -o wlan1 -j MASQUERADE 
-COMMIT" > /etc/iptables/rules.v4
+# echo "*filter 
+# :INPUT ACCEPT [0:0] 
+# :FORWARD ACCEPT [0:0] 
+# :OUTPUT ACCEPT [0:0] 
+# -A FORWARD -i wlan0 -j ACCEPT 
+# -A FORWARD -o wlan0 -j ACCEPT 
+# COMMIT 
+# *nat 
+# :PREROUTING ACCEPT [0:0] 
+# :INPUT ACCEPT [0:0] 
+# :OUTPUT ACCEPT [4:324] 
+# :POSTROUTING ACCEPT [0:0] 
+# -A POSTROUTING -o wlan1 -j MASQUERADE 
+# COMMIT" > /etc/iptables/rules.v4
+iptables -F
+iptables -t nat -F
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -A FORWARD -i wlan0 -j ACCEPT
+iptables -A FORWARD -o wlan0 -j ACCEPT
+iptables -t nat -A POSTROUTING -o wlan1 -j MASQUERADE
+
+iptables-save | sudo tee /etc/iptables/rules.v4
+
 log "Ecriture des iptables."
 
-#log "Restart hostapd"
-#systemctl restart hostapd.service
+sysctl -w net.ipv4.ip_forward=1 
+sysctl -p
+
+log "Restart hostapd"
+systemctl restart hostapd.service
 
 
 
