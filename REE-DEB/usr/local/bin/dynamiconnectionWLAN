@@ -69,8 +69,8 @@ log "Modification et Restart de dnsmasq"
 #Suppression des réécriture des routes
 # ip route del default via 10.0.3.254 dev wlan0 src 11.0.0.1 metric 3003
 # ip route del 10.0.3.254 dev wlan0 scope link src 11.0.0.1 metric 3003
-ip route flush table main
-log "Cleaning des routes existantes."
+#ip route flush table main
+#log "Cleaning des routes existantes."
 
 # Ajouter la route souhaitée
 # ip route add -net $ipwlan1 netmask 255.255.255.248 dev wlan0
