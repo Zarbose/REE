@@ -27,5 +27,7 @@ else
     log "Raspberry numero N."
 
     systemctl start dynamicWLAN.service
+    systemctl start delroute.service
     systemctl start wifisignal.service
+
 fi

@@ -13,17 +13,6 @@ log "Raspberry numero N."
 # Obtension de l'adresse IP de l'interface wlan1 (obtenue via DHCP de la Pi précédente)
 ipwlan1=$(ifconfig wlan1 | grep 'inet ' | awk '{print $2}')
 
-#DEPRACATED
-# if [ "$ipwlan1" == "10.0.1.2" ]; then
-#     #IP pour raspberry paire
-#     ipwlan0="10.0.2.1"
-#     ipdhcp="10.0.2.2"
-# else
-#     #IP pour raspberry impaire
-#     ipwlan0="10.0.1.1"
-#     ipdhcp="10.0.1.2"
-# fi
-
 # Deduction de ipwlan0 grâce à wlan1
 # ipwlan1=10.0.N.2
 # ipwlan0=10.0.N+1.1
@@ -95,8 +84,8 @@ log "Restart hostapd"
 systemctl restart hostapd.service
 
 #ip route flush table main
-ip route del default via $iprouter dev wlan0 src $ipwlan0 metric 303
-ip route del $iprouter dev wlan0 scope link src $ipwlan0 metric 303
+sudo ip route del default via $iprouter dev wlan0 src $ipwlan0 metric 303
+sudo ip route del $iprouter dev wlan0 scope link src $ipwlan0 metric 303
 log "Cleaning des routes existantes."
 
 # Ajouter la route souhaitée

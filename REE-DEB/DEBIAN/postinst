@@ -88,5 +88,20 @@ RestartSec=5s
 [Install]
 WantedBy=default.target" > /etc/systemd/system/dynamicETH.service
 
+#service qui supprime les route créer par hostpad
+log "Creation du service delroute"
+
+echo "[Unit]
+Description=Lance le script qui supprime les route inutile
+After=hostapd.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/delroute
+Restart=on-failure 
+RestartSec=5s
+
+[Install]
+WantedBy=default.target" > /etc/systemd/system/delroute.service
 
 systemctl daemon-reload
