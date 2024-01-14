@@ -66,36 +66,11 @@ server=8.8.8.8" >> /etc/dnsmasq.conf
 systemctl restart dnsmasq.service
 log "Modification et Restart de dnsmasq"
 
-#Suppression des réécriture des routes
-# ip route del default via 10.0.3.254 dev wlan0 src 11.0.0.1 metric 3003
-# ip route del 10.0.3.254 dev wlan0 scope link src 11.0.0.1 metric 3003
-#ip route flush table main
-#log "Cleaning des routes existantes."
-
-# Ajouter la route souhaitée
-# ip route add -net $ipwlan1 netmask 255.255.255.248 dev wlan0
-# ip route add default via $iprouter dev wlan1
-
-log "ajout de la route wlan0 vers $ipwlan1 ."
 
 #clean /etc/iptables/rules.v4
 echo " " > /etc/iptables/rules.v4
 
 # Finalisation de la configuration IPtable
-# echo "*filter 
-# :INPUT ACCEPT [0:0] 
-# :FORWARD ACCEPT [0:0] 
-# :OUTPUT ACCEPT [0:0] 
-# -A FORWARD -i wlan0 -j ACCEPT 
-# -A FORWARD -o wlan0 -j ACCEPT 
-# COMMIT 
-# *nat 
-# :PREROUTING ACCEPT [0:0] 
-# :INPUT ACCEPT [0:0] 
-# :OUTPUT ACCEPT [4:324] 
-# :POSTROUTING ACCEPT [0:0] 
-# -A POSTROUTING -o wlan1 -j MASQUERADE 
-# COMMIT" > /etc/iptables/rules.v4
 iptables -F
 iptables -t nat -F
 iptables -P INPUT ACCEPT
@@ -112,9 +87,20 @@ log "Ecriture des iptables."
 sysctl -w net.ipv4.ip_forward=1 
 sysctl -p
 
+chmod u+x /run/hostpad.pid
+chmod g+x /run/hostpad.pid
+chmod o+x /run/hostpad.pid
+
 log "Restart hostapd"
 systemctl restart hostapd.service
 
+#ip route flush table main
+ip route del default via $iprouter dev wlan0 src $ipwlan0 metric 303
+ip route del $iprouter dev wlan0 scope link src $ipwlan0 metric 303
+log "Cleaning des routes existantes."
 
+# Ajouter la route souhaitée
+# ip route add -net $ipwlan1 netmask 255.255.255.248 dev wlan0
+# ip route add default via $iprouter dev wlan1
 
-
+#log "ajout de la route wlan0 vers $ipwlan1 ."
