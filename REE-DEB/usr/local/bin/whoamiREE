@@ -5,6 +5,16 @@ LOG_FILE="/var/log/REE.log"
 log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
 }
+#liberation des adresses IP
+dhclient -r wlan1
+# Redémarrage de l'interface wlan1
+ifdown wlan1
+ifup wlan1
+
+dhclient -r wlan0
+# Redémarrage de l'interface wlan1
+ifdown wlan0
+ifup wlan0
 
 # Attente que l'une des interfaces (eth0 ou wlan1) obtienne une adresse IP
 while ! (ifconfig eth0 | grep -q 'inet ' || (ifconfig wlan1 | grep -q 'inet ' && ifconfig wlan1 | grep -q 'inet 10.')); do
