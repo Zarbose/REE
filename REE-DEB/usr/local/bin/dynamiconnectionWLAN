@@ -71,8 +71,8 @@ iptables-save | sudo tee /etc/iptables/rules.v4
 
 log "Ecriture des iptables."
 
-sysctl -w net.ipv4.ip_forward=1 
-sysctl -p
+log "Activation IP forward"
+echo 1 > /proc/sys/net/ipv4/ip_forward
 
 chmod u+x /run/hostpad.pid
 chmod g+x /run/hostpad.pid
