@@ -53,3 +53,6 @@ log "Ecriture des iptables."
 
 log "Restart hostapd"
 systemctl restart hostapd.service
+
+log "Activation IP forward"
+echo 1 > /proc/sys/net/ipv4/ip_forward
