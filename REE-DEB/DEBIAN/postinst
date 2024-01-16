@@ -94,6 +94,7 @@ log "Creation du service delroute"
 echo "[Unit]
 Description=Lance le script qui supprime les route inutile
 After=hostapd.service
+After=dynamicWLAN.service
 
 [Service]
 Type=simple
