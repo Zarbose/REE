@@ -1,5 +1,8 @@
 #/bin/bash -u
 
+# Sécurité
+sudo rfkill unblock wifi
+
 # Installation des paquets
 apt install dnsmasq -y
 apt install hostapd -y
