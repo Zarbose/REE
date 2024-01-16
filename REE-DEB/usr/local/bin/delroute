@@ -20,16 +20,23 @@ ipdhcp=$(echo "$ipwlan0" | awk -F'.' '{print $1"."$2"."$3"."$4 +1 }')
 # Deduction de iprouter grâce à wlan1
 iprouter=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 "."$4 - 1}')
 
+# Deduction ipnetwork grâce à wlan0
+# ipnetwork=$(echo "$ipwlan0" | awk -F'.' '{print $1"."$2"."$3 "."$4 - 2}')
 
+# log "ipnetwork = $ipnetwork"
+# sudo route add -net ipnetwork netmask 255.255.255.248 dev wlan0
+# log "Ajout de la nouvelles route"
 while true; do
     if [ "$(ip route list | wc -l)" -gt 4 ]; then
         # Supprimer les routes inutiles
         ip route del default via $iprouter dev wlan0 src $ipwlan0 metric 303
         ip route del $iprouter dev wlan0 scope link src $ipwlan0 metric 303
-        # Ajouter autant de lignes que nécessaire pour supprimer les routes inutiles
+      
         log "Cleaning des routes hostapd inutiles."
+
+
     fi
 
     # Attendre avant de vérifier à nouveau
-    sleep 120  # ajustez la valeur en secondes selon vos besoins
+    sleep 20  
 done
