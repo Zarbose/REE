@@ -12,13 +12,15 @@ ipwlan1=$(ifconfig wlan1 | grep 'inet ' | awk '{print $2}')
 # Deduction de ipwlan0 grâce à wlan1
 # ipwlan1=10.0.N.2
 # ipwlan0=10.0.N+1.1
-ipwlan0=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 + 1 "."$4 - 1}')
+ipwlan0=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 + 1 "."1}')
+#ipwlan0=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 + 1 "."$4 - 1}')
 
 # Deduction ipdhcp grâce a wlan0
 ipdhcp=$(echo "$ipwlan0" | awk -F'.' '{print $1"."$2"."$3"."$4 +1 }')
 
 # Deduction de iprouter grâce à wlan1
-iprouter=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 "."$4 - 1}')
+iprouter=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 "."1}')
+#iprouter=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 "."$4 - 1}')
 
 # Deduction ipnetwork grâce à wlan0
 # ipnetwork=$(echo "$ipwlan0" | awk -F'.' '{print $1"."$2"."$3 "."$4 - 2}')
