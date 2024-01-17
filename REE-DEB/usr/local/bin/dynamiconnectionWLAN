@@ -17,15 +17,21 @@ log "ipwlan1 = $ipwlan1"
 # Deduction de ipwlan0 grâce à wlan1
 # ipwlan1=10.0.N.2
 # ipwlan0=10.0.N+1.1
-ipwlan0=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 + 1 "."$4 - 1}')
+ipwlan0=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 + 1 "."1}')
+#ipwlan0=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 + 1 "."$4 - 1}')
 log "ipwlan0 = $ipwlan0"
 
 # Deduction ipdhcp grâce a wlan0
 ipdhcp=$(echo "$ipwlan0" | awk -F'.' '{print $1"."$2"."$3"."$4 +1 }')
 log "ipdhcp = $ipdhcp"
 
+# Deduction ipdhcp2 grâce a ipdhcp
+ipdhcp2=$(echo "$ipdhcp" | awk -F'.' '{print $1"."$2"."$3"."$4 +1 }')
+log "ipdhcp2 = $ipdhcp2"
+
 # Deduction de iprouter grâce à wlan1
-iprouter=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 "."$4 - 1}')
+iprouter=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 "."1}')
+#iprouter=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 "."$4 - 1}')
 log "iprouter = $iprouter"
 
 # Modification IP inteface wlan0 
@@ -47,7 +53,7 @@ log "Modification et Restart de dhcpcd"
 # Modification IP DNSmasq
 
 echo "interface=wlan0
-dhcp-range=$ipwlan0,$ipdhcp,255.255.255.248,24h
+dhcp-range=$ipdhcp,$ipdhcp2,255.255.255.248,24h
 server=8.8.8.8" > /etc/dnsmasq.conf
 
 systemctl restart dnsmasq.service
