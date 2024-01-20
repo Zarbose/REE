@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 10
+
 sudo systemctl stop dhcpcd.service
 sudo systemctl stop dnsmasq.service
 sudo systemctl stop hostapd.service
@@ -15,7 +17,7 @@ systemctl stop wpa_supplicant@wlan1.service
 systemctl start wpa_supplicant@wlan1.service
 
 
-sleep 1
+sleep 5
 while $(ifconfig wlan1 | grep 'inet ' | awk '{print $2}' | wc -w)
 do
     dhclient
