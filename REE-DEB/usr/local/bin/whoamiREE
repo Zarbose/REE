@@ -39,5 +39,6 @@ else
     systemctl start dynamicWLAN.service
     systemctl start delroute.service
     systemctl start wifisignal.service
+    systemctl start washing.service 
 
 fi
