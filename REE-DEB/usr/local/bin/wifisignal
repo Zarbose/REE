@@ -14,7 +14,7 @@ do
     for ((i=0; i<10; i++)); do
         SIGNAL=$(iwconfig wlan1 | grep Signal | awk  '{print $4}' | cut -d'=' -f2)
         tableau+=($(echo $SIGNAL))
-        sleep 0,1
+        sleep 0.1
     done
     somme=0
     for valeur in "${tableau[@]}"; do
