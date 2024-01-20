@@ -18,7 +18,7 @@ systemctl start wpa_supplicant@wlan1.service
 
 
 sleep 5
-while $(ifconfig wlan1 | grep 'inet ' | awk '{print $2}' | wc -w)
+while [ $(ifconfig wlan1 | grep 'inet ' | awk '{print $2}' | wc -w) -eq 0 ]
 do
     dhclient
     sleep 2
