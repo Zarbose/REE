@@ -32,7 +32,7 @@ do
         sleep 0.3
         espeak "Stop"
 
-        exit 1
+        exit 0
     fi
     unset tableau
 done
