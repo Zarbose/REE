@@ -1,11 +1,11 @@
 #!/bin/bash
 
+sleep 10
+
 ping -c 2 -W 2 8.8.8.8 > /dev/null
 
 if [ $? -eq 1 ]
 then
-    sleep 10
-    
     sudo systemctl stop dhcpcd.service
     sudo systemctl stop dnsmasq.service
     sudo systemctl stop hostapd.service
