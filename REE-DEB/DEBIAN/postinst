@@ -105,4 +105,22 @@ RestartSec=5s
 [Install]
 WantedBy=default.target" > /etc/systemd/system/delroute.service
 
+
+# service qui fait du nettoyage si la pi est mal conf
+log "Creation du service washing"
+echo "[Unit]
+Description=Nettoyage pi male config au démarage
+After=dynamicWLAN.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/washing
+Restart=on-failure 
+RestartSec=5s
+
+[Install]
+WantedBy=default.target" > /etc/systemd/system/washing.service
+
+
+
 systemctl daemon-reload
