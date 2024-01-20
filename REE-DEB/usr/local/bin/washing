@@ -24,6 +24,6 @@ do
     sleep 2
 done
 
-sudo /usr/local/bin/dynamicWlan
+sudo /usr/local/bin/dynamiconnectionWLAN
 
 sudo systemctl restart delroute.service
