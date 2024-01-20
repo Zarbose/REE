@@ -31,4 +31,6 @@ then
     sudo /usr/local/bin/dynamiconnectionWLAN
     
     sudo systemctl restart delroute.service
+
+    touch /home/rpi/test
 fi
