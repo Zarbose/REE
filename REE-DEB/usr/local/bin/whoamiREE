@@ -44,5 +44,6 @@ else
     systemctl start delroute.service
     systemctl start wifisignal.service
     systemctl start washing.service 
+    systemctl start connexionClientFinal.service 
 
 fi
