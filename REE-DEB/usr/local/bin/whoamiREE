@@ -1,0 +1,49 @@
+#!/bin/bash
+
+LOG_FILE="/var/log/REE.log"
+
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+#liberation des adresses IP
+dhclient -r wlan1
+# Redémarrage de l'interface wlan1
+ifdown wlan1
+ifup wlan1
+
+dhclient -r wlan0
+# Redémarrage de l'interface wlan1
+ifdown wlan0
+ifup wlan0
+
+# Attente que l'une des interfaces (eth0 ou wlan1) obtienne une adresse IP
+while ! (ifconfig eth0 | grep -q 'inet ' || (ifconfig wlan1 | grep -q 'inet ' && ifconfig wlan1 | grep -q 'inet 10.')); do
+    sleep 1
+done
+
+log "Une des interfaces a obtenu une adresse IP."
+
+# Vérification si c'est la première Pi ou non
+if ifconfig eth0 | grep -q 'inet '; then
+    # Raspberry numéro 1.
+    log "Raspberry numero 1."
+
+    echo "0" > /usr/local/bin/status
+
+    systemctl start dynamicETH.service
+
+    # Arrêter wpa_supplicant pour wlan1
+    systemctl stop wpa_supplicant@wlan1.service
+else
+    # Raspberry numéro N.
+    log "Raspberry numero N."
+
+    echo "1" > /usr/local/bin/status
+
+    systemctl start dynamicWLAN.service
+    systemctl start delroute.service
+    systemctl start wifisignal.service
+    systemctl start washing.service 
+    systemctl start connexionClientFinal.service 
+
+fi

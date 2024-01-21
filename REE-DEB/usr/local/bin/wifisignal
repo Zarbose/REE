@@ -1,0 +1,39 @@
+#!/bin/bash
+
+FICHIER_AUDIO="../sound/alarm.wav"
+SEUIL_WIFI_SIGNAL=-85
+
+while x=1; 
+do  
+    
+    #linux (replace "cat output.txt" by iwconfig command )
+    #SIGNAL=$(iwconfig wlan1 | grep Signal | awk  '{print $4}' | cut -d'=' -f2)
+    #echo $SIGNAL
+
+    declare -a tableau
+    for ((i=0; i<10; i++)); do
+        SIGNAL=$(iwconfig wlan1 | grep Signal | awk  '{print $4}' | cut -d'=' -f2)
+        tableau+=($(echo $SIGNAL))
+        sleep 0.1
+    done
+    somme=0
+    for valeur in "${tableau[@]}"; do
+        somme=$((somme + valeur))
+    done
+    moyenne=$((somme / ${#tableau[@]}))
+
+    if [ $moyenne -lt $SEUIL_WIFI_SIGNAL ]
+    then
+        echo "Signal Wi-Fi trop faible. Déclenchement de l'alarme..."
+        #aplay -d 3 "$FICHIER_AUDIO" # "-d 3" -> duration of 3 sec
+        espeak "Stop"
+        sleep 0.3
+        espeak "Stop"
+        sleep 0.3
+        espeak "Stop"
+
+        exit 0
+    fi
+    unset tableau
+done
+

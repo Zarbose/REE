@@ -1,0 +1,30 @@
+#!/bin/bash
+
+sleep 10
+
+sudo systemctl stop dhcpcd.service
+sudo systemctl stop dnsmasq.service
+sudo systemctl stop hostapd.service
+
+sudo ifconfig wlan0 down
+sudo ifconfig wlan1 down
+
+sudo ip addr flush dev wlan0
+sudo ip addr flush dev wlan1
+
+
+systemctl stop wpa_supplicant@wlan1.service
+systemctl start wpa_supplicant@wlan1.service
+
+
+sleep 5
+while [ $(ifconfig wlan1 | grep 'inet ' | awk '{print $2}' | wc -w) -eq 0 ]
+do
+    dhclient
+    sleep 2
+done
+
+sudo /usr/local/bin/dynamiconnectionWLAN
+
+sudo systemctl restart delroute.service
+

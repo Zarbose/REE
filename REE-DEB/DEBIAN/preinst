@@ -1,4 +1,55 @@
 #/bin/bash -u
 
-# Installation des dépendances
-# Configuration des différents paramètres
+# Sécurité
+sudo rfkill unblock wifi
+
+chmod u+x /usr/local/bin/*
+
+# Installation des paquets
+apt install dnsmasq -y
+apt install hostapd -y
+apt install iptables -y
+apt install iptables-persistent -y
+apt install dhcpcd -y
+apt install espeak -y
+
+
+# Configuration wpa_supplicant
+echo 'network={
+    ssid="REE"
+    psk="REE123456789"
+}' > /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
+
+systemctl stop wpa_supplicant.service
+systemctl disable wpa_supplicant.service
+
+systemctl start wpa_supplicant@wlan1.service
+systemctl enable wpa_supplicant@wlan1.service
+systemctl status wpa_supplicant@wlan1.service
+
+dhclient
+
+# Configuration hostapd 
+echo 'interface=wlan0
+ssid=REE
+hw_mode=g
+channel=1
+macaddr_acl=0
+auth_algs=1
+#ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase=REE123456789
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+country_code=FR
+#ctrl_interface=/var/run/hostapd
+#ctrl_interface_group=0
+#daemonize /usr/local/bin/manageroutes
+' > /etc/hostapd/hostapd.conf
+
+systemctl unmask hostapd
+systemctl enable hostapd
+systemctl restart hostapd.service
+
+ 

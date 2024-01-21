@@ -1,5 +1,5 @@
 Package: REE
 Version: 1.0
-Architecture: amd64
+Architecture: any
 Maintainer: Simon
 Description: Hello World.

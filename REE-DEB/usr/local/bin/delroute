@@ -1,0 +1,47 @@
+#!/bin/bash
+
+LOG_FILE="/var/log/REE.log"
+
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+
+# Obtension de l'adresse IP de l'interface wlan1 (obtenue via DHCP de la Pi précédente)
+ipwlan1=$(ifconfig wlan1 | grep 'inet ' | awk '{print $2}')
+
+# Deduction de ipwlan0 grâce à wlan1
+# ipwlan1=10.0.N.2
+# ipwlan0=10.0.N+1.1
+ipwlan0=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 + 1 "."1}')
+#ipwlan0=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 + 1 "."$4 - 1}')
+
+# Deduction ipdhcp grâce a wlan0
+ipdhcp=$(echo "$ipwlan0" | awk -F'.' '{print $1"."$2"."$3"."$4 +1 }')
+
+# Deduction de iprouter grâce à wlan1
+iprouter=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 "."1}')
+#iprouter=$(echo "$ipwlan1" | awk -F'.' '{print $1"."$2"."$3 "."$4 - 1}')
+
+# Deduction ipnetwork grâce à wlan0
+# ipnetwork=$(echo "$ipwlan0" | awk -F'.' '{print $1"."$2"."$3 "."$4 - 2}')
+
+# log "ipnetwork = $ipnetwork"
+# sudo route add -net ipnetwork netmask 255.255.255.248 dev wlan0
+# log "Ajout de la nouvelles route"
+while true; do
+    if [ "$(ip route list | wc -l)" -gt 4 ]; then
+        # Supprimer les routes inutiles
+        ip route del default via $iprouter dev wlan0 src $ipwlan0 metric 303
+        ip route del $iprouter dev wlan0 scope link src $ipwlan0 metric 303
+
+        ip route del default via $iprouter dev eth0
+        ip route del $iprouter dev eth0
+      
+        log "Cleaning des routes hostapd inutiles."
+
+
+    fi
+
+    # Attendre avant de vérifier à nouveau
+    sleep 20  
+done
