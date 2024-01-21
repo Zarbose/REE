@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sleep 10
-
 sudo systemctl stop dhcpcd.service
 sudo systemctl stop dnsmasq.service
 sudo systemctl stop hostapd.service
