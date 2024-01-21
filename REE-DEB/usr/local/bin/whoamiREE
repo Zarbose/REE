@@ -5,6 +5,34 @@ LOG_FILE="/var/log/REE.log"
 log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
 }
+
+echo 'network={
+    ssid="REE"
+    psk="REE123456789"
+}' > /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
+systemctl restart wpa_supplicant@wlan1.service
+
+echo 'interface=wlan0
+ssid=REE
+hw_mode=g
+channel=1
+macaddr_acl=0
+auth_algs=1
+#ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase=REE123456789
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+country_code=FR
+#ctrl_interface=/var/run/hostapd
+#ctrl_interface_group=0
+#daemonize /usr/local/bin/manageroutes
+' > /etc/hostapd/hostapd.conf
+systemctl restart hostapd.service
+
+
+
 #liberation des adresses IP
 dhclient -r wlan1
 # Redémarrage de l'interface wlan1
@@ -29,7 +57,8 @@ if ifconfig eth0 | grep -q 'inet '; then
     log "Raspberry numero 1."
 
     echo "0" > /usr/local/bin/status
-
+    echo "0" > /usr/local/bin/DH
+    
     systemctl start dynamicETH.service
 
     # Arrêter wpa_supplicant pour wlan1
@@ -39,11 +68,11 @@ else
     log "Raspberry numero N."
 
     echo "1" > /usr/local/bin/status
+    echo "1" > /usr/local/bin/DH
 
     systemctl start dynamicWLAN.service
     systemctl start delroute.service
     systemctl start wifisignal.service
     systemctl start washing.service 
     systemctl start connexionClientFinal.service 
-
 fi

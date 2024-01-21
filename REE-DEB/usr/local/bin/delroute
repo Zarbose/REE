@@ -43,5 +43,5 @@ while true; do
     fi
 
     # Attendre avant de vérifier à nouveau
-    sleep 20  
+    sleep 15
 done

@@ -52,4 +52,9 @@ systemctl unmask hostapd
 systemctl enable hostapd
 systemctl restart hostapd.service
 
- 
+
+sudo useradd -m rasp
+sudo groupadd security
+sudo usermod -aG security rasp
+
+sudo chown -R root:security /srv/security/*

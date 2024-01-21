@@ -13,7 +13,7 @@ mkdir -p /srv/security/registre
 result_file="/srv/security/empreinte/resultEmptreinte.txt"
 empreinte_client="/srv/security/empreinte/client/EmptreinteClient.txt"
 registre_file="/srv/security/registre/registre.txt"
-bloquer_mac_script="$script_dir/bloquerMac.sh"
+bloquer_mac_script="/srv/security/serveur/authenOS/bloquerMac.sh"
 recenser="$script_dir/Recensement.sh"
 
 IP=$1

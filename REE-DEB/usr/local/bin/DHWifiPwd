@@ -1,0 +1,112 @@
+#!/bin/bash
+
+
+## ECOUTER SI UN APPAREIL SE CONNECTE
+
+source /usr/local/securite/utils.sh
+
+if [ $(cat /usr/local/bin/DH) -eq 0 ]
+then
+    exit 0
+fi
+
+ping -c 2 -W 2 8.8.8.8
+while [ $? -ne 0 ]
+do
+    sleep 2
+    ping -c 2 -W 2 8.8.8.8
+done
+
+etat=$(cat /usr/local/bin/DH)
+
+
+if [ $etat -eq 0 ]
+then
+    echo "Serveur";
+
+    # Génération clé privée (DH param)
+    openssl genpkey -paramfile /usr/local/securite/DH-public.pem -out /usr/local/securite/DH-key-server.pem
+
+    # Extraction clé public (Clé priver serveur)
+    openssl pkey -in /usr/local/securite/DH-key-server.pem -pubout -out /usr/local/securite/DH-pubkey-server.pem
+
+    # Reception clé public du client
+    recv 10.0.1.2:3000 | base64 -d > /usr/local/securite/DH-pubkey-client.pem
+
+    # Envoi de la clé public du serveur au client
+    sleep 2
+    string=$(cat /usr/local/securite/DH-pubkey-server.pem | base64)
+    send 10.0.1.2:3000 "$(echo $string | tr -d ' ')"
+
+    # Dérivation d'une clé secrete a partire des clé privé (Clé priver serveur + Clé public client)
+    openssl pkeyutl -derive -inkey /usr/local/securite/DH-key-server.pem -peerkey /usr/local/securite/DH-pubkey-client.pem -out /usr/local/securite/DH-secret-server.key
+
+    # Génération mot de passe aléatoire
+    psk=$(echo $RANDOM | md5sum | head -c 20; echo;)
+
+    # Chifrement du mot de passe
+    echo $psk | openssl enc -aes-256-cbc -e -out /usr/local/securite/password.enc -kfile /usr/local/securite/DH-secret-server.key
+
+    sleep 2
+    # Envoi du mot de passe
+    string=$(cat /usr/local/securite/password.enc | base64)
+    send 10.0.1.2:3000 "$(echo $string | tr -d ' ')"
+
+    # Restart hostapd
+echo 'interface=wlan0
+ssid=REE
+hw_mode=g
+channel=1
+macaddr_acl=0
+auth_algs=1
+#ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase='$psk'
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+country_code=FR
+#ctrl_interface=/var/run/hostapd
+#ctrl_interface_group=0
+#daemonize /usr/local/bin/manageroutes
+' > /etc/hostapd/hostapd.conf
+
+    systemctl restart hostapd.service
+
+else
+    echo "Client";
+
+    # Génération clé privée
+    openssl genpkey -paramfile /usr/local/securite/DH-public.pem -out /usr/local/securite/DH-key-client.pem
+
+    # Extraction clé public
+    openssl pkey -in /usr/local/securite/DH-key-client.pem -pubout -out /usr/local/securite/DH-pubkey-client.pem
+
+    sleep 2
+    # Envoi de la clé public au serveur
+    string=$(cat /usr/local/securite/DH-pubkey-client.pem | base64)
+    send 10.0.1.1:3000 "$(echo $string | tr -d ' ')"
+
+    # Reception clé public serveur
+    recv 10.0.1.1:3000 | base64 -d > /usr/local/securite/DH-pubkey-server.pem
+
+    # Dérivation d'une clé secrete a partire des clé privé (Clé priver serveur + Clé public client)
+    openssl pkeyutl -derive -inkey /usr/local/securite/DH-key-client.pem -peerkey /usr/local/securite/DH-pubkey-server.pem -out /usr/local/securite/DH-secret-client.key
+
+    # Attente du mot de passe
+    recv 10.0.1.1:3000 | base64 -d > /usr/local/securite/password.enc
+
+    # Déchifrement du mot de passe
+    new_psk=$(openssl enc -aes-256-cbc -d -in /usr/local/securite/password.enc -kfile /usr/local/securite/DH-secret-client.key)
+
+psk="test";
+echo 'network={
+    ssid="REE"
+    psk="'$new_psk'"
+}' > /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
+
+    systemctl restart wpa_supplicant@wlan1.service
+    systemctl restart washing.service
+
+    echo "0" > /usr/local/bin/DH
+fi
