@@ -39,7 +39,4 @@ sh -c "iptables-save > /etc/iptables/rules.v4"
 
 sudo systemctl restart delroute.
 
-touch /home/rpi/preuve
-
-
 exit 0
