@@ -122,5 +122,21 @@ RestartSec=5s
 WantedBy=default.target" > /etc/systemd/system/washing.service
 
 
+# service de detection du client final sur eth0
+log "Creation du service de detection du client final sur eth0"
+echo "[Unit]
+Description=Detection d'un cable sur eth0 pour le client final
+After=dynamicWLAN.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/connexionClientFinal
+Restart=on-failure 
+RestartSec=5s
+
+[Install]
+WantedBy=default.target" > /etc/systemd/system/connexionClientFinal.service
+
+
 
 systemctl daemon-reload
