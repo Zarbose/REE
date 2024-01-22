@@ -1,155 +1,25 @@
-#/bin/bash -u
+#!/bin/bash"
 
-LOG_FILE="/var/log/REE.log"
-
-# Fonction pour ajouter un timestamp aux messages de logs
-log() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
-}
-
-# Verification si première Pi ou non 
-ifconfig eth0 | grep -q 'inet '
-if [ $? -eq 0 ]; then
-    log "postinst pour raspberry 1 "
-    #partie sécu
-else
-    log "postinst pour raspberry N "
-
-fi
-
-#service whoamiREE 
-log "Creation du service whoamiREE"
-
-#After=dhclient.service pour être sur d'avoir une IP sur eth0 si un cable est branché
-echo "[Unit]
-Description=Lance le script qui va determiner si la Rasp est la 1er ou non
-After=dhclient.service 
-After=network-online.target
-
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/whoamiREE
-Restart=on-failure 
-RestartSec=5s
-
-[Install]
-WantedBy=default.target" > /etc/systemd/system/whoamiREE.service
-
+## Activation des prérequis minimaux
 systemctl daemon-reload
+
+# whoamiREE
 systemctl enable whoamiREE.service
 systemctl start whoamiREE.service
 
-#service connexion dynamicWLAN ( à activer pour rasp N)
-log "Creation du service dynamicWLAN"
+# delroute
+systemctl enable delroute.service
+systemctl start delroute.service
 
-echo "[Unit]
-Description=Lance le script qui dynamise les conf apres le lancement de wpa_supplicant pour rasp N
+# wpa_supplicant
+systemctl stop wpa_supplicant.service
+systemctl disable wpa_supplicant.service
 
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/dynamiconnectionWLAN
-Restart=on-failure 
-RestartSec=5s
+systemctl start wpa_supplicant@wlan1.service
+systemctl enable wpa_supplicant@wlan1.service
+systemctl status wpa_supplicant@wlan1.service
 
-[Install]
-WantedBy=default.target" > /etc/systemd/system/dynamicWLAN.service
-
-#sudo systemctl enable REEBoot.service
-#sudo systemctl start REEBoot.service
-
-#service wifi signal ( à activer pour rasp N)
-log "Creation du service WifiSignal"
-
-echo "[Unit]
-Description=Lance le script qui wifi signal au demmarage de la pi apres que toutes les IPs soient bien établie 
-After=dynamicWLAN.service
-
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/wifisignal
-Restart=on-failure
-RestartSec=5s
-
-[Install]
-WantedBy=default.target" > /etc/systemd/system/wifisignal.service
-
-#service connexion dynamicETH (à activer pour rasp 1)
-log "Creation du service dynamicETH"
-
-echo "[Unit]
-Description=Lance le script qui dynamise les conf pour rasp 1
-
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/dynamiconnectionETH
-Restart=on-failure 
-RestartSec=5s
-
-[Install]
-WantedBy=default.target" > /etc/systemd/system/dynamicETH.service
-
-#service qui supprime les route créer par hostpad
-log "Creation du service delroute"
-
-echo "[Unit]
-Description=Lance le script qui supprime les route inutile
-After=hostapd.service
-After=dynamicWLAN.service
-
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/delroute
-Restart=on-failure 
-RestartSec=5s
-
-[Install]
-WantedBy=default.target" > /etc/systemd/system/delroute.service
-
-
-# service qui fait du nettoyage si la pi est mal conf
-log "Creation du service washing"
-echo "[Unit]
-Description=Nettoyage pi male config au démarage
-After=dynamicWLAN.service
-
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/washing
-Restart=on-failure 
-RestartSec=5s
-
-[Install]
-WantedBy=default.target" > /etc/systemd/system/washing.service
-
-
-# service de detection du client final sur eth0
-log "Creation du service de detection du client final sur eth0"
-echo "[Unit]
-Description=Detection d'un cable sur eth0 pour le client final
-After=dynamicWLAN.service
-
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/connexionClientFinal
-Restart=on-failure 
-RestartSec=5s
-
-[Install]
-WantedBy=default.target" > /etc/systemd/system/connexionClientFinal.service
-
-# service d'echange du mdp avec DH
-# log "Creation du service d'echange du mdp avec DH"
-# echo "[Unit]
-# Description=service echange mdp DH
-# After=washing.service
-
-# [Service]
-# Type=simple
-# ExecStart=/usr/local/bin/DHWifiPwd
-# Restart=on-failure 
-# RestartSec=5s
-
-# [Install]
-# WantedBy=default.target" > /etc/systemd/system/DHWifiPWD.service
-
-systemctl daemon-reload
+# hostapd
+systemctl unmask hostapd
+systemctl enable hostapd
+systemctl restart hostapd.service

@@ -1,0 +1,11 @@
+[Unit]
+Description=Lance le script qui dynamise les conf apres le lancement de wpa_supplicant pour rasp N
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/dynamiconnectionWLAN
+Restart=on-failure 
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

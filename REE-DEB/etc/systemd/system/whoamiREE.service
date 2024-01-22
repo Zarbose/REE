@@ -1,0 +1,13 @@
+[Unit]
+Description=Lance le script qui va determiner si la Rasp est la 1er ou non
+After=dhclient.service 
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/whoamiREE
+Restart=on-failure 
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

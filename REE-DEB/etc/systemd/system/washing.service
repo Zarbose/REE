@@ -1,0 +1,12 @@
+[Unit]
+Description=Nettoyage pi au démarage
+After=dynamicWLAN.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/washing
+Restart=on-failure 
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

@@ -10,7 +10,6 @@ sudo mkdir -p /usr/local/vars &> /dev/null
 sudo mv ../usr/local/* /usr/local/
 chmod u+x /usr/local/bin/*
 
-
 # Installation des paquets
 apt install iptables -y
 apt install iptables-persistent -y
@@ -19,33 +18,42 @@ apt install hostapd -y
 apt install dhcpcd -y
 apt install espeak -y
 
-
 # Configuration wpa_supplicant pour wlan1 (= cherche à se connecter au réseau wifi REE)
 cat /usr/local/default/wpa_supplicant-wlan1.conf > /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
-
-systemctl stop wpa_supplicant.service
-systemctl disable wpa_supplicant.service
-
-systemctl start wpa_supplicant@wlan1.service
-systemctl enable wpa_supplicant@wlan1.service
-systemctl status wpa_supplicant@wlan1.service
-
-dhclient
 
 # Configuration hostapd 
 cat /usr/local/default/hostapd.conf > /etc/hostapd/hostapd.conf
 
-systemctl unmask hostapd
-systemctl enable hostapd
-systemctl restart hostapd.service
+
+## Création des demons
+
+# Service whoamiREE 
+log "Creation du service whoamiREE"
+#After=dhclient.service pour être sur d'avoir une IP sur eth0 si un cable est branché
+cat  ../etc/systemd/system/whoamiREE.service > /etc/systemd/system/whoamiREE.service
+
+# Service connexion dynamicWLAN ( à activer pour rasp N)
+log "Creation du service dynamicWLAN"
+cat  ../etc/systemd/system/dynamicWLAN.service > /etc/systemd/system/dynamicWLAN.service
+
+# Service wifi signal ( à activer pour rasp N)
+log "Creation du service WifiSignal"
+cat  ../etc/systemd/system/wifisignal.service > /etc/systemd/system/wifisignal.service
+
+# Service connexion dynamicETH (à activer pour rasp 1)
+log "Creation du service dynamicETH"
+cat  ../etc/systemd/system/dynamicETH.service > /etc/systemd/system/dynamicETH.service
+
+# Service qui supprime les route créer par hostpad
+log "Creation du service delroute"
+cat  ../etc/systemd/system/delroute.service > /etc/systemd/system/delroute.service
 
 
+# Service qui fait du nettoyage si la pi est mal conf
+log "Creation du service washing"
+cat  ../etc/systemd/system/washing.service > /etc/systemd/system/washing.service
 
 
-
-
-# sudo useradd -m rasp
-# sudo groupadd security
-# sudo usermod -aG security rasp
-
-# sudo chown -R root:security /srv/security/*
+# Service de detection du client final sur eth0
+log "Creation du service de detection du client final sur eth0"
+cat  ../etc/systemd/system/connexionClientFinal.service > /etc/systemd/system/connexionClientFinal.service

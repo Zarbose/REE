@@ -1,7 +1,6 @@
 #!/bin/bash
 
 LOG_FILE="/var/log/REE.log"
-echo "" > /var/log/REE.log
 
 log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
@@ -43,25 +42,19 @@ while ! (ifconfig eth0 | grep -q 'inet ' || (ifconfig wlan1 | grep -q 'inet ' &&
 done
 
 log "Une des interfaces a obtenu une adresse IP."
-if ifconfig eth0 | grep -q 'inet '; then
-    # Raspberry numéro 1.
+if ifconfig eth0 | grep -q 'inet '; then # Raspberry numéro 1.
     log "Raspberry numéros 1 -> IP = $(ifconfig eth0 | grep 'inet ' | tr -s ' ' | awk '{print $2}')"
 
     echo "0" > /usr/local/vars/type
 
     systemctl start dynamicETH.service
-else
-    # Raspberry numéro N.
+else # Raspberry numéro N.
     log "Raspberry numero N."
 
-    echo "1" > /usr/local/bin/status
-    echo "1" > /usr/local/bin/DH
+    echo "1" > /usr/local/vars/type
 
     systemctl start dynamicWLAN.service
-    systemctl start delroute.service
     systemctl start wifisignal.service
     systemctl start washing.service 
-    systemctl start connexionClientFinal.service
-    systemctl start DHWifiPWD.service
 fi
 
