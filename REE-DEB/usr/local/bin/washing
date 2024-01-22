@@ -1,12 +1,5 @@
 #!/bin/bash
 
-if [ $(cat /usr/local/vars/type) -eq 0 ]
-then
-    exit 0
-fi
-
-sleep 3
-
 sudo systemctl stop dhcpcd.service
 sudo systemctl stop dnsmasq.service
 sudo systemctl stop hostapd.service

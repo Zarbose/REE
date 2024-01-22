@@ -32,7 +32,13 @@ sudo ifconfig wlan1 down
 sudo ip addr flush dev wlan0
 sudo ip addr flush dev wlan1
 
+# Recherche du réseau REE
 systemctl start wpa_supplicant@wlan1.service
+
+
+# Activation IP forward
+log "Activation IP forward"
+echo 1 > /proc/sys/net/ipv4/ip_forward
 
 
 log "Attente d'une ip sur eth0 ou wlan1"
@@ -55,6 +61,5 @@ else # Raspberry numéro N.
 
     systemctl start dynamicWLAN.service
     systemctl start wifisignal.service
-    systemctl start washing.service 
 fi
 

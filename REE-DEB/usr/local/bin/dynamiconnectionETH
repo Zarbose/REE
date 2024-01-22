@@ -9,13 +9,9 @@ log() {
 log "Début du protocole de configuration de la Raspberry numéros 1"
 
 # Configuration inteface wlan0 
-total_lignes=$(wc -l < /etc/dhcpcd.conf | awk '{print $1}')
-head -n $((total_lignes - 5)) /etc/dhcpcd.conf > fichier_temporaire.txt
-mv fichier_temporaire.txt /etc/dhcpcd.conf
-
+cat /usr/local/default/dhcpcd.conf > /etc/dhcpcd.conf
 echo -n 'interface wlan0
 static ip_address=10.0.1.1/29
-#IP DE la box
 static routers=192.168.1.254
 static domain_name_servers=8.8.8.8
 ' >> /etc/dhcpcd.conf
@@ -50,6 +46,3 @@ log "Ecriture des iptables."
 
 log "Restart hostapd"
 systemctl restart hostapd.service
-
-log "Activation IP forward"
-echo 1 > /proc/sys/net/ipv4/ip_forward
