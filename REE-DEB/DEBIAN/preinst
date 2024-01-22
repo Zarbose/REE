@@ -1,24 +1,27 @@
-#/bin/bash -u
+#!/bin/bash -u
 
-# Sécurité
+# Activation du wifi
 sudo rfkill unblock wifi
 
+sudo mkdir -p /usr/local/bin &> /dev/null
+sudo mkdir -p /usr/local/default &> /dev/null
+sudo mkdir -p /usr/local/security &> /dev/null
+sudo mkdir -p /usr/local/vars &> /dev/null
+sudo mv ../usr/local/* /usr/local/
 chmod u+x /usr/local/bin/*
 
+
 # Installation des paquets
-apt install dnsmasq -y
-apt install hostapd -y
 apt install iptables -y
 apt install iptables-persistent -y
+apt install dnsmasq -y
+apt install hostapd -y
 apt install dhcpcd -y
 apt install espeak -y
 
 
-# Configuration wpa_supplicant
-echo 'network={
-    ssid="REE"
-    psk="REE123456789"
-}' > /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
+# Configuration wpa_supplicant pour wlan1 (= cherche à se connecter au réseau wifi REE)
+cat /usr/local/default/wpa_supplicant-wlan1.conf > /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
 
 systemctl stop wpa_supplicant.service
 systemctl disable wpa_supplicant.service
@@ -30,31 +33,19 @@ systemctl status wpa_supplicant@wlan1.service
 dhclient
 
 # Configuration hostapd 
-echo 'interface=wlan0
-ssid=REE
-hw_mode=g
-channel=1
-macaddr_acl=0
-auth_algs=1
-#ignore_broadcast_ssid=0
-wpa=2
-wpa_passphrase=REE123456789
-wpa_key_mgmt=WPA-PSK
-wpa_pairwise=TKIP
-rsn_pairwise=CCMP
-country_code=FR
-#ctrl_interface=/var/run/hostapd
-#ctrl_interface_group=0
-#daemonize /usr/local/bin/manageroutes
-' > /etc/hostapd/hostapd.conf
+cat /usr/local/default/hostapd.conf > /etc/hostapd/hostapd.conf
 
 systemctl unmask hostapd
 systemctl enable hostapd
 systemctl restart hostapd.service
 
 
-sudo useradd -m rasp
-sudo groupadd security
-sudo usermod -aG security rasp
 
-sudo chown -R root:security /srv/security/*
+
+
+
+# sudo useradd -m rasp
+# sudo groupadd security
+# sudo usermod -aG security rasp
+
+# sudo chown -R root:security /srv/security/*

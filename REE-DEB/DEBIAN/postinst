@@ -137,6 +137,19 @@ RestartSec=5s
 [Install]
 WantedBy=default.target" > /etc/systemd/system/connexionClientFinal.service
 
+# service d'echange du mdp avec DH
+# log "Creation du service d'echange du mdp avec DH"
+# echo "[Unit]
+# Description=service echange mdp DH
+# After=washing.service
 
+# [Service]
+# Type=simple
+# ExecStart=/usr/local/bin/DHWifiPwd
+# Restart=on-failure 
+# RestartSec=5s
+
+# [Install]
+# WantedBy=default.target" > /etc/systemd/system/DHWifiPWD.service
 
 systemctl daemon-reload

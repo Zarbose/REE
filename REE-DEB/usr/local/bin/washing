@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ $(cat /usr/local/bin/status) -eq 0 ]
+then
+    exit 0
+fi
+
 sleep 3
 
 sudo systemctl stop dhcpcd.service

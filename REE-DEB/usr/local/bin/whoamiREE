@@ -1,68 +1,55 @@
 #!/bin/bash
 
 LOG_FILE="/var/log/REE.log"
+echo "" > /var/log/REE.log
 
 log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
 }
 
-echo 'network={
-    ssid="REE"
-    psk="REE123456789"
-}' > /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
-systemctl restart wpa_supplicant@wlan1.service
+log "Nettoyage"
+## Rétablissement des paramètres par défaut
+systemctl stop wpa_supplicant@wlan1.service
+systemctl stop hostapd.service
+systemctl stop dnsmasq.service
+systemctl stop dhcpcd.service
 
-echo 'interface=wlan0
-ssid=REE
-hw_mode=g
-channel=1
-macaddr_acl=0
-auth_algs=1
-#ignore_broadcast_ssid=0
-wpa=2
-wpa_passphrase=REE123456789
-wpa_key_mgmt=WPA-PSK
-wpa_pairwise=TKIP
-rsn_pairwise=CCMP
-country_code=FR
-#ctrl_interface=/var/run/hostapd
-#ctrl_interface_group=0
-#daemonize /usr/local/bin/manageroutes
-' > /etc/hostapd/hostapd.conf
-systemctl restart hostapd.service
+cat /usr/local/default/wpa_supplicant-wlan1.conf > /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
+cat /usr/local/default/hostapd.conf > /etc/hostapd/hostapd.conf
+cat /usr/local/default/dhcpcd.conf > /etc/dhcpcd.conf
+cat /usr/local/default/dnsmasq.conf > /etc/dnsmasq.conf
 
+# systemctl restart wpa_supplicant@wlan1.service
+# systemctl restart hostapd.service
+# systemctl restart dnsmasq.service
+# systemctl restart dhcpcd.service
 
-
-#liberation des adresses IP
 dhclient -r wlan1
-# Redémarrage de l'interface wlan1
-ifdown wlan1
-ifup wlan1
-
 dhclient -r wlan0
-# Redémarrage de l'interface wlan1
-ifdown wlan0
-ifup wlan0
 
-# Attente que l'une des interfaces (eth0 ou wlan1) obtienne une adresse IP
+sudo ifconfig wlan0 down
+sudo ifconfig wlan1 down
+
+sudo ip addr flush dev wlan0
+sudo ip addr flush dev wlan1
+
+systemctl start wpa_supplicant@wlan1.service
+
+
+log "Attente d'une ip sur eth0 ou wlan1"
+## Attente que l'une des interfaces (eth0 ou wlan1) obtienne une adresse IP
 while ! (ifconfig eth0 | grep -q 'inet ' || (ifconfig wlan1 | grep -q 'inet ' && ifconfig wlan1 | grep -q 'inet 10.')); do
     sleep 1
 done
 
 log "Une des interfaces a obtenu une adresse IP."
-
-# Vérification si c'est la première Pi ou non
 if ifconfig eth0 | grep -q 'inet '; then
     # Raspberry numéro 1.
-    log "Raspberry numero 1."
+    log "Raspberry numéros 1 -> IP = $(ifconfig eth0 | grep 'inet ' | tr -s ' ' | awk '{print $2}')"
 
-    echo "0" > /usr/local/bin/status
-    echo "0" > /usr/local/bin/DH
-    
+    echo "0" > /usr/local/vars/type
+
     systemctl start dynamicETH.service
-
-    # Arrêter wpa_supplicant pour wlan1
-    systemctl stop wpa_supplicant@wlan1.service
 else
     # Raspberry numéro N.
     log "Raspberry numero N."
@@ -74,5 +61,7 @@ else
     systemctl start delroute.service
     systemctl start wifisignal.service
     systemctl start washing.service 
-    systemctl start connexionClientFinal.service 
+    systemctl start connexionClientFinal.service
+    systemctl start DHWifiPWD.service
 fi
+
