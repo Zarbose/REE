@@ -1,25 +1,7 @@
 #!/bin/bash
 
-## Activation des prérequis minimaux
-systemctl daemon-reload
+echo 'batman-adv' | sudo tee --append /etc/modules
+echo 'denyinterfaces wlan0' | sudo tee --append /etc/dhcpcd.conf
 
-# whoamiREE
-systemctl enable whoamiREE.service
-systemctl start whoamiREE.service
 
-# delroute
-systemctl enable delroute.service
-systemctl start delroute.service
-
-# wpa_supplicant
-systemctl stop wpa_supplicant.service
-systemctl disable wpa_supplicant.service
-
-systemctl start wpa_supplicant@wlan1.service
-systemctl enable wpa_supplicant@wlan1.service
-systemctl status wpa_supplicant@wlan1.service
-
-# hostapd
-systemctl unmask hostapd
-systemctl enable hostapd
-systemctl restart hostapd.service
+sudo systemctl enable whoamiREE.service

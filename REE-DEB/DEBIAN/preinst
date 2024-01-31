@@ -6,59 +6,25 @@ log() {
 }
 
 # Activation du wifi
-sudo rfkill unblock wifi
+# sudo rfkill unblock wifi
 
 sudo mkdir -p /usr/local/bin &> /dev/null
-sudo mkdir -p /usr/local/default &> /dev/null
-sudo mkdir -p /usr/local/security &> /dev/null
-sudo mkdir -p /usr/local/vars &> /dev/null
+sudo mkdir -p /usr/local/templates &> /dev/null
+sudo mkdir -p /usr/local/templates/node &> /dev/null
+sudo mkdir -p /usr/local/templates/brige &> /dev/null
+sudo mkdir -p /usr/local/templates/gateway &> /dev/null
+sudo mv ../usr/local/bin/up-eth0 /etc/network/if-up.d/
+chmod +x /etc/network/if-up.d/up-eth0
 sudo mv ../usr/local/* /usr/local/
 chmod u+x /usr/local/bin/*
 
 # Installation des paquets
-apt install iptables -y
-apt install iptables-persistent -y
-apt install dnsmasq -y
-apt install hostapd -y
-apt install dhcpcd -y
+sudo apt-get install -y batctl
 apt install espeak -y
-
-# Configuration wpa_supplicant pour wlan1 (= cherche à se connecter au réseau wifi REE)
-cat /usr/local/default/wpa_supplicant-wlan1.conf > /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
-
-# Configuration hostapd 
-cat /usr/local/default/hostapd.conf > /etc/hostapd/hostapd.conf
+sudo apt-get install -y dnsmasq
+sudo apt-get install -y bridge-utils
 
 
-## Création des demons
-
-# Service whoamiREE 
-log "Creation du service whoamiREE"
-#After=dhclient.service pour être sur d'avoir une IP sur eth0 si un cable est branché
-cat  ../etc/systemd/system/whoamiREE.service > /etc/systemd/system/whoamiREE.service
-
-# Service connexion dynamicWLAN ( à activer pour rasp N)
-log "Creation du service dynamicWLAN"
-cat  ../etc/systemd/system/dynamicWLAN.service > /etc/systemd/system/dynamicWLAN.service
-
-# Service wifi signal ( à activer pour rasp N)
-log "Creation du service WifiSignal"
-cat  ../etc/systemd/system/wifisignal.service > /etc/systemd/system/wifisignal.service
-
-# Service connexion dynamicETH (à activer pour rasp 1)
-log "Creation du service dynamicETH"
-cat  ../etc/systemd/system/dynamicETH.service > /etc/systemd/system/dynamicETH.service
-
-# Service qui supprime les route créer par hostpad
-log "Creation du service delroute"
-cat  ../etc/systemd/system/delroute.service > /etc/systemd/system/delroute.service
-
-
-# Service qui fait du nettoyage si la pi est mal conf
-log "Creation du service washing"
-cat  ../etc/systemd/system/washing.service > /etc/systemd/system/washing.service
-
-
-# Service de detection du client final sur eth0
-log "Creation du service de detection du client final sur eth0"
-cat  ../etc/systemd/system/connexionClientFinal.service > /etc/systemd/system/connexionClientFinal.service
+# Commun
+sudo cp /usr/local/templates/wlan0 /etc/network/interfaces.d/wlan0
+# sudo cp /usr/local/templates/rc.local /etc/rc.local
