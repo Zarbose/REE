@@ -10,6 +10,8 @@ log() {
 cat /usr/local/default/dhcpcd.conf > /etc/dhcpcd.conf
 cat /usr/local/default/dnsmasq.conf > /etc/dnsmasq.conf
 
+sudo rm /etc/network/interfaces.d/eth
+
 
 
 # systemctl restart dnsmasq.service
