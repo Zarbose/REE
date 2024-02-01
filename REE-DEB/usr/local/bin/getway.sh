@@ -5,4 +5,7 @@ chmod +x ~/start-batman-adv.sh
 
 sudo cp /usr/local/templates/gateway/dnsmasq.conf /etc/dnsmasq.conf
 
+sudo systemctl restart dnsmasq.service
+
 ~/start-batman-adv.sh
+

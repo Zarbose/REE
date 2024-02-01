@@ -5,3 +5,5 @@ echo 'denyinterfaces wlan0' | sudo tee --append /etc/dhcpcd.conf
 
 
 sudo systemctl enable whoamiREE.service
+sudo systemctl disable dnsmasq.service
+sudo systemctl disable dhcpcd.service
