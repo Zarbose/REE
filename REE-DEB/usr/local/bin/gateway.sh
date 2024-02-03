@@ -1,5 +1,10 @@
 #!/bin/bash
 
+LOG_FILE="/var/log/REE.log"
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+
 log "Starting gateway configuration"
 
 

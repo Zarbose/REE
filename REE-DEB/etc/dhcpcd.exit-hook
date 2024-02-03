@@ -1,0 +1,33 @@
+#!/bin/sh
+LOG_FILE="/var/log/REE.log"
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+
+choix() {
+    ip=$(ifconfig eth0 | grep 'inet ' | awk  '{print $2}')
+    log "Hook $interface $reason $ip"
+
+    while ! (ifconfig eth0 | grep -q 'inet '); do
+        sleep 1
+    done
+    ip=$(ifconfig eth0 | grep 'inet ' | awk  '{print $2}')
+
+    if echo $ip | grep -q "192.168.199"; then
+        log "HOOK bridge"
+        # /usr/local/bin/bridge.sh
+    else
+        log "HOOK Gateway"
+        # /usr/local/bin/gateway.sh
+    fi
+}
+
+
+if [ "$interface" = eth0 ]; then
+
+    case  "${reason}" in BOUND|RENEW|REBIND|REBOOT)
+        choix
+    ;;
+    esac
+
+fi

@@ -1,8 +1,11 @@
 #!/bin/bash
 
-log "Starting node configuration"
+LOG_FILE="/var/log/REE.log"
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
 
-sudo cp /usr/local/templates/node/eth /etc/network/interfaces.d/eth
+log "Starting node configuration"
 
 sudo cp /usr/local/templates/node/start-batman-adv.sh /home/rpi/start-batman-adv.sh
 chmod +x /home/rpi/start-batman-adv.sh

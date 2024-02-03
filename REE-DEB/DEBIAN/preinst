@@ -14,10 +14,11 @@ sudo mkdir -p /usr/local/templates/node &> /dev/null
 sudo mkdir -p /usr/local/templates/bridge &> /dev/null
 sudo mkdir -p /usr/local/templates/gateway &> /dev/null
 
-sudo mv ../usr/local/bin/up-eth0 /etc/network/if-up.d/
-chmod +x /etc/network/if-up.d/up-eth0
+# sudo mv ../usr/local/bin/up-eth0 /etc/network/if-up.d/
+# chmod +x /etc/network/if-up.d/up-eth0
 sudo cp -R ../usr/local/* /usr/local/
 chmod +x /usr/local/bin/*
+
 
 # Installation des paquets
 sudo apt-get install -y batctl
@@ -33,3 +34,7 @@ sudo cp /usr/local/templates/wlan0 /etc/network/interfaces.d/wlan0
 
 # Systemd
 sudo cp ../etc/systemd/system/* /etc/systemd/system
+
+# Hook
+sudo cp ../etc/dhcpcd.exit-hook /etc/dhcpcd.exit-hook
+
