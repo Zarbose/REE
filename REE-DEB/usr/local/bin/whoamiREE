@@ -9,7 +9,11 @@ log() {
 log "Cleaning"
 sudo /usr/local/bin/cleaning.sh
 
-log "Start as a node"
-sudo /usr/local/bin/node.sh
+sleep 3
 
+if cat /sys/class/net/eth0/carrier | grep -q "0"
+then
+    log "Start as a node"
+    sudo /usr/local/bin/node.sh
+fi
 

@@ -4,7 +4,7 @@ echo 'batman-adv' | sudo tee --append /etc/modules
 echo 'denyinterfaces wlan0' | sudo tee --append /etc/dhcpcd.conf
 
 
-# sudo systemctl enable whoamiREE.service
+sudo systemctl enable whoamiREE.service
 sudo systemctl stop dnsmasq.service
 sudo systemctl disable dnsmasq.service
 # sudo systemctl disable dhcpcd.service
