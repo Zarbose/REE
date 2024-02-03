@@ -6,17 +6,10 @@ log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
 }
 
-## Rétablissement des paramètres par défaut
-cat /usr/local/default/dhcpcd.conf > /etc/dhcpcd.conf
-cat /usr/local/default/dnsmasq.conf > /etc/dnsmasq.conf
+log "Cleaning"
+sudo /usr/local/bin/cleaning.sh
 
-sudo rm /etc/network/interfaces.d/eth
-
-
-
-# systemctl restart dnsmasq.service
-systemctl restart dhcpcd.service
-
-/usr/local/bin/node.sh
+log "Start as a node"
+sudo /usr/local/bin/node.sh
 
 

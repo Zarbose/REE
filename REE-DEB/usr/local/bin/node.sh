@@ -1,6 +1,10 @@
 #!/bin/bash
 
-sudo cp /usr/local/templates/node/start-batman-adv.sh ~/start-batman-adv.sh
-chmod +x ~/start-batman-adv.sh
+log "Starting node configuration"
 
-~/start-batman-adv.sh
+sudo cp /usr/local/templates/node/start-batman-adv.sh /home/rpi/start-batman-adv.sh
+chmod +x /home/rpi/start-batman-adv.sh
+
+/home/rpi/start-batman-adv.sh
+
+espeak "Ready as a node"

@@ -11,7 +11,7 @@ log() {
 sudo mkdir -p /usr/local/bin &> /dev/null
 sudo mkdir -p /usr/local/templates &> /dev/null
 sudo mkdir -p /usr/local/templates/node &> /dev/null
-sudo mkdir -p /usr/local/templates/brige &> /dev/null
+sudo mkdir -p /usr/local/templates/bridge &> /dev/null
 sudo mkdir -p /usr/local/templates/gateway &> /dev/null
 
 sudo mv ../usr/local/bin/up-eth0 /etc/network/if-up.d/

@@ -6,8 +6,6 @@ After=network-online.target
 [Service]
 Type=simple
 ExecStart=/usr/local/bin/whoamiREE
-Restart=on-failure 
-RestartSec=5s
 
 [Install]
 WantedBy=default.target
