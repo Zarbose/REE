@@ -6,7 +6,11 @@ log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
 }
 
+log "up-eth0"
+
+
 if [ "$IFACE" = eth0 ]; then
+    log "eth0 -> UP"
     while ! (ifconfig eth0 | grep -q 'inet '); do
         sleep 1
     done

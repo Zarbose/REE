@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo rfkill unblock wifi; sudo rfkill unblock all
+
 sudo cp /usr/local/templates/gateway/start-batman-adv.sh ~/start-batman-adv.sh
 chmod +x ~/start-batman-adv.sh
 
