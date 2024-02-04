@@ -10,24 +10,26 @@ choix() {
 
     if cat /usr/local/status | grep -q '1';
     then
-        while ! (ifconfig bat0 | grep -q 'inet '); do
+        log "Hook:  bridge section"
+        while ! (ifconfig bat0 | grep -q 'inet ' | grep -q '192.168.199'); do
             sleep 1
         done
-        log "HOOK bridge"
+        log "Hook : start bridge script"
         /usr/local/bin/bridge.sh
+        exit 0
     fi
 
     while ! (ifconfig eth0 | grep -q 'inet '); do
-
         sleep 1
     done
+
     ip=$(ifconfig eth0 | grep 'inet ' | awk  '{print $2}')
 
     if echo $ip | grep -q "192.168.199"; then
-        log "HOOK bridge"
+        log "Hook : start bridge script"
         /usr/local/bin/bridge.sh
     else
-        log "HOOK Gateway"
+        log "Hook : start gateway script"
         /usr/local/bin/gateway.sh
     fi
 }

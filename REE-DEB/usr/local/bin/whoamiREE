@@ -9,6 +9,8 @@ log() {
 log "Cleaning"
 sudo /usr/local/bin/cleaning.sh
 
+echo "0" > /usr/local/status
+
 sleep 3
 
 if cat /sys/class/net/eth0/carrier | grep -q "0"

@@ -23,5 +23,7 @@ echo "3" > /usr/local/status
 
 /home/rpi/start-batman-adv.sh
 
+log "Ending bridge configuration"
+
 
 espeak "Ready as a bridge"
