@@ -20,6 +20,8 @@ sudo cp /usr/local/templates/gateway/dnsmasq.conf /etc/dnsmasq.conf
 
 sudo systemctl restart dnsmasq.service
 
+echo "2" > /usr/local/status
+
 /home/rpi/start-batman-adv.sh
 
 espeak "Ready as a gateway"

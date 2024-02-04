@@ -8,7 +8,17 @@ choix() {
     ip=$(ifconfig eth0 | grep 'inet ' | awk  '{print $2}')
     log "Hook $interface $reason $ip"
 
+    if cat /usr/local/status | grep -q '1';
+    then
+        while ! (ifconfig bat0 | grep -q 'inet '); do
+            sleep 1
+        done
+        log "HOOK bridge"
+        /usr/local/bin/bridge.sh
+    fi
+
     while ! (ifconfig eth0 | grep -q 'inet '); do
+
         sleep 1
     done
     ip=$(ifconfig eth0 | grep 'inet ' | awk  '{print $2}')

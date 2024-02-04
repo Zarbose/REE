@@ -19,6 +19,7 @@ chmod +x /home/rpi/start-batman-adv.sh
 
 sudo systemctl restart dhcpcd.service
 
+echo "3" > /usr/local/status
 
 /home/rpi/start-batman-adv.sh
 
