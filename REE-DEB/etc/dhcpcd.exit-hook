@@ -25,7 +25,7 @@ choix() {
 
 if [ "$interface" = eth0 ]; then
 
-    case  "${reason}" in BOUND|RENEW|REBIND|REBOOT)
+    case  "${reason}" in CARRIER|BOUND|RENEW|REBIND|REBOOT)
         choix
     ;;
     esac

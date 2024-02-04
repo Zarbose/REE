@@ -7,6 +7,9 @@ log() {
 
 log "Starting gateway configuration"
 
+log "Cleaning before gateway"
+sudo /usr/local/bin/cleaning.sh
+
 
 sudo rfkill unblock wifi; sudo rfkill unblock all
 

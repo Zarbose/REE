@@ -7,6 +7,9 @@ log() {
 
 log "Starting bridge configuration"
 
+log "Cleaning before bridge"
+sudo /usr/local/bin/cleaning.sh
+
 sudo cp /usr/local/templates/bridge/eth /etc/network/interfaces.d/eth
 
 sudo cp /usr/local/templates/bridge/dhcpcd.conf /etc/dhcpcd.conf
