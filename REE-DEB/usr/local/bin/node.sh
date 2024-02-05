@@ -17,6 +17,8 @@ echo "1" > /usr/local/status
 
 /home/rpi/start-batman-adv.sh
 
-sudo dhclient
+sudo dhclient -r bat0
+sudo dhclient bat0
 
 espeak "Ready as a node"
+echo "Prêt en tant que node" | espeak -v fr

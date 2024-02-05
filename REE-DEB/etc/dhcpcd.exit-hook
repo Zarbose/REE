@@ -8,17 +8,7 @@ choix() {
     ip=$(ifconfig eth0 | grep 'inet ' | awk  '{print $2}')
     log "Hook $interface $reason $ip"
 
-    if cat /usr/local/status | grep -q '1';
-    then
-        log "Hook:  bridge section"
-        while ! (ifconfig bat0 | grep -q 'inet ' | grep -q '192.168.199'); do
-            sleep 1
-        done
-        log "Hook : start bridge script"
-        /usr/local/bin/bridge.sh
-        exit 0
-    fi
-
+    log "Hook:  gateway section"
     while ! (ifconfig eth0 | grep -q 'inet '); do
         sleep 1
     done
@@ -37,7 +27,7 @@ choix() {
 
 if [ "$interface" = eth0 ]; then
 
-    case  "${reason}" in CARRIER|BOUND|RENEW|REBIND|REBOOT)
+    case  "${reason}" in BOUND|RENEW|REBIND|REBOOT)
         choix
     ;;
     esac

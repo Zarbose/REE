@@ -25,3 +25,4 @@ echo "2" > /usr/local/status
 /home/rpi/start-batman-adv.sh
 
 espeak "Ready as a gateway"
+echo "Prêt en tant que gateway" | espeak -v fr

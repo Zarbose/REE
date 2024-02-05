@@ -27,3 +27,4 @@ log "Ending bridge configuration"
 
 
 espeak "Ready as a bridge"
+# echo "Prêt en tant que bridge" | espeak -v fr
