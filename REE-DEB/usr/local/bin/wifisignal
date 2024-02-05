@@ -21,7 +21,7 @@ do
 
     # echo $moyenne
 
-    if [ $moyenne -gt $SEUIL_WIFI_SIGNAL ]
+    if [ $moyenne -lt $SEUIL_WIFI_SIGNAL ]
     then
         echo "Signal Wi-Fi trop faible. Déclenchement de l'alarme..."
         espeak "Stop"
