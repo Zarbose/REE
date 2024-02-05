@@ -18,6 +18,7 @@ then
     log "Start as a node"
     sudo /usr/local/bin/node.sh
     sudo /usr/local/bin/isbridge.sh &
+    sudo /usr/local/bin/isgateway.sh &
 fi
 
 # PING
