@@ -7,9 +7,12 @@ log() {
 
 while (true);
 do
-    status=$(cat /sys/class/net/usb0/carrier)
-    if [ $status -eq 1 ]; then
-        break
+    FILE=/sys/class/net/usb0/carrier
+    if [ -f "$FILE" ]; then
+        status=$(cat $FILE)
+        if [ $status -eq 1 ]; then
+            break
+        fi
     fi
     sleep 1
 done
