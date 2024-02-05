@@ -8,3 +8,7 @@ sudo systemctl enable whoamiREE.service
 sudo systemctl stop dnsmasq.service
 sudo systemctl disable dnsmasq.service
 # sudo systemctl disable dhcpcd.service
+
+# delroute
+systemctl enable delroute.service
+systemctl start delroute.service
