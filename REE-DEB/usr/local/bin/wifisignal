@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # SEUIL_WIFI_SIGNAL=153
-SEUIL_WIFI_SIGNAL=-55
+SEUIL_WIFI_SIGNAL=-65
 
 while true; 
 do  
@@ -9,7 +9,7 @@ do
     declare -a tableau
     for ((i=0; i<10; i++)); do
         # SIGNAL=$(sudo batctl meshif bat0 o | grep -v "*" | tr -d "*()" | tail -n +3 | awk  '{print $3}' | sort -n -r | head -n 1)
-        SIGNAL=$(sudo iw dev wlan0 scan ssid call-code-mesh | grep "signal" | awk '{print $2}')
+        SIGNAL=$(sudo iw dev wlan0 scan ssid call-code-mesh 2> /dev/null | grep "signal" | awk '{print $2}' | cut -d '.' -f1)
         tableau+=($(echo $SIGNAL))
         sleep 0.3
     done
@@ -19,7 +19,7 @@ do
     done
     moyenne=$((somme / ${#tableau[@]}))
 
-    echo $moyenne
+    # echo $moyenne
 
     if [ $moyenne -gt $SEUIL_WIFI_SIGNAL ]
     then
