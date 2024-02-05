@@ -10,5 +10,5 @@ sudo systemctl disable dnsmasq.service
 # sudo systemctl disable dhcpcd.service
 
 # delroute
-systemctl enable delroute.service
-systemctl start delroute.service
+# systemctl enable delroute.service
+# systemctl start delroute.service

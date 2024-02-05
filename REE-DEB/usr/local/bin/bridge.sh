@@ -5,6 +5,8 @@ log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
 }
 
+echo "3" > /usr/local/status
+
 log "Starting bridge configuration"
 
 log "Cleaning before bridge"
@@ -19,7 +21,7 @@ chmod +x /home/rpi/start-batman-adv.sh
 
 sudo systemctl restart dhcpcd.service
 
-echo "3" > /usr/local/status
+
 
 /home/rpi/start-batman-adv.sh
 

@@ -5,6 +5,8 @@ log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
 }
 
+echo "2" > /usr/local/status
+
 log "Starting gateway configuration"
 
 log "Cleaning before gateway"
@@ -20,9 +22,10 @@ sudo cp /usr/local/templates/gateway/dnsmasq.conf /etc/dnsmasq.conf
 
 sudo systemctl restart dnsmasq.service
 
-echo "2" > /usr/local/status
+sudo cp /usr/local/templates/gateway/dhcpcd.conf /etc/dhcpcd.conf
+
 
 /home/rpi/start-batman-adv.sh
 
 espeak "Ready as a gateway"
-echo "Prêt en tant que gateway" | espeak -v fr
+# echo "Prêt en tant que gateway" | espeak -v fr
