@@ -38,3 +38,7 @@ sudo cp ../etc/systemd/system/* /etc/systemd/system
 # Hook
 sudo cp ../etc/dhcpcd.exit-hook /etc/dhcpcd.exit-hook
 
+
+# Service qui supprime les route créer par hostpad
+log "Creation du service delroute"
+cat  ../etc/systemd/system/delroute.service > /etc/systemd/system/delroute.service
