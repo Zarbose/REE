@@ -5,8 +5,12 @@ log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
 }
 
-while (cat /sys/class/net/usb0/carrier | grep -q "0");
+while (true);
 do
+    status=$(cat /sys/class/net/usb0/carrier)
+    if [ $status -eq 1 ]; then
+        break
+    fi
     sleep 1
 done
 
