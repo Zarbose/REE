@@ -16,10 +16,14 @@ sleep 3
 if cat /sys/class/net/eth0/carrier | grep -q "0"
 then
     log "Start as a node"
-    sudo /usr/local/bin/node.sh
     sudo /usr/local/bin/isbridge.sh &
     sudo /usr/local/bin/isgateway.sh &
+    sudo /usr/local/bin/node.sh
 fi
+
+while (true);do
+    sleep 10
+done
 
 # PING
 
