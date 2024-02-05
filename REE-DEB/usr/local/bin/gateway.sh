@@ -26,6 +26,7 @@ sudo cp /usr/local/templates/gateway/dhcpcd.conf /etc/dhcpcd.conf
 sudo systemctl restart dhcpcd.service
 
 sudo systemctl start delroute
+sudo systemctl stop wifisignal.service
 
 
 /home/rpi/start-batman-adv.sh

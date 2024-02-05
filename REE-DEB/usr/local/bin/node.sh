@@ -20,5 +20,7 @@ echo "1" > /usr/local/status
 sudo dhclient -r bat0
 sudo dhclient bat0
 
+sudo systemctl start wifisignal.service
+
 espeak "Ready as a node"
-echo "Prêt en tant que node" | espeak -v fr
+#echo "Prêt en tant que node" | espeak -v fr
