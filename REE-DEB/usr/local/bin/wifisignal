@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # SEUIL_WIFI_SIGNAL=153
-SEUIL_WIFI_SIGNAL=153
+SEUIL_WIFI_SIGNAL=155
 
 while true; 
 do  
     
     declare -a tableau
     for ((i=0; i<10; i++)); do
-        SIGNAL=$(sudo batctl meshif bat0 o | tr -d "*()" | awk  '{print $3}' | tail -n +3 | sort -n -r | head -n 1)
+        SIGNAL=$(sudo batctl meshif bat0 o | grep -v "*" | tr -d "*()" | tail -n +3 | awk  '{print $3}' | sort -n -r | head -n 1)
         tableau+=($(echo $SIGNAL))
-        sleep 0.1
+        sleep 0.3
     done
     somme=0
     for valeur in "${tableau[@]}"; do
