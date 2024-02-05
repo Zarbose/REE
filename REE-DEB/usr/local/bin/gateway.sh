@@ -25,7 +25,7 @@ sudo systemctl restart dnsmasq.service
 sudo cp /usr/local/templates/gateway/dhcpcd.conf /etc/dhcpcd.conf
 sudo systemctl restart dhcpcd.service
 
-# sudo systemctl start delroute
+sudo systemctl start delroute
 
 
 /home/rpi/start-batman-adv.sh
