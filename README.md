@@ -12,6 +12,8 @@
 ## Liens :
 - [Notion](https://www.notion.so/Projet-REE-dc8bf13dbf4e4e50b153b31ec5b5b62d?pvs=4)
 - [Github](https://github.com/Zarbose/REE)
+- [B.A.T.M.A.N](https://www.open-mesh.org/projects/batman-adv/wiki)
+- Porjet d'origine [ici](https://github.com/binnes/WiFiMeshRaspberryPi/tree/master)
 
 
 ## Technologies employées :
