@@ -19,6 +19,7 @@
 - dhcpcd
 - dnsmasq
 - bridge-utils
+- batctl
 
 ## Matériels :
 - Raspberry Pi
