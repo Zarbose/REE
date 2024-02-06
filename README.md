@@ -25,3 +25,8 @@
 - Mini haut-parleur avec une prise jack
 
 ## Installation
+```bash
+cd REE-DEB/DEBIAN
+sudo ./perinst
+sudo ./postinst
+```
