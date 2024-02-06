@@ -13,19 +13,15 @@ Liens :
 - [Notion](https://www.notion.so/Projet-REE-dc8bf13dbf4e4e50b153b31ec5b5b62d?pvs=4)
 - [Github](https://github.com/Zarbose/REE)
 
-Télécharger la solution :
-[Paquet REE-DEB.deb](https://github.com/Zarbose/REE/releases/latest/download/REE-DEB.deb)
 
 Technologies employées :
-- wpa_supplicant
-- hostapd
 - dhcpcd
-- iptables
 - dnsmasq
-- RaspAP
+- bridge-utils
 
 Matériels :
 - Raspberry Pi
 - Batteries
-- Dongle WIFI
 - Mini haut-parleur avec une prise jack
+
+## Installation
