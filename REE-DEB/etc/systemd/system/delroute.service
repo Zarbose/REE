@@ -1,0 +1,11 @@
+[Unit]
+Description=Lance le script qui supprime les route inutile
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/delroute.sh
+Restart=on-failure 
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

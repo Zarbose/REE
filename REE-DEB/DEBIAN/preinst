@@ -1,60 +1,44 @@
-#/bin/bash -u
+#!/bin/bash -u
 
-# Sécurité
-sudo rfkill unblock wifi
+LOG_FILE="/var/log/REE.log"
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
 
-chmod u+x /usr/local/bin/*
+# Activation du wifi
+# sudo rfkill unblock wifi
+
+sudo mkdir -p /usr/local/bin &> /dev/null
+sudo mkdir -p /usr/local/templates &> /dev/null
+sudo mkdir -p /usr/local/templates/node &> /dev/null
+sudo mkdir -p /usr/local/templates/bridge &> /dev/null
+sudo mkdir -p /usr/local/templates/gateway &> /dev/null
+
+# sudo mv ../usr/local/bin/up-eth0 /etc/network/if-up.d/
+# chmod +x /etc/network/if-up.d/up-eth0
+sudo cp -R ../usr/local/* /usr/local/
+chmod +x /usr/local/bin/*
+
 
 # Installation des paquets
-apt install dnsmasq -y
-apt install hostapd -y
-apt install iptables -y
-apt install iptables-persistent -y
-apt install dhcpcd -y
+sudo apt-get install -y batctl
 apt install espeak -y
+sudo apt-get install -y dnsmasq
+sudo apt-get install -y bridge-utils
 
 
-# Configuration wpa_supplicant
-echo 'network={
-    ssid="REE"
-    psk="REE123456789"
-}' > /etc/wpa_supplicant/wpa_supplicant-wlan1.conf
-
-systemctl stop wpa_supplicant.service
-systemctl disable wpa_supplicant.service
-
-systemctl start wpa_supplicant@wlan1.service
-systemctl enable wpa_supplicant@wlan1.service
-systemctl status wpa_supplicant@wlan1.service
-
-dhclient
-
-# Configuration hostapd 
-echo 'interface=wlan0
-ssid=REE
-hw_mode=g
-channel=1
-macaddr_acl=0
-auth_algs=1
-#ignore_broadcast_ssid=0
-wpa=2
-wpa_passphrase=REE123456789
-wpa_key_mgmt=WPA-PSK
-wpa_pairwise=TKIP
-rsn_pairwise=CCMP
-country_code=FR
-#ctrl_interface=/var/run/hostapd
-#ctrl_interface_group=0
-#daemonize /usr/local/bin/manageroutes
-' > /etc/hostapd/hostapd.conf
-
-systemctl unmask hostapd
-systemctl enable hostapd
-systemctl restart hostapd.service
+# Commun
+sudo cp /usr/local/templates/wlan0 /etc/network/interfaces.d/wlan0
+# sudo cp /usr/local/templates/rc.local /etc/rc.local
 
 
-sudo useradd -m rasp
-sudo groupadd security
-sudo usermod -aG security rasp
+# Systemd
+sudo cp ../etc/systemd/system/* /etc/systemd/system
 
-sudo chown -R root:security /srv/security/*
+# Hook
+sudo cp ../etc/dhcpcd.exit-hook /etc/dhcpcd.exit-hook
+
+
+# Service qui supprime les route créer par hostpad
+log "Creation du service delroute"
+cat  ../etc/systemd/system/delroute.service > /etc/systemd/system/delroute.service

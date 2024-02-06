@@ -1,0 +1,12 @@
+[Unit]
+Description=Lance le script qui wifi signal au demmarage de la pi apres que toutes les IPs soient bien établie 
+After=dynamicWLAN.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/wifisignal
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

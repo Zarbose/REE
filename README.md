@@ -2,30 +2,33 @@
 ### UE : Projet Thématique
 **Soutenance le 23/01/2024**
 
-Contributeurs :
+## Contributeurs :
 - Samy BEAUDOIN
 - William JORGE
 - Aymeric LECAS
 - Simon PIETO
 - Odiouma COULIBALY
 
-Liens :
+## Liens :
 - [Notion](https://www.notion.so/Projet-REE-dc8bf13dbf4e4e50b153b31ec5b5b62d?pvs=4)
-- [Github](https://github.com/Zarbose/REE)
+- [B.A.T.M.A.N](https://www.open-mesh.org/projects/batman-adv/wiki)
+- Porjet d'origine [ici](https://github.com/binnes/WiFiMeshRaspberryPi/tree/master)
 
-Télécharger la solution :
-[Paquet REE-DEB.deb](https://github.com/Zarbose/REE/releases/latest/download/REE-DEB.deb)
 
-Technologies employées :
-- wpa_supplicant
-- hostapd
+## Technologies employées :
 - dhcpcd
-- iptables
 - dnsmasq
-- RaspAP
+- bridge-utils
+- batctl
 
-Matériels :
+## Matériels :
 - Raspberry Pi
 - Batteries
-- Dongle WIFI
 - Mini haut-parleur avec une prise jack
+
+## Installation
+```bash
+cd REE-DEB/DEBIAN
+sudo ./perinst
+sudo ./postinst
+```
